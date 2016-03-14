@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+.main{ overflow:hidden; zoom:1; width:1008px; position:relative; left:50%; margin-left:-504px; border:1px #000 solid;}
+.mainRight .nav ul{ overflow: hidden; zoom:1; width: 852px;}
+.mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 282px; background: #f8f8f8; text-align: center;line-height: 40px;}
+.mainRight .nav ul li:nth-child(1){ margin-left: 0;}
+.mainRight .nav ul li:nth-child(3){ border-bottom: none; background: #fff;}
+
+.next{ width: 978px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -504px; margin-top: 25px; padding:15px;}
+.next a{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto;}
+
+
+
+
+
+
+
+

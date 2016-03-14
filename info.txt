@@ -1,0 +1,2 @@
+type=sold_out
+type=on_sell

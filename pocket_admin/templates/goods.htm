@@ -1,0 +1,117 @@
+{include file="common/header.htm"}
+<div class="main">
+    <div class="offerMain">
+    	<div class="mainLeft left">
+         <span><a href="#">发布商品</a></span>
+         <div class="naver">
+            <em>商品管理</em>
+            <ul class="leftNav">
+                <li><a href="">出售中的商品</a></li>
+                <li><a href="">已售罄的商品</a></li>
+                <li class="cur"><a href="">仓库中的商品</a></li>
+                <li><a href="">商品分组</a></li>
+            </ul>
+         </div>
+           
+        </div>
+        <div class="mainRight right">  
+            <div class="offerHeader">
+                <span class="left">出售中的商品</span>
+                <ul class="right">
+                    <li>
+                        <form action="">
+                            <select name="wares" id="">
+                                <option value="全部商品">全部商品</option>
+                                <option value="一般商品">一般商品</option>
+                                <option value="分销商品">分销商品</option>
+                                <option value="会员卡">会员卡</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="">
+                            <select name="sart" id="">
+                                <option value="所有分组">所有分组</option>
+                                <option value="列表中隐藏">列表中隐藏</option>
+                                <option value="最热商品">最热商品</option>
+                                <option value="最新商品">最新商品</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li><input type="text" value="搜索" /></li>
+                </ul>
+            </div>
+            <div class="offerNav" id="offerNav">
+                <ul class="inNav">
+                    <li><input type="checkbox" id="click" onclick="check()" />&nbsp;&nbsp;商品&nbsp;&nbsp;<em>价格</em></li>
+                    <li>访问量</li>
+                    <li>库存</li>
+                    <li>总销量</li>
+                    <li>创建时间↓</li>
+                    <li>序号</li>
+                    <li>操作</li>
+                </ul>
+{foreach from=$info item=info}
+                <ul class="thing" id="thing">
+                    <li><input type="checkbox" id="amount" name="box" /></li>
+                    <li>
+                        <a href="http://www.wm18.com/product/goods-<!-- {$info.goods_info.goods_id} -->.html" target="_blank"><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" alt="" /></a>
+                    </li>
+                    <li>
+                        <p><!-- {$info.goods_info.goods_name} --></p>
+                        <em><!-- {$info.goods_info.shop_price} --></em>
+                    </li>
+                    <li>UV:3<br />PV:7</li>
+                    <li>9999</li>
+                    <li>1</li>
+                    <li>2016-03-02<br />17:23:00</li>
+                    <li>0</li>
+                    <li><i><a href="goods.php?act=edit&goods_id=<!-- {$info.goods_info.goods_id} -->">编辑</a></i>-<i class="del">删除</i>-<i>推广商品</i></li>
+                </ul>
+{/foreach} 
+            </div> 
+            <div class="module clearfix">
+                <ul class="left">
+                    <li>修改模块</li>
+                    <li>改分组</li>
+                    <li>下架</li>
+                    <li id="del" onclick="del01();">删除</li>
+                    <li>会员折扣</li>
+                </ul>
+                <p class="right">{$page_bar}</p>
+            </div>
+        </div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	function check(){
+        var checkbox=document.getElementById('click')
+        checkbox.value==2?checkbox.value=1:checkbox.value=2;
+        var amount=document.getElementsByName('box');
+        for(var i=0;i<amount.length;i++){
+            if(checkbox.value==1){
+                amount[i].checked=false;				
+            }else{
+                amount[i].checked=true;
+            }
+        }
+    }
+//数量
+	var inplen = document.getElementById('offerNav').getElementsByTagName("input").length-1;
+	document.getElementById('totle').innerHTML=inplen;
+//操作中数量的变更
+	// function del(){
+	// 	document.querySelector('.thing').outerHTML='';
+	// 	var inplen = document.getElementById('offerNav').getElementsByTagName("input").length-1;
+	// 	document.getElementById('totle').innerHTML=inplen;
+	// 	}
+    $(function() {
+        $('.del').click(function(event) {
+            $('.thing').eq($('.thing').index()).remove();
+            var inplen = document.getElementById('offerNav').getElementsByTagName("input").length-1;
+            document.getElementById('totle').innerHTML=inplen;
+        });
+    });
+</script>

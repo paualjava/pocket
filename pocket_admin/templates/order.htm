@@ -1,0 +1,171 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/sheet03.css" />
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="#">订单概况</a></span>
+         <div class="naver">
+            <em>微商城</em>
+            <ul class="leftNav">
+                <li class="cur"><a href="">所有订单</a></li>
+                <li><a href="">维权订单</a></li>
+                <li><a href="">代付订单</a></li>
+                <li><a href="">送礼订单</a></li>
+                <li><a href="">加星订单</a></li>
+            </ul>
+            <em>客服服务</em>
+            <ul class="leftNav">
+                <li><a href="">评价管理</a></li>
+            </ul>
+            <em>交易及物流</em>
+            <ul class="leftNav">
+                <li><a href="">物流工具</a></li>
+                <li><a href="">心愿单</a></li>
+                <li><a href="">收入/提现</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="filter">
+    		<form action="">
+    			<div><span>日期：</span><input type="text" class="input01" id="time" onclick="return Calendar('time');" class="text_time" /><span>下单时间：</span><input type="text" class="input02"  id="time01" onclick="return Calendar('time01');" class="text_time" /><i class="zhi">至</i><input type="text" class="input02"  id="time02" onclick="return Calendar('time02');" class="text_time" /><a href="">最近7天</a><a href="">最近30天</a></div>
+    			<br />
+    			<div><span>外部单号：</span><input type="text" class="input01" /><span>订单类型：</span>
+                    <select name="allware" id="" class="input02 input03">
+                        <option value="全部">全部</option>
+                        <option value="所有订单">所有订单</option>
+                        <option value="代付订单">代付订单</option>
+                        <option value="送礼订单">送礼订单</option>
+                        <option value="心愿订单">心愿订单</option>
+                        <option value="分销订单">分销订单</option>
+                        <option value="收银台">收银台</option>
+                    </select>
+                <!--<input type="text" value="全部" class="input02 input03" />--><span>付款方式：</span>
+                    <select name="allware" id="" class="input02 input03">
+                        <option value="全部">全部</option>
+                        <option value="微信安全支付">微信安全支付</option>
+                        <option value="银行卡付款">银行卡付款</option>
+                        <option value="支付宝付款">支付宝付款</option>
+                        <option value="货到付款/到店付款">货到付款/到店付款</option>
+                        <option value="找人代付">找人代付</option>
+                        <option value="领取赠品">领取赠品</option>
+                        <option value="优惠兑换">优惠兑换</option>
+                    </select>
+                <!--<input type="text" value="全部" class="input02 input03" />--></div>
+    			<br />
+    			<div><span>收货地址：</span><input type="text" class="input01" /><span>订单状态：</span>
+                <select name="allware" id="" class="input02 input03">
+                    <option value="待发货">全部</option>
+                    <option value="待付款">待付款</option>
+                    <option value="待发货">待发货</option>
+                    <option value="已发货">已发货</option>
+                    <option value="已完成">已完成</option>
+                    <option value="已关闭">已关闭</option>
+                    <option value="退款中">退款中</option>
+                </select>
+                <!--<input type="text" value="待发货" class="input02 input03" />--><span>物流方式：</span>
+                <select name="allware" id="" class="input02 input03">
+                    <option value="全部">全部</option>
+                    <option value="快递发货">快递发货</option>
+                    <option value="上门提醒">上门提醒</option>
+                </select>
+                <!--<input type="text" value="全部" class="input02 input03" />--></div>
+    			<br />
+    			<div><span>收货人手机：</span><input type="text" class="input01" /><span>微信昵称：</span><input type="text" class="input02" /><span class="wqzt">维权状态：</span>
+                <select name="allware" id="" class="input02 input03">
+                    <option value="全部">全部</option>
+                    <option value="退款处理中">退款处理中</option>
+                    <option value="退款结束">退款结束</option>
+                </select>
+                <!--<input type="text" class="input02 input03" value="全部" />--></div>
+    			<br />
+    			<input type="button" id="btn" value="筛  选" />
+    		</form>
+    	</div>
+    	<div class="cancel">
+    		<p>请及时处理您的退款订单。若您超时未处理买家的退货退款申请，系统将默认同意退款申请并自动给买家发送默认退货地址。</p>
+    		<a href="#">查看详情</a>
+    		<a href="#">管理退货地址</a>
+    	</div>
+    	<div class="kinds">
+    		<div class="kindsHeader">
+                <ul class="left">
+    				<li class="current"><a href="sheet03.html">全部</a></li>
+    				<li><a href="sheet04.html">待付款</a></li>
+    				<li><a href="sheet02.html">待发货</a></li>
+    				<li><a href="sheet09.html">已发货</a></li>
+    				<li><a href="sheet05.html">已完成</a></li>
+    				<li><a href="sheet07.html">已关闭</a></li>
+    				<li><a href="sheet08.html">退款中</a></li>
+    			</ul>
+    			<a href="#" class="right"><span>?</span>订单类型简介及管理方法</a>
+    		</div>
+    		<div class="group">
+    			<div class="groupOne groupDie">
+    				<div class="groupHeader">
+    					<span>商品</span><span>单价/数量</span><span>售后</span><span>买家</span><span>下单时间↓</span><span>订单状态</span><span>实付金额</span>
+    				</div>
+{foreach from=$info item=info}
+<div class="ware01">
+    					<ul>
+    						<li class="left">订单号：E22652265255525225225 <span>微信安全支付-代销</span></li>
+    						<li class="right"><a href="send.html">查看详情</a>-<span class="sarm">备注</span>-<a href="">加星</a></li>
+    					</ul>
+    					<p class="text03"><span>外部订单号：<em>E22652265255525225225</em></span><span>支付流水号：<em>E22652265255525225225</em></span></p>
+    					<div class="details">
+    						<ul>
+    							<li><img src="" alt="" /><p>维您核桃枣(20)</p></li>
+    							<li>99.00<br />(1件)</li>
+    							<li>卖晓梅<br />12564651348</li>
+    							<li>2016-05-14<br />15:07:17</li>
+    							<li>等待卖家发货</li>
+    							<li>99:00</li>
+    						</ul>
+    					</div>
+    					<p class="text01">卖价备注：哟哟哟</p>
+    					<p class="text02">买价备注：哟哟哟</p>
+    				</div>
+{/foreach} 
+    				<div class="ware01 ware02">
+    					<ul>
+    						<li class="left">订单号：E22652265255525225225 <span>微信安全支付-代销</span></li>
+    						<li class="right"><a href="send.html">查看详情</a>-<span class="sarm">备注</span>-<a href="">加星</a></li>
+    					</ul>
+    					<p class="text03"><span>外部订单号：<em>E22652265255525225225</em></span><span>支付流水号：<em>E22652265255525225225</em></span></p>
+    					<div class="details">
+    						<ul>
+    							<li><img src="" alt="" /><p>维您核桃枣(20)</p></li>
+    							<li>99.00<br />(1件)</li>
+    							<li>卖晓梅<br />12564651348</li>
+    							<li>2016-05-14<br />15:07:17</li>
+    							<li>等待卖家发货<br /><input type="button" value="发货" /></li>
+    							<li>99:00</li>
+    						</ul>
+    					</div>
+    					<p class="text01">卖价备注：哟哟哟</p>
+    					<p class="text02">买价备注：哟哟哟</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+	</div>
+</div>
+<div class="remark">
+	<div class="inRemark">
+    	<ul class="clearfix">
+        	<li>卖家备注</li>
+            <li class="guanbi">×</li>
+        </ul>
+        <textarea placeholder="最多可输入256个字符" maxlength="256"></textarea>
+        <input type="submit" value="提交" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('.sarm').click(function(event) {
+            $('.remark').stop().fadeIn(500);
+        });
+        $('.guanbi').click(function(event) {
+            $('.remark').stop().fadeOut(500);
+        });
+    });
+</script>

@@ -1,0 +1,12 @@
+<?php
+require(dirname(__FILE__) . '/lib_permission.class.php');
+require_once('pagination.class.php');
+/**Smarty**/
+
+$smarty = new cls_template;
+$smarty->template_dir  = ROOT_PATH . 'pocket/pocket_admin/templates';
+$smarty->compile_dir   = ROOT_PATH . 'temp/compiled/pocket_admin';
+if ((DEBUG_MODE & 2) == 2)
+{
+    $smarty->force_compile = true;
+}
