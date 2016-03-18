@@ -7,7 +7,7 @@
 .contentText01{ width:852px; background:#f8f8f8;}
 .contentText01 ul{ overflow: hidden; zoom:1; padding:10px 20px; }
 .contentText01 ul li{ font-size: 15px; width: 120px; float: left;padding:10px 20px;border-right: 1px solid #ccc; height: 40px; text-align: center;}
-.contentText01 ul li:nth-child(5){ border:none; float: right;}
+.contentText01 ul li.five{ border:none; float: right;}
 .contentText02{ width: 832px; padding:5px 0 5px 20px; background: #f8f8f8; margin-top: 30px;}
 .contentText02 strong{ padding-left:20px; border-left: 5px solid #d6134c; font-size: 16px; display: block;}
 .contentText03{ margin-top: 10px; overflow: hidden; zoom:1;}
@@ -18,7 +18,7 @@
 .contentText03 .after .center ul li{ line-height: 48px; text-align: right;}
 .contentText03 .after .center ol{ margin-left: 8px; width: 600px;}
 .contentText03 .after .center ol li{ line-height: 48px; color: #ccc;}
-.contentText03 .after .center ol li:nth-child(5){ background: url(../images/page1_02.jpg) no-repeat center;}
+.contentText03 .after .center ol li.five{ background: url(../images/page1_02.jpg) no-repeat center;}
 .contentText03 .data i{ margin-left: 27px;}
 .contentText04{ background: #f3f8fe; width: 813px; margin-top: 10px; padding:10px 20px 20px 20px;}
 .dress{ padding:10px 20px 10px 20px; border-bottom: 1px solid #92d2fe;}
@@ -70,6 +70,8 @@
 .contentText07 .center ol li:nth-child(4){ margin-top: 54px;}
 .contentText07 .center ol li:nth-child(5){ margin-top: 48px;}
 .contentText07 .data i{ margin-right: 47px;}
+.contentText07 .data i.seven{ margin-right:0;}
+.contentText03 .data i.seven{ margin-right:0;}
 textarea{ width: 851px; height: 200px;}
 .contentText08{ width: 851px; height: 200px; overflow: hidden; border: 1px solid #ccc; margin-top: 10px;}
 

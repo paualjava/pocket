@@ -15,7 +15,7 @@ i{ font-style: normal;}
 
 /*头部开始*/
 .header{ height:80px; background: #f1f1f1; width:100%;}
-.inHeader{ width: 1008px;/* border: 1px solid #000; */ margin:0 auto;}
+.inHeader{ width: 1008px; margin:0 auto;}
 .inHeader .logo a{ display: block;background: url(../images/logo.png) no-repeat center; height: 51px; width: 132px; line-height: 51px; text-align: center; text-indent: -9999px; margin-top: 20px;}
 .inHeader .headerNav li{float: left; height: 40px; padding-top: 40px; }
 .inHeader .headerNav li a{text-align: center; border-right: 1px solid #ccc;display: block; padding:0 30px; color: #333; font-size: 14px;}
@@ -27,14 +27,17 @@ i{ font-style: normal;}
 
 /*左侧栏开始*/
 .mainLeft{ width: 115px;}
-.mainLeft span a{ display:block; width: 110px; line-height: 30px; font-size: 14px; font-weight: bold; font-size: 16px; color: #999;}
+.mainLeft span a{ display:block; width: 110px; line-height: 30px; font-size: 14px; font-weight: bold; font-size: 16px; color: #999; color:#666;}
 .naver{ margin-top: 40px;}
+.page01Main span a{ display:block; width: 110px; line-height: 30px; font-size: 14px; font-weight: bold; font-size: 16px; color: #999; color:#666;}
+.page01Main span.currt a{  color: #d6134c; background: url(../images/sanj.png) no-repeat right center;}
 .naver em{ font-size: 13px; color: #999; display: block; margin-top: 40px;}
 .naver .leftNav li{ margin-top: 10px;}
 .naver .leftNav li a{font-size: 16px; color: #666; width: 110px; display: block; }
 .naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center;}
 .mainLeft span.currt a{ color: #d6134c; background: url(../images/sanj.png) no-repeat right center;}
 /*左侧栏结束*/
+
 
 
 

@@ -16,35 +16,28 @@
         </div>
         <div class="mainRight right">  
             <div class="offerHeader">
-                <span class="left">
-                {$title}
-               
-                </span>
+                <span class="left"> {$title}</span>
                 <ul class="right">
-                <form action="goods.php">
-                    <li>
-                        
-                            <select name="wares" id="">
+                 <form action="goods.php">
+                    <li class="one">
+                       
+                            <select name="wares" id="" class="left">
                                 <option value="全部商品">全部商品</option>
                                 <option value="一般商品">一般商品</option>
                                 <option value="分销商品">分销商品</option>
                                 <option value="会员卡">会员卡</option>
                             </select>
-                       
-                    </li>
-                    <li>
-                     
-                            <select name="sart" id="">
+                            <select name="sart" id="" class="left two">
                                 <option value="所有分组">所有分组</option>
                                 <option value="列表中隐藏">列表中隐藏</option>
                                 <option value="最热商品">最热商品</option>
                                 <option value="最新商品">最新商品</option>
                             </select>
-                       
+                        
                     </li>
                     <li class="three"><input name="keyword" type="text" placeholder="请输入关键词" value="{$keyword}"/><input type="hidden" name="type" value="search"/></li>
-                    <li class="four"><input type="submit" value="搜索" /></li>
-                     </form>
+                    <li class="four"><input type="submit" value="搜索"></li>
+                    </form>
                 </ul>
             </div>
 
@@ -66,12 +59,11 @@
                 <div class="lieThing">
                     <ul class="thing clearfix" id="thing">
                         <li class="one"><input type="checkbox" class="amount" name="box" value="<!-- {$info.goods_info.goods_id} -->"/></li>
-                         <li class="ten02">
-                           <a href="http://www.wm18.com/product/goods-<!-- {$info.goods_info.goods_id} -->.html" target="_blank"><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" alt="" style="margin-left:0px;width:60px;height:60px" /></a>
+                        <li class="ten02">
+                            <a href="http://www.wm18.com/product/goods-<!-- {$info.goods_info.goods_id} -->.html" target="_blank"><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" alt="" style="margin-left:0px;width:60px;height:60px" /></a>
                         </li>
                         <li class="two">编号:<em><!-- {$info.goods_info.goods_id} --></em><br />
-                            产品号:<i class="sph"><!-- {$info.goods_info.goods_sn} --></i>
-                           
+                            产品号:<br /><i class="sph"><!-- {$info.goods_info.goods_sn} --></i>
                         </li>
                         <li class="three">
                             <p><a herf="" target="_blank"><!-- {$info.goods_info.goods_name} --></a></p>
@@ -80,9 +72,9 @@
                         <li class="four">UV:3<br />PV:7</li>
                         <li class="five"><!-- {$info.goods_info.goods_number} --></li>
                         <li class="six">1</li>
-                        <li class="seven"><!-- {$info.goods_info.add_time} --><br />00:00:00</li>
+                        <li class="seven"><!-- {$info.goods_info.add_time} --><br />17:23:00</li>
                         <li class="eight"><input type="text" placeholder="0" value="{$info.sort_order}" class="sort_order" goods_id="<!-- {$info.goods_info.goods_id} -->"/></li>
-                        <li class="nine"><i><a href="goods.php?act=edit&goods_id=<!-- {$info.goods_info.goods_id} -->">编辑</a></i>-<i class="del">删除</i>-<i>推广商品</i></li>
+                        <li class="nine"><a href="goods.php?act=edit&goods_id=<!-- {$info.goods_info.goods_id} -->">编辑</a><p class="del">删除</p><p class="spread">推广商品</p></li>
                        	{if $info.is_show==1}
                         <li class="ten" style="display:none" ><em>隐藏</em></li>
                         <li class="ten1" goods_id="<!-- {$info.goods_info.goods_id} -->"><em>显示</em></li>
@@ -96,7 +88,13 @@
                     <span class="aySure">
                         <em>确定删除？</em><em class="sure" goods_id="<!-- {$info.goods_info.goods_id} -->">确定</em><em class="noSure">取消</em>
                     </span>
+                    <span class="copy">
+                    	<p>商品页链接</p>
+                        <input readonly="readonly" type="text" value="http://www.wm18.com" class="one" id="contents" />
+                        <input type="button" value="复制" class="two" id="copy" onclick="jsCopy();">
+                    </span>
                 </div>
+
 {/foreach}
               
                 

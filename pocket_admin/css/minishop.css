@@ -1,41 +1,37 @@
 @charset "utf-8";
 /* CSS Document */
-/*头部开始*/
-header{ height:80px; background: #f1f1f1; width:100%;}
-.inHeader{ width: 1008px;/*border: 1px solid #000;*/ margin:0 auto;}
-.inHeader .logo a{ display: block;background: url(../images/logo.png) no-repeat center; height: 51px; width: 132px; line-height: 51px; text-align: center; text-indent: -9999px; margin-top: 20px;}
-.inHeader .headerNav li{float: left; height: 40px; padding-top: 40px; }
-.inHeader .headerNav li a{text-align: center; border-right: 1px solid #ccc;display: block; padding:0 30px; color: #333; font-size: 14px;}
-.inHeader .headerNav li.current{ border-bottom: 1px solid #d6134c;}
-.inHeader .headerNav li.current a{ color: #d6134c;}
-.inHeader .headerNav li:nth-child(7) a{ border-right: none;}
-.inHeader .headerNav li:nth-child(8) a{ color: #d6134c; border-right: none;}
-/*头部结束*/
-
-/*左侧栏*/
-.mainLeft{ width: 115px;}
-.mainLeft span a{width: 110px; height: 30px; color: #f6134c;  display:  block;  line-height: 30px; font-size: 14px; background: url(../images/sanj.png) no-repeat right center;}
-.naver{ margin-top: 40px;}
-.naver em{ font-size: 13px; color: #999; display: block;}
-.naver .leftNav li{ margin-top: 10px;}
-.naver .leftNav li a{font-size: 16px; color: #666; width: 110px; display: block; }
-.naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center;}
-/*左侧栏结束*/
 
 .main{ overflow:hidden; zoom:1; width:1008px; position:relative; left:50%; margin-left:-504px;margin-top: 30px;}
 .shopHeader{ width: 812px; padding:20px; background: #f8f8f8; }
 .shopHeader li{ float: left; text-align: center; width: 134px; border-right: 1px dotted #999;}
-.shopHeader li:nth-child(6){ border-right: none;}
+.shopHeader li.six{ border-right: none;}
 .shopHeader li span{ font-size: 16px;}
 .shopNav{ padding:10px; background: #f8f8f8; margin-top: 20px;}
-.shopNav i{ display: block;; width: 18px; height: 18px; border-radius:50%; background: #999; color: #fff; font-weight: bold; text-align: center; line-height: 18px;}
+.shopNav i{ display: block;; width: 18px; height: 18px; border-radius:50%; background: #999; color: #fff; font-weight: bold; text-align: center; line-height: 18px; margin-right: 5px; cursor: pointer;}
+
+.shopNav i:hover{ background:#44BB00; }
 .shopNav span{ padding-left: 15px; border-left: 3px #f17a12 solid; display: block; font-size: 14px; font-weight: bold;}
 .shopNav span a{ font-size: 13px; color: #08157b; margin-left: 10px; font-weight: normal;}
 .tit{ margin-top: 20px; border: 1px solid #ccc;}
-.shopNews{ margin-top: 20px; border: 1px solid #ccc; width: 810px; padding:20px;}
-.shopNews p{ font-size: 14px;}
+.shopNews{border: 1px solid #ccc; width: 850px; margin-top: 20px; border-bottom: none;}
+.shopNews{ border: 1px solid #ccc; border-bottom: none;}
 .shopNews p a{color: #08157b;}
+.shopNavs ul{ padding:10px; background: #f8f8f8; border-bottom: 1px solid #ccc;}
+.shopNavs ul li{ float: left; line-height: 30px; width: 100px; text-align: center;}
+.shopNavs ul li.one{ width: 330px; text-align: left;}
 
+.navNew ul{ padding: 10px; border-bottom: 1px solid #ccc;}
+.navNew ul li{float: left; width: 100px; text-align: center;}
+.navNew ul li.one{ width: 330px; text-align: left;}
+.navNew ul li.one a{ font-size: 14px; color: #3536FD;}
+.navNew:hover{ background: #f8f8f8;}
+
+.mainRight{ position: relative;}
+.mainRight .tankuang01{ position: absolute; width: 266px; height: 203px; background: url(../images/tankuang2.png) no-repeat center; top: 513px; right: 0; padding:10px; display: none;}
+.mainRight .tankuang01 p{ font-size: 12px; margin-top: 5px;}
+
+.mainRight .tankuang02{ position: absolute; right: 0; width: 266px; padding:10px; height: 163px; background: url(../images/tankuang01.png) no-repeat center; top: 133px; display: none;}
+.mainRight .tankuang02 p{ font-size: 12px; margin-top: 5px;}
 
 
 

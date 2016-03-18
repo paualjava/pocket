@@ -1,35 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
-/*头部开始*/
-header{ height:80px; background: #f1f1f1; width:100%;}
-.inHeader{ width: 1008px;/*border: 1px solid #000;*/ margin:0 auto;}
-.inHeader .logo a{ display: block;background: url(../images/logo.png) no-repeat center; height: 51px; width: 132px; line-height: 51px; text-align: center; text-indent: -9999px; margin-top: 20px;}
-.inHeader .headerNav li{float: left; height: 40px; padding-top: 40px; }
-.inHeader .headerNav li a{text-align: center; border-right: 1px solid #ccc;display: block; padding:0 30px; color: #333; font-size: 14px;}
-.inHeader .headerNav li.current{ border-bottom: 1px solid #d6134c;}
-.inHeader .headerNav li.current a{ color: #d6134c;}
-.inHeader .headerNav li.seven a{ border-right: none;}
-.inHeader .headerNav li.eight a{ color: #d6134c; border-right: none;}
-/*头部结束*/
-
-/*左侧栏*/
-.mainLeft{ width: 115px;}
-.mainLeft span a{width: 110px; height: 30px; background: #d6134c; color: #fff; border-radius: 3px; display:  block; text-align: center; line-height: 30px; font-size: 14px; font-weight: bold;}
-.naver{ margin-top: 40px;}
-.naver em{ font-size: 13px; color: #999; display: block;}
-.naver .leftNav li{ margin-top: 10px;}
-.naver .leftNav li a{font-size: 16px; color: #666; width: 110px; display: block; }
-.naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center;}
-/*左侧栏结束*/
-
-
-.main{ overflow:hidden; zoom:1; width:1330px; position:relative; left:50%; margin-left:-665px;margin-top: 30px;}
+.main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
 .offerMain{ overflow: hidden; zoom:1;}
-.offerMain .mainRight{ width:1200px; }
+.offerMain .mainRight{ width:984px; }
 .offerHeader{ overflow: hidden; zoom: 1; padding:10px;}
 .offerHeader span{ font-size: 15px; line-height: 30px;}
 .offerHeader .right li{ float: left; width: 100px; height: 30px; margin-right: 10px; color: #999;}
-.offerHeader .right li form select{ width: 100px; height: 30px; text-align: center; border-radius: 3px; border: 1px solid #ccc;color: #999; line-height: 30px;}
+.offerHeader .right form li select{ display:block; width: 100px; height: 30px; text-align: center; border-radius: 3px; border: 1px solid #ccc;color: #999; line-height: 30px;}
+.offerHeader .right form li select.two{ margin-left:10px;}
+.offerHeader .right li.one{ width:210px;}
 .offerHeader .right li.three{ width: 190px;}
 .offerHeader .right li.three input{ display: block;; border: 1px solid #ccc; border-radius: 3px 0 0 3px; font-size: 14px; padding-left:30px; line-height: 30px; width: 160px; background: url(../images/find.png) no-repeat 5px center; color:#999; height: 28px; border-right:none; padding-right:10px;}
 .offerHeader .right li.four input{ width:80px; height:30px; background:#007ADE; text-align:center; border:0; border-radius:0 3px 3px 0;/* border:1px solid #007ade;*/ color:#fff; cursor:pointer;}
@@ -37,7 +16,7 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .offerNav{ margin-top: 20px;}
 .offerNav .inNav{ overflow: hidden; zoom: 1; line-height: 40px; border-bottom: 1px solid #ccc; padding:0 10px; font-size: 14px; background: #f8f8f8;}
 .offerNav .inNav li{ float: left; text-align:center;}
-.offerNav .inNav li.one{ width: 560px; text-align:left;}
+.offerNav .inNav li.one{ width: 436px; text-align:left;}
 .offerNav .inNav li.one em{color: #366f9c;}
 
 .offerNav .inNav li.two{ width: 65px;}
@@ -45,43 +24,50 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .offerNav .inNav li.four{ width: 65px;color: #366f9c;}
 .offerNav .inNav li.five{ width: 85px;color: #366f9c;}
 .offerNav .inNav li.six{ width: 60px;color: #366f9c; margin-right:10px; margin-left:10px;}
-.offerNav .inNav li.seven{ width: 120px}
-.offerNav .inNav li.eight{ width:65px;}
-.offerNav .inNav li.nine{ width:65px;}
+.offerNav .inNav li.seven{ width: 60px}
+.offerNav .inNav li.eight{ width:50px;}
+.offerNav .inNav li.nine{ width:44px;}
 
 .thing{padding:10px; border-bottom: 1px solid #ccc;}
 .thing:hover{ background:#f8f8f8;}
 .thing p{ font-size:13px;}
 .thing li{ float: left;}
 .thing li.one{ margin-top: 3px;}
-.thing li.two{ margin-left:8px; line-height:22px; width:185px;}
+.thing li.two{ margin-left:8px; line-height:22px; width:135px;}
 .thing li.two img{}
-.thing li.three{ width: 275px; margin-left: 10px;}
+.thing li.three{ width: 200px; margin-left: 10px;}
 .thing li.three em{ font-size: 14px; color: #fe6700;}
 .thing li.four{ width: 65px; text-align: center;}
 .thing li.five{ width: 65px; text-align: center;}
 .thing li.six{ width:65px; text-align: center;}
-.thing li.seven{ width: 85px; text-align: center;}
+.thing li.seven{ width: 73px; text-align: center;}
 .thing li.eight{ width: 60px; text-align: center; margin-right:10px; margin-left:10px;}
 .thing li.eight input{ width:60px; height:20px; text-align:center; border:1px solid #ccc;}
-.thing li.nine{ width: 120px; text-align: center; line-height:34px;}
-.thing li.ten{ width:45px; text-align:center;padding:0 10px; display:none;}
+.thing li.nine{ width: 75px; text-align: center;}
+.thing li.ten{ width:45px; text-align:center;display:none;}
 .thing li.ten em{ background:#666; line-height:24px; color:#fff; display:block; border-radius:3px; cursor:pointer;}
-.thing li.ten1{ width:45px; text-align:center;padding:0 10px;}
+.thing li.ten1{ width:45px; text-align:center;}
 .thing li.ten1 em{ background:#0c6; line-height:24px; color:#fff; display:block; border-radius:3px; cursor:pointer;}
-.thing li.tenOne{ width:25px;padding-left:30px;}
+.thing li.tenOne{ width:25px;padding-left:20px;}
 .thing li.tenOne img{ display:inline-block; border:0; text-align:center; cursor:pointer;}
-.thing li.tenOne1{ width:25px;padding-left:30px; display:none;}
+.thing li.tenOne1{ width:25px;padding-left:20px; display:none;}
 .thing li.tenOne1 img{ display:inline-block; border:0; text-align:center; cursor:pointer;}
-.thing li.nine i{ color: #306a9a; cursor: pointer;}
-.thing li.nine i a{color: #306a9a; font-size: 13px;}
+.thing li.nine p{ color: #306a9a; cursor: pointer; font-size:12px;}
+.thing li.nine a{color: #306a9a; font-size: 12px;}
 .thing li.ten02{width: 60px; height: 60px; border: 1px solid #ccc; display: block; margin-left: 10px;}
 
 .lieThing{ position: relative;}
-.lieThing .aySure{position:absolute; width:271px; height:24px; right:230px; background:url(../images/del_01.png) no-repeat center; top:0; padding: 15px 20px; font-size:15px; line-height:24px; display: none;}
+.lieThing .aySure{position:absolute; width:271px; height:24px; right:168px; background:url(../images/del_01.png) no-repeat center; top:10px; padding: 15px 20px; font-size:15px; line-height:24px; display: none;}
 .lieThing .aySure em{display:inline-block; width:180px; text-align:center;}
 .lieThing .aySure em.sure{ width:40px; background:#0080ED; margin-right:5px; border-radius:3px; color:#fff; cursor:pointer;}
 .lieThing .aySure em.noSure{width:40px; color:#333; border:1px solid #ccc; border-radius:3px; cursor:pointer;}
+
+.lieThing .copy{ width:291px; height:58px; background:url(../images/del_02.png) no-repeat center; position:absolute; top:17px; right:175px; font-size:15px; line-height:24px; padding:5px 10px; display:none;}
+.lieThing .copy p{ font-size:12px; color:#999; padding-left:20px;}
+.lieThing .copy input.one{ background:#f8f8f8; width:170px; color:#999; line-height:24px; padding:0 10px 0 10px; margin-left:20px; border-radius:6px 0 0 6px; border:1px solid #ccc; font-size:12px;cursor: not-allowed;}
+.lieThing .copy input.two{ font-size:12px; width:60px; line-height:24px; margin-left:-5px; border-radius:0 6px 6px 0; border:1px solid #ccc; cursor:pointer;}
+
+
 
 .module{ margin-top: 20px; }
 .module ul{ overflow: hidden; zoom: 1;}

@@ -1,46 +1,25 @@
 @charset "utf-8";
 /* CSS Document */
-header{ height:80px; background: #f1f1f1; width:100%;}
-.inHeader{ width: 1008px;/*border: 1px solid #000;*/ margin:0 auto;}
-.inHeader .logo a{ display: block;background: url(../images/logo.png) no-repeat center; height: 51px; width: 132px; line-height: 51px; text-align: center; text-indent: -9999px; margin-top: 20px;}
-.inHeader .headerNav li{float: left; height: 40px; padding-top: 40px; }
-.inHeader .headerNav li a{text-align: center; border-right: 1px solid #ccc;display: block; padding:0 30px; color: #333; font-size: 14px;}
-.inHeader .headerNav li.current{ border-bottom: 1px solid #d6134c;}
-.inHeader .headerNav li.current a{ color: #d6134c;}
-.inHeader .headerNav li:nth-child(7) a{ border-right: none;}
-.inHeader .headerNav li:nth-child(8) a{ color: #d6134c; border-right: none;}
-/*头部结束*/
-
-/*左侧栏*/
-.mainLeft{ width: 115px;}
-.mainLeft span a{width: 110px; height: 30px; background: #d6134c; color: #fff; border-radius: 3px; display:  block; text-align: center; line-height: 30px; font-size: 14px; font-weight: bold;}
-.naver{ margin-top: 40px;}
-.naver em{ font-size: 13px; color: #999; display: block;}
-.naver .leftNav li{ margin-top: 10px;}
-.naver .leftNav li a{font-size: 16px; color: #666; width: 110px; display: block; }
-.naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center;}
-/*左侧栏结束*/
-
-
-.main{ overflow:hidden; zoom:1; width:1008px; position:relative; left:50%; margin-left:-504px;margin-top: 30px;}
-.flow{ width: 710px; height: 76px; background: #f8f8f8; border: 1px solid #ccc; padding:12px 70px;}
+.main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
+.flow{ width: 735px; height: 76px; background: #f8f8f8; border: 1px solid #ccc; padding:15px 120px;}
 .flow .text01{ overflow: hidden; zoom: 1; font-size: 14px; font-weight: bold;}
 .flow .text01 li{ float: left;}
-.flow .text01 li:nth-child(1),.flow .text01 li:nth-child(2),.flow .text01 li:nth-child(3){ float: left; margin-right: 130px; color: #83ccff; }
+.flow .text01 li.one,.flow .text01 li.two,.flow .text01 li.three{ float: left; margin-right: 130px; color: #83ccff; }
 .flow .text01 li:nth-child(1){ margin-left: 30px;}
 .flow .text02{overflow: hidden; zoom:1;}
 .flow .text02 li{ float: left; margin-top: 10px;}
-.flow .text02 li:nth-child(1),.flow .text02 li:nth-child(3),.flow .text02 li:nth-child(5){ width: 18px; height: 18px; border-radius: 50%; background: #83ccff; text-align: center; line-height: 18px; color: #fff;}
-.flow .text02 li:nth-child(1){ margin-left: 49px;}
-.flow .text02 li:nth-child(7){ width: 18px; height: 18px; border-radius: 50%; line-height: 18px; text-align: center; color: #fff; background: #999;}
-.flow .text02 li:nth-child(2),.flow .text02 li:nth-child(4),.flow .text02 li:nth-child(6){ width: 174px; height: 4px; background: #83ccff; margin-top: 17px;}
-.flow .text02 li:nth-child(6){ background: #999;}
+.flow .text02 li.one,.flow .text02 li.three,.flow .text02 li.five{ width: 18px; height: 18px; border-radius: 50%; background: #83ccff; text-align: center; line-height: 18px; color: #fff;}
+.flow .text02 li.one{ margin-left: 49px;}
+.flow .text02 li.seven{ width: 18px; height: 18px; border-radius: 50%; line-height: 18px; text-align: center; color: #fff; background: #999;}
+.flow .text02 li.two,.flow .text02 li.four,.flow .text02 li.six{ width: 174px; height: 4px; background: #83ccff; margin-top: 17px;}
+.flow .text02 li.six{ background: #999;}
 .flow .text03{ overflow: hidden; zoom: 1; margin-top: 10px; color: #999;}
 .flow .text03 li{ float: left;}
-.flow .text03 li:nth-child(1),.flow .text03 li:nth-child(2),.flow .text03 li:nth-child(3){ margin-right: 74px;}
+.flow .text03 li.one,.flow .text03 li.two,.flow .text03 li.three{ margin-right: 74px;}
+
 
 .inMain .list{ margin-top: 20px;border: 1px solid #ccc; background: #f8f8f8; overflow: hidden; zoom:1;}
-.list .listLeft{ padding: 10px; width: 300px; border: 1px solid #ccc; margin-left: -1px; border-top:none; border-bottom:none;}
+.list .listLeft{ padding: 10px; width: 360px; border: 1px solid #ccc; margin-left: -1px; border-top:none; border-bottom:none;}
 .listHeader{ overflow: hidden; zoom:1;}
 .listHeader span{ font-weight: bold; font-size: 15px;}
 .listHeader em{ font-weight: bold; color: #d48753; font-size: 14px;}
@@ -54,16 +33,21 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .ewm img{ width: 78px; height: 78px;  border-right: 1px solid #ccc; margin-right: 10px;}
 .ewm p{ margin-top: 10px; font-size: 14px;}
 
-.list .listRight{ width: 510px; border: 1px solid #ccc; margin-left: -1px; border-top: none; padding: 10px; border-right: none;border-bottom: none;}
+.list .listRight{ width: 574px; border: 1px solid #ccc; margin-left: -1px; border-top: none; padding: 10px; border-right: none;border-bottom: none;}
 .listRight .listState{ border-bottom: 1px dashed #ccc;}
 .listRight .stateHeader span{ display: block; float: left; margin-right: 10px; width: 30px; height: 30px; border: 2px solid #83ccff; color: #83ccff; border-radius: 50%; text-align: center; line-height: 30px; font-size: 18px; font-weight: bold;}
 .listRight .stateHeader p.one{ font-weight: bold; font-size: 15px;}
 .listRight .stateHeader p.two{ font-size: 14px; color: #999;}
 .listRight .stateHeader p.two em{ color: #fd9d46;}
 .alter{ margin-top: 26px; margin-bottom: 26px;}
-.alter input{ width: 75px; height: 30px; background: #0077dd; border:none; border-radius: 3px; color: #fff; margin-right: 20px; cursor: pointer;;}
-.alter em{ color: #0077dd;}
+.alter input{ width: 75px; height: 30px; background: #0077dd; border:none; border-radius: 3px; color: #fff; margin-right: 20px; cursor: pointer;}
+.alter em{ color: #0077dd; margin-left:40px; margin-right:10px; cursor: pointer;}
 .alter input.one{ margin-left: 50px;}
+.alter ul{ display:none; width: 300px; }
+.alter li{ width: 16px; height: 16px; background: url(../images/star-off.png); float: left; margin-bottom: 10px; cursor:pointer; margin-right:3px;}
+.alter li.sel{ width: 16px; height: 16px; background: url(../images/star-on.png);}
+	
+	
 .vendor{ margin-top: 10px; font-size: 15px; border-bottom: 1px dashed #ccc; height: 124px;}
 .vendor p{ text-indent: 2em; overflow: hidden; word-wrap: break-word;} 
 .remind{ margin-top: 10px;}
@@ -71,22 +55,22 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .remind p{ font-size: 14px; color: #999; line-height: 26px;}
 .entry{ margin-top: 20px;}
 .entryNav{ overflow: hidden; zoom: 1; background: #f2f2f2; color: #999; font-size: 14px; border: 1px solid #ccc;}
-.entryNav li{ float: left; line-height: 40px; width: 85px; text-align: center;}
-.entryNav li:nth-child(1){width: 320px;}
+.entryNav li{ float: left; line-height: 40px; width: 103px; text-align: center;}
+.entryNav li.one{width: 350px;}
 .cargo{ overflow: hidden; zoom: 1;}
 .carGo{ overflow: hidden; zoom:1; background: #f8f8f8;border: 1px solid #ccc; border-top: none;}
 .carGo li{ float: left; line-height: 40px;}
-.carGo li:nth-child(1){ font-size: 16px; width: 132px; text-align: center;}
-.carGo li:nth-child(2){ color: #999; font-size: 14px; width: 70px;}
-.carGo li:nth-child(3){ color: #999; font-size: 14px; width: 150px;}
-.carGo li:nth-child(4){ color: #7d8e64; font-size: 14px; width: 310px;}
-.carGo li:nth-child(5){ color: #326f9c; font-size: 14px; width: 87px;}
+.carGo li.one{ font-size: 16px; width: 132px; text-align: center;}
+.carGo li.two{ color: #999; font-size: 14px; width: 70px;}
+.carGo li.three{ color: #999; font-size: 14px; width: 180px;}
+.carGo li.four{ color: #7d8e64; font-size: 14px; width: 360px;}
+.carGo li.five{ color: #326f9c; font-size: 14px; width: 87px;}
 
 .fare{ overflow: hidden; zoom: 1; height: 70px;border: 1px solid #ccc; border-top: none;}
 .fare li{ float: left;}
-.fare li:nth-child(1){ width: 50px; height: 50px; margin-top: 10px; margin-left: 10px; border: 1px solid #ccc;}
-.fare li:nth-child(2){ width: 235px; font-size: 13px; color: #2e69a5;padding-left: 25px; margin-top: 10px;}
-.fare li:nth-child(3),.fare li:nth-child(4),.fare li:nth-child(5),.fare li:nth-child(6),.fare li:nth-child(7){ width: 80px; text-align: center; margin-top: 10px; font-size: 14px;}
+.fare li.one{ width: 50px; height: 50px; margin-top: 10px; margin-left: 10px; border: 1px solid #ccc;}
+.fare li.two{ width: 271px; font-size: 13px; color: #2e69a5;padding-left: 25px; margin-top: 10px;}
+.fare li.three,.fare li.four,.fare li.five,.fare li.six,.fare li.seven{ width: 103px; text-align: center; margin-top: 10px; font-size: 14px;}
 .cargo .right{ width: 101px; height: 111px; border: 1px solid #ccc; color: #999; line-height: 108px; text-align: center; border-top: none; border-left: none;}
 .amount{ padding:20px; background: #f2f2f2;}
 .amount div.right p{ font-size: 13px; color: #666; text-align: right; line-height: 24px;}

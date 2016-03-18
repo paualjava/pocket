@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+.ylHeader{ background:#EFEFEF; width:100%;}
+
+.dianpu{ width: 100%; background: #1E1D22;}
+.dianpu a.left img{ display: block; width: 24px; height: 24px; border-radius: 50%;background: #fff; float: left; margin-top: 3px; margin-right: 10px; margin-left: 10px;}
+.dianpu a.left span{ color: #999; line-height: 30px;}
+.dianpu a.right{ display: block; padding-left: 20px; line-height: 30px; background: url(../images/find01.png) no-repeat left center; color: #999; margin-right: 10px;}
+.change{ width: 100%; height: 100%;}
+.change img{ display: block; border: 0;}
+.change ul li{ float: left; width: 100%; height: 100%;}
+.change ul{ width: 400%; height: 100%; overflow: hidden;}
+/* 本例子css -------------------------------------- */
+.focus {width: 100%;margin: 0 auto;position: relative;overflow: hidden;}
+.focus .hd {width: 100%;height: 5px;position: absolute;z-index: 1;bottom: 10px;text-align: center;font-size: 0;}
+.focus .hd ul {overflow: hidden;text-align: center;}
+.focus .hd ul li {width: 5px;height: 5px;border: 1px solid #fff;border-radius: 50%;display: inline-block;margin-right: 10px;}
+.focus .hd ul .on {background: #fff;}
+.focus .bd {position: relative;z-index: 0;}
+.focus .bd li img {width: 100%;}
+.change{ margin:0 auto; position: relative; width: 100%;}
+/* 轮播图 */
+
+
+.sayWay{ padding:10px 20px; background: #fff; font-size: 16px;}
+.price{ padding:10px 20px; background: #fff; font-size: 16px; color: #FF6600;}
+.price strong{ font-size: 26px;}
+
+.lost{ padding:10px 20px; background: #fff;}
+.lost p{ color: #999; font-size: 16px}
+.lost p em,.lost p i{ color: #333; margin-left: 5px; font-size: 16px}
+.lost .lost01{ border-top: 1px solid #ccc; padding-top: 10px;}
+.lost .lost02{padding-bottom: 10px;}
+.changeName{ padding:20px; margin-top: 10px; background: #fff; border-top: 1px #ccc solid; margin-bottom: 10px;border-bottom: 1px #ccc solid; font-size: 16px;}
+.changeName em img{display: block; float: left; margin-right: 5px;}
+.changeName em{ color: #666;}
+.changeName a{ display: block; font-size: 16px; background: url(../images/smail_04.png) no-repeat right center; padding-right: 10px; color: #666;}
+.changeName b{ display: block; font-style: normal; padding-left: 23px; background: url(../images/smail_08.png) no-repeat left center;color: #666; margin-top: 10px;}
+
+.textarea{ padding:20px; color: #FF0000;}
+.textarea p{ font-size: 16px; line-height: 20px;}
+.textarea p.text01{ margin-bottom: 20px;}
+.lieList ul{ width: 100%;}
+.lieList ul li{ background: #fff; float: left; width: 44%; padding:3%; }
+.lieList ul li p{ font-size: 12px;}
+.lieList ul li p strong{font-size: 16px; color: #f60;}
+
+.join{ width: 100%;}
+.join a{ text-align: center; background: #fff url(../images/smail_04.png) no-repeat 85px center; padding-right: 10px; width: 100px;  border: 1px solid #ccc; display: block; line-height: 30px; margin-top: 20px; color: #666; margin:10px auto; border-radius: 3px;}
+
+
+.footer{ position: fixed; bottom: 0; left: 0; width: 100%; border-top: 1px solid #ccc; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); background: #fff;}
+.inFooter{ width: 300px; margin:0 auto; padding:10px 20px;}
+.inFooter span{ line-height: 28px; background: #fff; border: 1px solid #ccc; text-align: center; display: inline-block; padding: 0 20px; border-radius:6px; margin-right: 10px; cursor: pointer;}
+.inFooter span.one{ background: #F15A0C; color: #fff; border: none;}
+
+.lxmj{ position: fixed; bottom: 60px; left: 10px;}
+.lxmj em{ display: block; padding:0 20px; border: 1px solid #8ECE4B; border-radius: 20px; color: #8ECE4B; line-height: 24px; background: #fff; }
+
+
+
+
+
+
+

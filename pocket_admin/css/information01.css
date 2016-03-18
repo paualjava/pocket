@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
-.main{width:1330px; position:relative; left:50%; margin-left:-665px;margin-top: 30px;}
-.mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 385px; background: #f8f8f8; text-align: center;line-height: 40px; margin-left: -1px; cursor:pointer;}
+.main{width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
+.mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 320px; background: #f8f8f8; text-align: center;line-height: 40px; margin-left: -1px; cursor:pointer;}
 .mainRight .nav ul li.one{ margin-left: 0;}
 .mainRight .nav ul li.cu{ border-bottom: none; background: #fff;}
-.mainRight .xixiang{ width: 1180px; text-align: right; margin-top: 10px; font-size: 12px; color: #333; padding:10px;}
+.mainRight .xixiang{ width: 964px; text-align: right; margin-top: 10px; font-size: 12px; color: #333; padding:10px;}
 .mainRight .xixiang em{ width: 18px; height: 18px; border-radius: 50%; background: #44BB00; color: #fff; text-align: center; line-height: 18px; display: inline-block;}
 .mainRight .xixiang a{ font-size: 13px; color: #0000FF;}
 .mainRight .option{ width: 810px; margin-top: 20px; padding:20px; background: #f8f8f8;}
@@ -18,20 +18,21 @@
 .mainRight .option button:hover{ background: #fff;}
 .mainRight .option button.className{ color: #FF6633; border:#FF6633 2px solid; background: #fff;}
 
-.navNews2,.navNews{ display: none; width: 850px;}
-.next1,.next2,.next3{ width: 1300px; height: 50px; position:relative; left:50%; margin-left:-665px; background: #ffffcd;margin-top: 25px; padding:15px; margin:0 auto; margin-top:30px;}
+.navNews2,.navNews{ display: none;}
+.next1,.next2,.next3{ width: 1094; height: 50px; position:relative; left:50%; margin-left:-562px; background: #ffffcd;margin-top: 25px; padding:15px; margin:0 auto; margin-top:30px;}
 .next1 span{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; font-size:14px; cursor: pointer;}
 .next3,.next1{ display:none;}
 .next2 div{ width: 165px; margin:0 auto;}
-.next2{ width: 1300px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -665px; margin-top: 25px; padding:15px;}
+.next2{ width: 1094px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -562px; margin-top: 25px; padding:15px;}
 .next2 span{ float:left; width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto;margin-right:20px; font-size:14px; cursor: pointer;}
 .next3,.next2,.next1{ margin-top: 30px;}
 .next3 div{ width: 330px; margin:0 auto;}
-.next3{ width: 1300px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -665px; margin-top: 25px; padding:15px;}
+.next3{ width: 1094px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -562px; margin-top: 25px; padding:15px;}
 .next3 span{ width: 60px; float:left; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; font-size:14px; cursor: pointer;}
 .next3 a{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; float:left;}
-.brief{ width:1137px; border:1px #ccc solid; border-radius:3px; padding:10px; margin-top:20px; background:f8f8f8;}
-textarea{ width:1117px; border-radius:3px; background:#fff; border:1px #ccc solid; margin-top:10px; resize:none; padding:10px;}
+.brief{ width:943px; border:1px #ccc solid; border-radius:3px; padding:10px; margin-top:20px; background:f8f8f8;}
+textarea{ width:920px; border-radius:3px; background:#fff; border:1px #ccc solid; margin-top:10px; resize:none; padding:10px;}
+iframe{ margin-top:20px;}
 
 
 
