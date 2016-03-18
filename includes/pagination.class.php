@@ -131,7 +131,7 @@ class pagination {
         $str.=$this->myde_next();
         $str.=$this->myde_last();
         $str.="<p class='pageRemark'>共<b>" . $this->myde_page_count .
-                "</b>页<b>" . $this->myde_total . "</b>条数据</p>";
+                "</b>页<b class='total_page'>" . $this->myde_total . "</b>条数据</p>";
         $str.="</div>";
         return $str;
     }

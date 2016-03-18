@@ -23,21 +23,19 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 /*左侧栏结束*/
 
 
-.main{ overflow:hidden; zoom:1; width:1330px; position:relative; left:50%; margin-left:-665px;margin-top: 30px;}
+.main{ overflow:hidden; zoom:1; width:1150px; position:relative; left:50%; margin-left:-575px;margin-top: 30px;}
 .offerMain{ overflow: hidden; zoom:1;}
-.offerMain .mainRight{ width:1200px; }
+.offerMain .mainRight{ width:1000px; }
 .offerHeader{ overflow: hidden; zoom: 1; padding:10px;}
 .offerHeader span{ font-size: 15px; line-height: 30px;}
 .offerHeader .right li{ float: left; width: 100px; height: 30px; margin-right: 10px; color: #999;}
 .offerHeader .right li form select{ width: 100px; height: 30px; text-align: center; border-radius: 3px; border: 1px solid #ccc;color: #999; line-height: 30px;}
-.offerHeader .right li.three{ width: 190px;}
-.offerHeader .right li.three input{ display: block;; border: 1px solid #ccc; border-radius: 3px 0 0 3px; font-size: 14px; padding-left:30px; line-height: 30px; width: 160px; background: url(../images/find.png) no-repeat 5px center; color:#999; height: 28px; border-right:none; padding-right:10px;}
-.offerHeader .right li.four input{ width:80px; height:30px; background:#007ADE; text-align:center; border:0; border-radius:0 3px 3px 0;/* border:1px solid #007ade;*/ color:#fff; cursor:pointer;}
-.offerHeader .right li.four{ width:80px;}
+.offerHeader .right li.three{  height: 30px; width: 50px;}
+.offerHeader .right li input{ display: block;; border: 1px solid #ccc; border-radius: 3px; font-size: 14px; padding-left:30px; line-height: 30px; width: 70px; background: url(../images/find.png) no-repeat 5px center; color:#999; height: 30px;}
 .offerNav{ margin-top: 20px;}
 .offerNav .inNav{ overflow: hidden; zoom: 1; line-height: 40px; border-bottom: 1px solid #ccc; padding:0 10px; font-size: 14px; background: #f8f8f8;}
 .offerNav .inNav li{ float: left; text-align:center;}
-.offerNav .inNav li.one{ width: 560px; text-align:left;}
+.offerNav .inNav li.one{ width: 370px; text-align:left;}
 .offerNav .inNav li.one em{color: #366f9c;}
 
 .offerNav .inNav li.two{ width: 65px;}
@@ -54,9 +52,9 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .thing p{ font-size:13px;}
 .thing li{ float: left;}
 .thing li.one{ margin-top: 3px;}
-.thing li.two{ margin-left:8px; line-height:22px; width:185px;}
-.thing li.two img{}
-.thing li.three{ width: 275px; margin-left: 10px;}
+.thing li.two{ margin-left:8px; line-height:22px;}
+.thing li.two img{width: 60px; height: 60px; border: 1px solid #ccc; display: block; margin-left: 36px;}
+.thing li.three{ width: 170px; margin-left: 10px;}
 .thing li.three em{ font-size: 14px; color: #fe6700;}
 .thing li.four{ width: 65px; text-align: center;}
 .thing li.five{ width: 65px; text-align: center;}
@@ -69,16 +67,15 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .thing li.ten em{ background:#666; line-height:24px; color:#fff; display:block; border-radius:3px; cursor:pointer;}
 .thing li.ten1{ width:45px; text-align:center;padding:0 10px;}
 .thing li.ten1 em{ background:#0c6; line-height:24px; color:#fff; display:block; border-radius:3px; cursor:pointer;}
-.thing li.tenOne{ width:25px;padding-left:30px;}
+.thing li.tenOne{ width:30px;padding-left:30px;}
 .thing li.tenOne img{ display:inline-block; border:0; text-align:center; cursor:pointer;}
-.thing li.tenOne1{ width:25px;padding-left:30px; display:none;}
+.thing li.tenOne1{ width:30px;padding-left:30px; display:none;}
 .thing li.tenOne1 img{ display:inline-block; border:0; text-align:center; cursor:pointer;}
 .thing li.nine i{ color: #306a9a; cursor: pointer;}
 .thing li.nine i a{color: #306a9a; font-size: 13px;}
-.thing li.ten02{width: 60px; height: 60px; border: 1px solid #ccc; display: block; margin-left: 10px;}
 
 .lieThing{ position: relative;}
-.lieThing .aySure{position:absolute; width:271px; height:24px; right:230px; background:url(../images/del_01.png) no-repeat center; top:0; padding: 15px 20px; font-size:15px; line-height:24px; display: none;}
+.lieThing .aySure{position:absolute; width:271px; height:24px; right:222px; background:url(../images/del_01.png) no-repeat center; top:0; padding: 15px 20px; font-size:15px; line-height:24px; display: none;}
 .lieThing .aySure em{display:inline-block; width:180px; text-align:center;}
 .lieThing .aySure em.sure{ width:40px; background:#0080ED; margin-right:5px; border-radius:3px; color:#fff; cursor:pointer;}
 .lieThing .aySure em.noSure{width:40px; color:#333; border:1px solid #ccc; border-radius:3px; cursor:pointer;}
@@ -86,7 +83,7 @@ header{ height:80px; background: #f1f1f1; width:100%;}
 .module{ margin-top: 20px; }
 .module ul{ overflow: hidden; zoom: 1;}
 .module ul li{ float: left; line-height: 25px; background: #f8f8f8; padding:0 10px; border: 1px solid #ccc; margin-right: 5px; color: #333; cursor: pointer;}
-.module p input{ width:50px;text-align:center; line-height:20px;}
+.module p input{ width:50px;text-align:center;}
 .module p i{ cursor:pointer;}
 /*.module ul li.currnt{ color:#333;}*/
 

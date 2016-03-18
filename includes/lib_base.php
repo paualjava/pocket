@@ -13,7 +13,7 @@ class base
 	}
 	function table_get_one($table_name,$column,$value,$id="id")
 	{
-		$sql = "SELECT ".$column." FROM " .$GLOBALS['ecs']->table($table_name). " where ".$id."='".$value."'";
+		$sql = "SELECT ".$column." FROM " .$GLOBALS['ecs']->table($table_name). " where ".$id."='".$value."' limit 0,1";
 		$row =$GLOBALS['db']->getOne($sql);
 		return $row;
 	}

@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+.ylHeader{ background:#EFEFEF; width:100%;}
+.inHeader{ width: 400px; margin:0 auto; padding:10px 160px;}
+.inHeader ul li{ float: left; font-size: 15px; margin-right: 15px; line-height: 30px;}
+.inHeader ul li a{ color: #333;}
+.inHeader ul li.current a{color: #fff;}
+.inHeader input{ width: 100px; font-size: 15px; line-height: 30px; border:1px #ccc solid; background: #fff; border-radius: 3px; text-align: center; height: 30px;}
+.inHeader li.current{ background: #798499;border-radius: 3px; color: #fff;}
+.inHeader li#two{ padding:0 10px;}
+.dianpu{ width: 100%; background: #1E1D22;}
+.dianpu a.left img{ display: block; width: 24px; height: 24px; border-radius: 50%;background: #fff; float: left; margin-top: 3px; margin-right: 10px; margin-left: 10px;}
+.dianpu a.left span{ color: #999; line-height: 30px;}
+.dianpu a.right{ display: block; padding-left: 20px; line-height: 30px; background: url(../images/find01.png) no-repeat left center; color: #999; margin-right: 10px;}
+.change{ margin:0 auto; position: relative; width: 450px;}
+.change img{ display: block; border:0;}
+.changelb{ width: 450px; height: 450px; position: relative; overflow: hidden;}
+.changelb ul{ width: 2000px; position: absolute; left: 0;top: 0;}
+.changelb ul li{ float: left; width: 450px;}
+.changelb ol li{ width: 10px; height: 10px; border-radius: 50%; background: #ccc; float: left;margin:0 10px;}
+.changelb ol{ position: absolute; bottom: 10px; left: 180px;}
+.changelb ol li.cur{ background: #f40;}
+
+.sayWay{ padding:10px; background: #fff; font-size: 16px;}
+.price{ padding:0 10px 10px 10px; background: #fff; font-size: 16px; color: #FF6600;}
+.price strong{ font-size: 26px;}
+
+.lost{ padding:0 10px; background: #fff;}
+.lost p{ color: #999;}
+.lost p em,.lost p i{ color: #333; margin-left: 5px;}
+.lost .lost01{ border-top: 1px solid #ccc; padding-top: 10px;}
+.lost .lost02{padding-bottom: 10px;}
+.changeName{ padding:10px; margin-top: 10px; background: #fff; border-top: 1px #ccc solid; margin-bottom: 10px;border-bottom: 1px #ccc solid;}
+.changeName em img{display: block; float: left; margin-right: 5px;}
+.changeName em{ color: #666;}
+.changeName a{ display: block; font-size: 14px; background: url(../images/smail_04.png) no-repeat right center; padding-right: 10px; color: #666;}
+.changeName b{ display: block; font-style: normal; padding-left: 23px; background: url(../images/smail_08.png) no-repeat left center;color: #666; margin-top: 10px;}
+
+.textarea{ padding:10px; color: #FF0000;}
+.textarea p{ font-size: 12px; line-height: 20px;}
+.textarea p.text01{ margin-bottom: 20px;}
+
+.lieList ul li{ background: #fff; float: left; width: 205px; padding:10px; }
+.lieList ul li p{ font-size: 12px;}
+.lieList ul li p strong{font-size: 16px; color: #f60;}
+
+.join{ text-align: center; background: #fff url(../images/smail_04.png) no-repeat 85px center; padding-right: 10px; width: 100px;  border: 1px solid #ccc; display: block; margin-left: 178px; line-height: 30px; margin-top: 20px; color: #666;}
+
+.footer{ position: fixed; bottom: 0; left: 0; width: 100%; border-top: 1px solid #ccc; box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); background: #fff;}
+.inFooter{ width: 300px; margin:0 auto; padding:10px 20px;}
+.inFooter span{ line-height: 28px; background: #fff; border: 1px solid #ccc; text-align: center; display: inline-block; padding: 0 20px; border-radius:6px; margin-right: 10px; cursor: pointer;}
+.inFooter span.one{ background: #F15A0C; color: #fff; border: none;}
+.ewm{ position: fixed; top:30%; right:385px; padding:20px; border: 1px solid #ccc; border-radius: 6px;}
+.ewm em{ display: block; padding-left: 40px; background: url(../images/weixin_logo.png) no-repeat left center; font-size: 18px; color: #8ECE4B; border-bottom: 1px #ccc dashed; padding-bottom: 10px;}
+.ewm p{ padding:10px 0; text-align: center;}
+.ewm img{ display: block; width: 150px; height: 150px; border: 1px solid #000;}
+.lxmj{ position: fixed; bottom: 60px; left: 10px; }
+.lxmj em{ display: block; padding:0 20px; border: 1px solid #8ECE4B; border-radius: 20px; color: #8ECE4B; line-height: 30px;}
+
+
+
+
+
+
+
+
+
+

@@ -1,118 +1,233 @@
 {include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/information01.css" />
 <link type="text/css" rel="stylesheet" href="css/information02.css" />
 <div class="main">
-	<div class="mainLeft left">
-    	<span><a href="#">发布商品</a></span>
-         <div class="naver">
-            <em>商品管理</em>
-            <ul class="leftNav">
-                <li class="cur"><a href="">出售中的商品</a></li>
-                <li><a href="">已售罄的商品</a></li>
-                <li><a href="">仓库中的商品</a></li>
-                <li><a href="">商品分组</a></li>
-            </ul>
-         </div>
-    </div>
-    <div class="mainRight right">
-    	<div class="nav">
-    		<ul>
-    			<li>1、选择商品品类</li>
-    			<li>2、编辑基本信息</li>
-    			<li>3、编辑商品详情</li>
-    		</ul>
-    	</div>
-    	<div class="basicNews">
-    		<div class="newsLeft left">
-    			<p>基本信息</p>
-    		</div>
-    		<div class="newsRight right">
-    			<p>商品类目：  其他-其他</p>
-    			<form action="">
-    				<div class="way">
-    					购买方式：  <input type="radio" name="way" />&nbsp;&nbsp;&nbsp;&nbsp;在有赞购买&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="way" />&nbsp;&nbsp;&nbsp;&nbsp;链接到外部购买
-    				</div>
-    				<div class="set">
-    					商品分组：  <input type="text" value="选择商品分组" /> <a href="#">刷新</a>|<a href="#">新建分组</a>|<a href="#">帮助</a>
-    				</div>
-    				<div class="mold">
-    					商品类型：  <input type="radio" name="mold" />&nbsp;&nbsp;&nbsp;&nbsp;实物商品<em>(物流发货)</em>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mold" />&nbsp;&nbsp;&nbsp;&nbsp;虚拟商品<em>(无需物流)</em>
-    				</div>
-    				<div class="sale">
-    					预售设置：  <input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;预售商品
-    				</div>
-    			</form>
-    		</div>
-    	</div>
-    	<div class="stock">
-    		<div class="stockLeft left">
-    			<p>库存/规格</p>
-    		</div>
-    		<div class="stockRight right">
-    			<form action="">
-    				<span>商品规格：</span><div class="commer"><div><em>添加规格项目</em></div></div>
-                    <div class="gi">
-                        <em>*</em>总库存：  <input type="text" value="999999" class="noShow" />  <input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;页面不显示商品库存
-                        <p>总库存为0时，会上架到[已售罄的商品]列表里发布后商品同步更新，以库存数字为准</p>
-                    </div>
-                    <div class="seller">
-                        商家编码：  <input type="text" />
-                    </div>
-    			</form>
-    		</div>
-    	</div>
-        <div class="blurb">
-            <div class="blurbLeft left">
-                <p>商品信息</p>
-            </div>
-            <div class="blurbRight right">
-                <form action="">
-                    <div class="name">
-                        <em>*</em>商品名：  <input type="text" value="实物商品" /><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;快速导入淘宝商品信息</a>
-                    </div>
-                    <div class="prix">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<em>*</em>价格：&nbsp;&nbsp;&nbsp;<input type="text" value="￥0.01" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="原价：￥99.99" />
-                    </div>
-                    <div class="img">
-                        <em>*</em>商品图：<div class="join">+加图</div>
-                        <p>建议尺寸：640X640像素；您可以拖拽图片调整图片顺序。</p>
-                    </div>
-                </form>
-            </div>
+	<div class="inMain clearfix">
+        <div class="mainLeft left">
+            <span><a href="information01.html" target="_blank">发布商品</a></span>
+             <div class="naver">
+                <em>商品管理</em>
+                <ul class="leftNav">
+                   <li><a href="offer.html">出售中的商品</a></li>
+                    <li><a href="page04.html">已售罄的商品</a></li>
+                    <li><a href="page03.html">仓库中的商品</a></li>
+                    <li><a href="offer01.html">商品分组</a></li>
+                </ul>
+             </div>
         </div>
-        <div class="stream">
-            <div class="streamLeft left">
-                <p>物流/其他</p>
+        <div class="mainRight right">
+            <div class="nav">
+                <ul class="clearfix">
+                    <li class="one">1、选择商品品类</li>
+                    <li class="two cu">2、编辑基本信息</li>
+                    <li class="three">3、编辑商品详情</li>
+                </ul>
             </div>
-            <div class="streamRight right">
-                <form action="">
-                    <div class="shezhi">
-                        <em>*</em>运费设置：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;统一邮费&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="￥0.00" class="one" /><br /><input type="checkbox" class="three" />&nbsp;&nbsp;&nbsp;&nbsp;运费模板&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="没有可运用模板" class="two" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="">刷新</a>|<a href="#">新建</a>|<a href="#">如何设置合适的运费模板？ </a>
+            <div class="navNews">
+                <p class="xixiang"><em>?</em>商品类目及类目细项，<a href="#">请点此查看详情</a></p>
+                <div class="option clearfix">
+                    <button class="one">女人</button><button class="two">男人</button><button class="three">食品</button><button class="four">美妆</button>
+                    <button class="one">亲子</button><button class="two">居家</button><button class="three">数码家电</button><button class="four">其他</button>
+                    <!-- <input class="one" type="button" value="女人" />
+                    <input class="two" type="button" value="男人" />
+                    <input class="three" type="button" value="食品" />
+                    <input class="four" type="button" value="美妆" />
+                    <input class="one" type="button" value="亲子" />
+                    <input class="two" type="button" value="居家" />
+                    <input class="three" type="button" value="数码家电" />
+                    <input class="four" type="button" value="其他" /> -->
+                    <p>必须选择一个商品类目</p>
+                </div>   
+            </div>
+            <div class="navNews1">
+               <div class="basicNews clearfix">
+                    <div class="newsLeft left">
+                        <p>基本信息</p>
                     </div>
-                    <div class="xiangou">
-                        没人限购：<input type="text" value="0" class="one" />&nbsp;&nbsp;&nbsp;&nbsp;<i>0代表不限购</i><br /><br />
-                        购买权限：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;设置购买权限<br /><br />
-                        <p>请选择可购买该商品的会员等级</p><input type="text" value="选择会员等级" class="two" /><br />
-                        <p>请选择可购买该商品的用户标签</p>
-                        <input type="text" value="选择用户标签" class="three" />
-                        <p>以上均不选择，则默认为所有用户</p>
+                    <div class="newsRight right">
+                        <p>商品类目：  其他-其他</p>
+                        <form action="">
+                            <div class="way">
+                                购买方式：  <input type="radio" name="way" />&nbsp;&nbsp;&nbsp;&nbsp;在有赞购买&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="way" />&nbsp;&nbsp;&nbsp;&nbsp;链接到外部购买
+                            </div>
+                            <div class="set">
+                                商品分组：  <input type="text" value="选择商品分组" /> <a href="#">刷新</a>|<a href="#">新建分组</a>|<a href="#">帮助</a>
+                            </div>
+                            <div class="mold">
+                                商品类型：  <input type="radio" name="mold" />&nbsp;&nbsp;&nbsp;&nbsp;实物商品<em>(物流发货)</em>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="mold" />&nbsp;&nbsp;&nbsp;&nbsp;虚拟商品<em>(无需物流)</em>
+                            </div>
+                            <div class="sale">
+                                预售设置：  <input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;预售商品
+                            </div>
+                        </form>
                     </div>
-                    <div class="liuyan">
-                        要求留言：<a href="">+添加字段</a>
-                        <p>单件商品最多可设置10条留言</p>
+                </div>
+                <div class="stock">
+                    <div class="stockLeft left">
+                        <p>库存/规格</p>
                     </div>
-                    <div class="time">
-                        开售时间：<input type="radio" name="sell" class="one" />&nbsp;&nbsp;&nbsp;&nbsp;立即开售<br /><br />
-                        <input type="radio" name="sell" class="two" />&nbsp;&nbsp;&nbsp;&nbsp;定时开售&nbsp;&nbsp;&nbsp;&nbsp;<input type="datetime" class="three" />
+                    <div class="stockRight right">
+                        <form action="">
+                            <span>商品规格：</span><div class="commer"><div><em>添加规格项目</em></div></div>
+                            <div class="gi">
+                                <em>*</em>总库存：  <input type="text" value="999999" class="noShow" />  <input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;页面不显示商品库存
+                                <p>总库存为0时，会上架到[已售罄的商品]列表里发布后商品同步更新，以库存数字为准</p>
+                            </div>
+                            <div class="seller">
+                                商家编码：  <input type="text" />
+                            </div>
+                        </form>
                     </div>
-                    <div class="zhekou">
-                        会员折扣：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;参加会员折扣<br /><br />
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发票：<input type="radio" name="you" />&nbsp;&nbsp;&nbsp;&nbsp;无&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="you" />&nbsp;&nbsp;&nbsp;&nbsp;有<br /><br />
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保修：<input type="radio" name="wu" />&nbsp;&nbsp;&nbsp;&nbsp;无&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="wu" />&nbsp;&nbsp;&nbsp;&nbsp;有
+                </div>
+                <div class="blurb">
+                    <div class="blurbLeft left">
+                        <p>商品信息</p>
                     </div>
-                </form>
+                    <div class="blurbRight right">
+                        <form action="">
+                            <div class="name">
+                                <em>*</em>商品名：  <input type="text" value="实物商品" /><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;快速导入淘宝商品信息</a>
+                            </div>
+                            <div class="prix">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<em>*</em>价格：&nbsp;&nbsp;&nbsp;<input type="text" value="￥0.01" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="原价：￥99.99" />
+                            </div>
+                            <div class="img">
+                                <em>*</em>商品图：<div class="join">+加图</div>
+                                <p>建议尺寸：640X640像素；您可以拖拽图片调整图片顺序。</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="stream">
+                    <div class="streamLeft left">
+                        <p>物流/其他</p>
+                    </div>
+                    <div class="streamRight right">
+                        <form action="">
+                            <div class="shezhi">
+                                <em>*</em>运费设置：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;统一邮费&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="￥0.00" class="one" /><br /><input type="checkbox" class="three" />&nbsp;&nbsp;&nbsp;&nbsp;运费模板&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="没有可运用模板" class="two" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="">刷新</a>|<a href="#">新建</a>|<a href="#">如何设置合适的运费模板？ </a>
+                            </div>
+                            <div class="xiangou">
+                                没人限购：<input type="text" value="0" class="one" />&nbsp;&nbsp;&nbsp;&nbsp;<i>0代表不限购</i><br /><br />
+                                购买权限：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;设置购买权限<br /><br />
+                                <p>请选择可购买该商品的会员等级</p><input type="text" value="选择会员等级" class="two" /><br />
+                                <p>请选择可购买该商品的用户标签</p>
+                                <input type="text" value="选择用户标签" class="three" />
+                                <p>以上均不选择，则默认为所有用户</p>
+                            </div>
+                            <div class="liuyan">
+                                <span class="rquie">要求留言：</span><div class="liuyn"><input type="text" value="留言1" class="ckone"  />
+                                <select name="allware" id="" class="input02 input03">
+                                    <option value="文本格式">文本格式</option>
+                                    <option value="数字格式">数字格式</option>
+                                    <option value="邮件格式">邮件格式</option>
+                                    <option value="日期">日期</option>
+                                    <option value="时间">时间</option>
+                                    <option value="身份证号码">身份证号码</option>
+                                    <option value="图片">图片</option>
+                                </select>
+                                <input type="checkbox" class="ckthree" />多行<input type="checkbox"  class="cktwo" />必填<span class="del">删除</span></div>
+                                <script type="text/javascript">
+                                    // $(function() {
+                                    //     $('.del').click(function(event) {
+                                    //         $(this).parent().remove();
+                                    //     });
+                                    //     $('.tj').click(function(event) {
+                                    //         $('.liuyn:first()').clone().appendTo('.rquie')
+                                    //     });
+                                    //     // $('.inMain-rTwo li:first()').clone().appendTo('.inMain-rTwo ul');
+                                    // });
+                                </script>
+                                <em class="tj">+添加字段</em>
+                                <p>单件商品最多可设置10条留言</p>
+                            </div>
+                            <div class="time">
+                                开售时间：<input type="radio" name="sell" class="one" />&nbsp;&nbsp;&nbsp;&nbsp;立即开售<br /><br />
+                                <input type="radio" name="sell" class="two" />&nbsp;&nbsp;&nbsp;&nbsp;定时开售&nbsp;&nbsp;&nbsp;&nbsp;<input type="datetime" class="three" id="time" onclick="return Calendar('time');" class="text_time" />
+                            </div>
+                            <div class="zhekou">
+                                会员折扣：<input type="checkbox" />&nbsp;&nbsp;&nbsp;&nbsp;参加会员折扣<br /><br />
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发票：<input type="radio" name="you" />&nbsp;&nbsp;&nbsp;&nbsp;无&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="you" />&nbsp;&nbsp;&nbsp;&nbsp;有<br /><br />
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保修：<input type="radio" name="wu" />&nbsp;&nbsp;&nbsp;&nbsp;无&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="wu" />&nbsp;&nbsp;&nbsp;&nbsp;有
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="navNews2" style="display:none;">
+                <div class="brief">
+                <p>商品简介(选填，微信分享给好友时会显示这里的文案)</p>
+                <textarea></textarea>
+                </div>
+                {$FCKeditor}
             </div>
         </div>
 	</div>
 </div>
-<div class="next"><a href="#">下一步</a></div></div>
+<div class="next1"><span>下一步</span></div>
+<div class="next2"><div class="clearfix"><span class="before">上一步</span><span class="after">下一步</span></div></div>
+<div class="next3"><div class="clearfix"><span class="before">上一步</span><span>上架</span><span>下架</span><a class="left" href="yulan.html">预览</a></div></div>
+<script type="text/javascript">
+    $(function() {
+        $('.mainRight .option button').click(function(event) {
+            $(this).addClass('className').siblings().removeClass('className')
+        });
+        $('.next1 span').click(function(event) {
+           $('.next2').css('display','block')
+           $('.next1').css('display','none')
+           $('.navNews').css('display','none')
+           $('.navNews1').css('display','block')
+           $('.mainRight .nav ul li').eq($(this).index('.mainRight .nav ul li')-1).addClass('cu').siblings().removeClass('cu')
+        });
+        /*$('.next2 .before').click(function(event) {
+            $('.next1').css('display','block')
+           $('.next2').css('display','none')
+            $('.navNews1').css('display','none')
+           $('.navNews').css('display','block')
+           $('.mainRight .nav ul li').eq($(this).index('.mainRight .nav ul li')-2).addClass('cu').siblings().removeClass('cu')
+        });*/
+        $('.next2 .after').click(function(event) {
+            $('.next3').css('display','block')
+           $('.next2').css('display','none')
+           $('.navNews1').css('display','none')
+           $('.navNews2').css('display','block')
+           $('.mainRight .nav ul li').eq($(this).index('.mainRight .nav ul li')).addClass('cu').siblings().removeClass('cu')
+        });
+        $('.next3 .before').click(function(event) {
+            $('.next2').css('display','block')
+           $('.next3').css('display','none')
+           $('.navNews2').css('display','none')
+           $('.navNews1').css('display','block')
+           $('.mainRight .nav ul li').eq($(this).index('.mainRight .nav ul li')-1).addClass('cu').siblings().removeClass('cu')
+        });
+        /*$('.mainRight .nav ul li.one').click(function(event) {
+            $('.next2').css('display','none')
+            $('.navNews2').css('display','none')
+            $('.next3').css('display','none')
+            $('.navNews1').css('display','none')
+            $('.next1').css('display','block')
+            $('.navNews').css('display','block')
+            $('.mainRight .nav ul li').eq($(this).index()).addClass('cu').siblings().removeClass('cu')
+        });*/
+        $('.mainRight .nav ul li.two').click(function(event) {
+            $('.next2').css('display','block')
+            $('.navNews2').css('display','none')
+            $('.next3').css('display','none')
+            $('.navNews1').css('display','block')
+            $('.next1').css('display','none')
+            $('.navNews').css('display','none')
+            $('.mainRight .nav ul li').eq($(this).index()).addClass('cu').siblings().removeClass('cu')
+        });
+        $('.mainRight .nav ul li.three').click(function(event) {
+            $('.next2').css('display','none')
+            $('.navNews2').css('display','block')
+            $('.next3').css('display','block')
+            $('.navNews1').css('display','none')
+            $('.next1').css('display','none')
+            $('.navNews').css('display','none')
+            $('.mainRight .nav ul li').eq($(this).index()).addClass('cu').siblings().removeClass('cu')
+        });
+    });
+	
+</script>
 

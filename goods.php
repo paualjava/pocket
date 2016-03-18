@@ -16,6 +16,10 @@ class goods extends base
 		$row=parent::table_get_row("users",1467933,"user_id");
 		var_dump($row);
 	}
+	function detail()
+	{
+		
+	}
 }
 $act=(empty($_REQUEST['act'])) ? "main" : $_REQUEST['act'];
 $goods = new goods();

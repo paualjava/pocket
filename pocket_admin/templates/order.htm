@@ -89,9 +89,9 @@
     	<div class="kinds">
     		<div class="kindsHeader">
                 <ul class="left">
-    				<li class="current"><a href="sheet03.html">全部</a></li>
-    				<li><a href="sheet04.html">待付款</a></li>
-    				<li><a href="sheet02.html">待发货</a></li>
+    				<li class="{if $nav_order eq ""}current{/if}"><a href="order.php">全部</a></li>
+    				<li class="{if $nav_order eq "wait_pay"}current{/if}"><a href="order.php?type=wait_pay">待付款</a></li>
+    				<li class="{if $nav_order eq "wait_shipping"}current{/if}"><a href="order.php?type=wait_shipping">待发货</a></li>
     				<li><a href="sheet09.html">已发货</a></li>
     				<li><a href="sheet05.html">已完成</a></li>
     				<li><a href="sheet07.html">已关闭</a></li>
@@ -113,11 +113,12 @@
     					<p class="text03"><span>外部订单号：<em>E22652265255525225225</em></span><span>支付流水号：<em>E22652265255525225225</em></span></p>
     					<div class="details">
     						<ul>
-    							<li><img src="" alt="" /><p>维您核桃枣(20)</p></li>
+    							<li><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" alt="" /><p>维您核桃枣(20)</p></li>
     							<li>99.00<br />(1件)</li>
-    							<li>卖晓梅<br />12564651348</li>
+    							<li><!-- {$info.order_info.consignee} --><br />{if $info.order_info.mobile neq ''} {$info.order_info.mobile}{else} {$info.order_info.tel} {/if}</li>
     							<li>2016-05-14<br />15:07:17</li>
-    							<li>等待卖家发货</li>
+    							<li>等待卖家发货<br/>等待卖家发货<br/>
+                                等待卖家发货<br/></li>
     							<li>99:00</li>
     						</ul>
     					</div>
@@ -148,6 +149,7 @@
     		</div>
     	</div>
 	</div>
+    <p class="right">{$page_bar}</p>
 </div>
 <div class="remark">
 	<div class="inRemark">

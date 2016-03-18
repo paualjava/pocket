@@ -8,3 +8,9 @@
 #page p.pageRemark{border-style:none;background:none;margin-right:0px;padding:4px 0px;color:#666;}
 #page p.pageRemark b{color:#f6134c; font-weight:normal;padding:0 2px 0 2px;}
 #page p.pageEllipsis{border-style:none;background:none;padding:4px 0px;color:#808080;}
+
+.thing li p a{color:#000;}
+.thing li.ten{display:block;}
+.thing li.tenOne img{ cursor:default;}
+.thing li.tenOne{padding-top:4px;}
+body{overflow:scroll;overflow-x:hidden;}

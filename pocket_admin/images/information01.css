@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ overflow:hidden; zoom:1; width:1008px; position:relative; left:50%; margin-left:-504px;margin-top: 30px;}
+.mainRight .nav ul{ overflow: hidden; zoom:1; width: 852px;}
+.mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 282px; background: #f8f8f8; text-align: center;line-height: 40px; margin-left: -1px;}
+.mainRight .nav ul li.one{ margin-left: 0;}
+.mainRight .nav ul li.cu{ border-bottom: none; background: #fff;}
+.mainRight .xixiang{ width: 830px; text-align: right; margin-top: 10px; font-size: 12px; color: #333; padding:10px;}
+.mainRight .xixiang em{ width: 18px; height: 18px; border-radius: 50%; background: #44BB00; color: #fff; text-align: center; line-height: 18px; display: inline-block;}
+.mainRight .xixiang a{ font-size: 13px; color: #0000FF;}
+.mainRight .option{ width: 810px; margin-top: 20px; padding:20px; background: #f8f8f8;}
+.mainRight .option input{ display: block; width: 180px; border:2px solid #ccc; background:#f2f2f2; display: block; line-height: 45px; font-size: 14px; text-align: center; float: left; margin-right: 30px;}
+.mainRight .option input.four{ margin-right: 0; margin-bottom: 30px;}
+.mainRight .option input.one{ margin-bottom: 30px;}
+.mainRight .option input.two{ margin-bottom: 30px;}
+.mainRight .option input.three{ margin-bottom: 30px;}
+.mainRight .option input:hover{ background: #fff;}
+.mainRight .option input.className{ color: #FF6633; border:#FF6633 2px solid; background: #fff;}
+
+.next{ width: 978px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -504px; margin-top: 25px; padding:15px;}
+.next a{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

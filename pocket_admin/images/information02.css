@@ -3,10 +3,16 @@
 
 .mainLeft span a{width: 110px; height: 30px; background: #d6134c; color: #fff; border-radius: 3px; display:  block; text-align: center; line-height: 30px; font-size: 14px; font-weight: bold;}
 
-.basicNews{ margin-top: 20px;}
-.basicNews .newsLeft{width: 145px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+
+.main{ overflow:hidden; zoom:1; width:1008px; position:relative; left:50%; margin-left:-504px;margin-top: 30px;}
+.mainRight .nav ul{ overflow: hidden; zoom:1; width: 852px;}
+.mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 282px; background: #f8f8f8; text-align: center;line-height: 40px; margin-left:-1px;}
+.mainRight .nav ul li.one{ margin-left: 0;}
+.mainRight .nav ul li.cu{ border-bottom: none; background: #fff;}
+.basicNews{ margin-top: 20px; overflow: hidden; zoom: 1;}
+.basicNews .newsLeft{width: 105px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .basicNews .newsLeft p{margin-top: 30px;}
-.basicNews .newsRight{ width: 950px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
+.basicNews .newsRight{ width: 680px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
 .basicNews .newsRight form{ font-size: 14px;}
 .basicNews .newsRight form .way{ margin-top: 25px;}
 .basicNews .newsRight form .set{ margin-top: 25px;}
@@ -16,9 +22,9 @@
 .basicNews .newsRight form .sale{ margin-top: 25px;}
 .basicNews .newsRight form .sale input{ border-radius: 3px;}
 .stock{ margin-top: 5px; overflow: hidden; zoom:1;}
-.stockLeft{width: 145px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.stockLeft{width: 105px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .stockLeft p{margin-top: 30px;}
-.stockRight{ width: 950px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
+.stockRight{ width: 680px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
 .stockRight form .commer{ width: 600px; height: 75px; border: 1px solid #ccc; margin-top: -20px; margin-left: 75px; background: #fff;}
 .stockRight form{ display: inline-block;font-size: 15px;}
 .stockRight form .commer em{ width: 100px; border: 1px solid #ccc; height: 30px; display: inline-block; text-align: center; margin-top: 7px; margin-left: 17px; line-height: 30px; margin-bottom: 7px;}
@@ -32,9 +38,9 @@
 .stockRight form .seller{ margin-top: 25px;}
 .stockRight form .seller input{ width: 95px; height: 30px; border: 1px solid #ccc; padding-left: 10px; font-size: 15px; border-radius: 3px;}
 .blurb{ margin-top: 5px; overflow: hidden; zoom:1;}
-.blurbLeft{width: 145px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.blurbLeft{width: 105px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .blurbLeft p{margin-top: 30px;}
-.blurbRight{ width: 950px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
+.blurbRight{ width: 680px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
 .blurbRight form{ font-size: 14px;}
 .blurbRight form em{ color: #c14a46;}
 .blurbRight form .name input{ width: 310px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333; border-radius: 3px; margin-left: 10px;}
@@ -46,9 +52,9 @@
 .blurbRight form .img p{ color: #a8a9ab; margin-top: 10px;}
 
 .stream{ margin-top: 5px; overflow: hidden; zoom:1;}
-.streamLeft{width: 145px; height: 698px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.streamLeft{width: 105px; height: 704px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .streamLeft p{margin-top: 30px;}
-.streamRight{ width: 950px; background: #f8f8f8; padding:30px; color: #333;}
+.streamRight{ width: 680px; background: #f8f8f8; padding:30px; color: #333;}
 .streamRight form{ font-size: 14px;}
 .streamRight form em{  color: #c14a46;}
 .streamRight form .shezhi .one{ width: 120px; height: 30px; padding-left: 10px;border-radius: 3px; border: 1px solid #ccc;}
@@ -73,7 +79,9 @@
 .streamRight form .time .two{ margin-left: 70px;}
 .streamRight form .time .three{ width: 110px; height: 30px; border: 1px solid #ccc; padding-left: 10px; border-radius: 3px; margin-left: 10px;}
 .streamRight form .zhekou{ margin-top: 25px; font-size: 14px;}
-
+.next div{ width: 135px; margin:0 auto;}
+.next{ width: 978px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -504px; margin-top: 25px; padding:15px;}
+.next a{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto;}
 
 
 
