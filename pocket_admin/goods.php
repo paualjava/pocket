@@ -160,7 +160,7 @@ class index extends base
 		$editor             = new FCKeditor('goods_info');
 		$editor->BasePath   = '../../includes/fckeditor/';
 		$editor->ToolbarSet = 'Normal';
-		$editor->Width      = '1160px';
+		$editor->Width      = '965px';
 		$editor->Height     = '550';
 		$editor->Value = $goods['goods_desc'];
 		$FCKeditor     = $editor->CreateHtml();
