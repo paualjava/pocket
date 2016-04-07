@@ -3,9 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><!-- {if $title neq ''}{$title} - 后台管理{else}后台管理{/if}--></title>
-<link type="text/css" rel="stylesheet" href="css/base.css" />
+<link type="text/css" rel="stylesheet" href="css/base.css?1" />
+<!-- {if $nav_left neq 'goods_cat'}-->
 <link type="text/css" rel="stylesheet" href="css/offer.css" />
 <link type="text/css" rel="stylesheet" href="css/other.css" />
+<!-- {/if}-->
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 </head>
 
@@ -15,7 +17,7 @@
         <div class="logo left"><a href="#">麦考林</a></div>
         <div class="headerRgiht right">
             <ul class="headerNav clearfix">
-                <li><a href="">店铺</a></li>
+                <li{if @$nav=='shop'} class="current"{/if}><a href="shop.php?act=overview">店铺</a></li>
                 <li{if @$nav=='goods'} class="current"{/if}><a href="goods.php">商品</a></li>
                 <li{if @$nav=='order'} class="current"{/if}><a href="order.php">订单</a></li>
                 <li><a href="">客户</a></li>

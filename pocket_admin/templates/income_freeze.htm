@@ -1,0 +1,98 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/include.css" />
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="#">订单概况</a></span>
+         <div class="naver">
+            <em>微商城</em>
+            <ul class="leftNav">
+                <li><a href="sheet02.html">所有订单</a></li>
+                <li><a href="weiquan01.html">维权订单</a></li>
+                <li><a href="">代付订单</a></li>
+                <li><a href="">送礼订单</a></li>
+                <li><a href="jiaxing01.html">加星订单</a></li>
+            </ul>
+            <em>客服服务</em>
+            <ul class="leftNav">
+                <li><a href="assess.html">评价管理</a></li>
+            </ul>
+            <em>交易及物流</em>
+            <ul class="leftNav">
+                <li><a href="wuliu01.html">物流工具</a></li>
+                <li><a href="">心愿单</a></li>
+                <li class="cur"><a href="include.html">收入/提现</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+        <div class="cludeHeader clearfix">
+            <ul class="left clearfix">
+<!-- {$menu}-->
+            </ul>
+            <i></i>
+            <div class="right clearfix">
+                <a href="" class="left">保证金</a>
+                <span class="left">|</span>
+                <a href="" class="left">收入提现常见问题</a>
+            </div>
+        </div>
+        <div class="cludeNews">
+        	<div class="surplus">暂无数据</div>
+        </div>
+	</div>
+</div>
+<div class="certif">
+    <div class="inCertif">
+        <div class="certifOne clearfix">
+            <em class="left">认证提醒</em>
+            <i class="right">×</i>
+        </div>
+        <p>您的店铺尚未申请个人/企业认证，为了保障店铺的资金安全，您需要先通过店铺认证后，才可以申请提现。</p>
+        <div class="certifTwo">
+            <a target="_blank" href="http://www.baidu.com">立即认证</a><span>取消</span>
+        </div>
+    </div>
+</div>
+<div class="inCertifTwo">
+    <div class="inCertif">
+        <div class="certifOne clearfix">
+            <em class="left">认证提醒</em>
+            <i class="right">×</i>
+        </div>
+        <p>请在新窗口中完成店铺认证提交。</p>
+        <div class="certifTwo">
+            <span>已经提交认证</span><a target="_blank" href="http://www.baidu.com">未提交，重试</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.cludeNews .center .last span').click(function(event) {
+            $('.certif').css('display','block')
+        });
+        $('.certifOne i,.certifTwo span').click(function(event) {
+            $('.certif').css('display','none')
+        });
+        $('.certif .certifTwo a').click(function(event) {
+            $('.inCertifTwo').css('display','block')
+            $('.certif').css('display','none');
+        });
+        $('.inCertifTwo .certifTwo span').click(function(event) {
+            $('.inCertifTwo').css('display','none')
+            $('.certif').css('display','block');
+        });
+        $('.certifOne i').click(function(event) {
+            $('.inCertifTwo').css('display','none')
+        });
+        //如果已经认证了
+        // if(){
+        //     $('.cludeNews .center .last a.tx').css('display','inline-block')
+        //     $('.cludeNews .center .last span').css('display','none')
+        // }else{
+        //     $('.cludeNews .center .last a.tx').css('display','none')
+        //     $('.cludeNews .center .last span').css('display','inline-block')
+        // }
+    });
+</script>
+</body>
+</html>

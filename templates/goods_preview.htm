@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title>预览</title>
+<link type="text/css" rel="stylesheet" href="resource/css/base.css" />
+<link type="text/css" rel="stylesheet" href="resource/css/yulan.css" />
+<script type="text/javascript" src="resource/js/jquery-1.11.2.min.js"></script>
+<style type="text/css">
+.change img{width:360px;}
+</style>
+</head>
+
+<body>
+<div class="ylHeader">
+	<div class="inHeader clearfix">
+		<div class="left">
+			<ul class="clearfix">
+				<li>预览:</li>
+				<li id="two" class="current"><a href="goods.php?act=preview&pid=6">iPhone版</a></li>
+				<li id="two"><a href="goods.php?act=preview&pid=6&type=2">三星Note3版</a></li>
+			</ul>
+		</div>
+		<input type="button" value="重新编辑" class="right" />
+	</div>
+	<div class="dianpu clearfix">
+		<a href="#" class="left clearfix"><img src="" alt="" /><span>11111</span></a><a href="#" class="right">我的记录</a>
+	</div>
+	<div class="change">
+		<div class="inChange">
+			<div class="changelb">
+				<ul class="clearfix">
+					<li><img src="images/change01.png" height="100%" width="100%" alt="" /></li>
+					<li><img src="images/change02.png" height="100%" width="100%" alt="" /></li>
+					<li><img src="images/change03.png" height="100%" width="100%" alt="" /></li>
+				</ul>
+				<ol class="clearfix">
+					<li class="cur"></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>
+			<p class="sayWay">实物商品(购买是需填写收货地址，测试商品，不发货，不退款)</p>
+			<p class="price">￥<strong>0.01</strong></p>
+			<div class="lost">
+				<p class="lost01">剩余:<em>9999999</em></p>
+				<p class="lost02">运费:<i>免运费</i></p>
+			</div>
+			<div class="changeName">
+				<div class="clearfix">
+					<em class="left clearfix"><img src="images/smail_03.png" height="16" width="18" alt="" /><i>11111</i></em>
+					<a class="right" href="#">进入店铺</a>
+				</div>
+				<b>担保交易</b>
+			</div>
+			<div class="textarea">
+				<p>【特别提醒】</p>
+				<p>1.测试商品，不发货，不退款。</p>
+				<p>2.该商品可直接修改价格上架销售，或删除。</p>
+				<p>{$goods_info.goods_desc}</p>
+			</div>
+			
+			<p style="width:100%; text-align:center; font-size:14px; margin-top:20px;">更多精选商品</p>
+			<div class="lieList">
+				<ul class="clearfix">
+					<li>
+						<img src="images/change01.png" height="100%" width="100%" alt="" />
+						<p>实物商品(购买是需填写收货地址，测试商品，不发货，不退款)</p>
+						<p>￥<strong>0.01</strong></p>
+					</li>
+					<li>
+						<img src="images/change01.png" height="100%" width="100%" alt="" />
+						<p>实物商品(购买是需填写收货地址，测试商品，不发货，不退款)</p>
+						<p>￥<strong>0.01</strong></p>
+					</li>
+					<li>
+						<img src="images/change01.png" height="100%" width="100%" alt="" />
+						<p>实物商品(购买是需填写收货地址，测试商品，不发货，不退款)</p>
+						<p>￥<strong>0.01</strong></p>
+					</li>
+					<li>
+						<img src="images/change01.png" height="100%" width="100%" alt="" />
+						<p>实物商品(购买是需填写收货地址，测试商品，不发货，不退款)</p>
+						<p>￥<strong>0.01</strong></p>
+					</li>
+				</ul>
+			</div>
+			<a class="join" href="#">进入店铺</a>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<div class="inFooter claerfix">
+		<span class="one">我想买</span><span class="two">我要送人</span><span class="three">加入购物车</span>
+	</div>
+</div>
+<div class="ewm">
+	<em>手机扫码购买</em>
+	<p>微信"扫一扫"立即购买</p>
+	<img src="" alt="" />
+</div>
+<div class="lxmj">
+	<em>联系卖家</em>
+</div>
+<div class="joinGwc">
+	<div class="inJoin">
+    	<ul class="clearfix">
+        	<li class="one left clearfix"><img /><p>实物商品（购买时需填写收货地址，测试商品，不发货，不退款）</p><strong>￥1:00</strong></li>
+            <li class="two right">×</li>
+        </ul>
+        <div class="add clearfix">
+        	<span class="left">数量：</span>
+            <div class="right">
+            	剩余：9999 &nbsp;&nbsp;<input type="button" value="-" id="jian" /><input type="text" value="1" class="tet" /><input type="button" value="+" id="jia" />
+            </div>
+        </div>
+       	<div class="button"><button>加入购物车</button></div>
+    </div>
+</div>
+<div class="tankuang03">
+	<div>预览不支持进行购买<br />
+实际效果请在手机上进行。</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		var num = 0;
+		var num1 = 0;
+		var timer = 0;
+		$('.changelb ul li:first()').clone().appendTo('.changelb ul')
+		function autoplay(){
+			num++;
+			if(num>3){
+				$('.changelb ul').css('left',0)
+				num=1;
+			}
+			$('.changelb ul').stop().animate({'left':-num*$('.changelb ul li').width()}, 1000);
+			num1++;
+			if(num1 > 2){
+				num1 = 0;
+			}
+			$('.changelb ol li').eq(num1).addClass('cur').siblings().removeClass('cur')
+		}
+		timer=setInterval(autoplay,3000)
+		$('.changelb ul li').hover(function() {
+			clearInterval(timer)
+			timer = null;
+		}, function() {
+			clearInterval(timer)
+			timer=setInterval(autoplay,3000)
+		});
+		$('.changelb ol li').click(function(event) {
+			num = $(this).index();
+			num1 = $(this).index();
+			$('.changelb ul').stop().animate({'left':-num*$('.changelb ul li').width()}, 1000);
+			$('.changelb ol li').eq(num1).addClass('cur').siblings().removeClass('cur')
+		});
+		$('.inFooter .three').click(function(){
+			$('.tankuang03').css('display','block');
+			//$('body').css('overflow-y','hidden')
+			})
+		$('.tankuang03').click(function(){
+			$('.tankuang03').css('display','none');
+			//$('body').css('overflow-y','visible')
+			})	
+	});
+</script>
+</body>
+</html>

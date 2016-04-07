@@ -1,0 +1,75 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/offer01.css" />
+<div class="main">
+    <div class="offerMain clearfix">
+    	<div class="mainLeft left">
+         <span><a href="information01.html">发布商品</a></span>
+         <div class="naver">
+            <em>商品管理</em>
+            <ul class="leftNav">
+                <li><a href="offer.html">出售中的商品</a></li>
+                <li><a href="page04.html">已售罄的商品</a></li>
+                <li><a href="page03.html">仓库中的商品</a></li>
+                <li class="cur"><a href="">商品分组</a></li>
+            </ul>
+         </div>    
+        </div>
+        <div class="mainRight right">  
+            <div class="offer01Header clearfix">
+                <ul class="left clearfix">
+                    <li class="one"><a href="goods_cat.php?act=add">新建商品分组</a></li>
+                    <li class="two"><a href="javascript:void(0)">商品分组介绍及使用教程</a></li>
+                </ul>
+                <ul class="right">
+                    <li class="one"><input type="text" placeholder="搜索" /></li>
+                    <li class="two"><input type="button" value="搜索" /></li>
+                </ul>
+            </div>
+            <div class="sur">
+                <ul class="surName claerfix">
+                    <li class="one">分组名称</li>
+                    <li class="two">商品数</li>
+                    <li class="three">创建时间↓</li>
+                    <li class="four">操作</li>
+                </ul>
+            </div>
+            <div class="inlie" id="inlie">
+            	{foreach from=$info item=info}
+<div class="thing clearfix" id="thing">
+                    <ul class="surContent clearfix" id="input">
+                        <li class="one"><input /><!-- {$info.cat_name} --><br /><em>店内所有商品，新发布的商品排在前面</em></li>
+                        <li class="two">57</li>
+                        <li class="three">&nbsp;<!-- {$info.time} --></li>
+                        <li class="four"><a href="#">编辑</a>-<em class="del">删除</em>-<a href="#">链接</a></li>
+                    </ul>
+                    <span class="aySure">
+                        <em>确定删除？</em><em class="sure">确定</em><em class="noSure">取消</em>
+                    </span>
+                </div>
+{/foreach}                
+
+                
+            </div>
+            <p class="curs">共<em id="totle">2</em>条，每页20条&nbsp;&nbsp;<i>上一页</i>&nbsp;&nbsp;<i>下一页</i>&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;<i>确定</i></p>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+    var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
+    document.getElementById('totle').innerHTML=inplen;
+	jQuery(document).ready(function($) {
+     $('.del').click(function(event) {
+         $('.aySure').eq($(this).index('.del')).css('display','block')
+     }); 
+     $('.noSure').click(function(event) {
+         $('.aySure').eq($(this).index('.noSure')).css('display','none')
+     });
+     $('.sure').click(function(event) {
+          $('#thing').eq($(this).index('.sure')).remove();
+            var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
+            document.getElementById('totle').innerHTML=inplen;
+     });  
+    });
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
                 <li{if $nav_left eq "is_show"} class="cur"{/if}><a href="goods.php?type=is_show">出售中的商品</a></li>
                 <li{if $nav_left eq "sell_out"} class="cur"{/if}><a href="goods.php?type=sell_out">已售罄的商品</a></li>
                 <li{if $nav_left eq "is_show_no"} class="cur"{/if}><a href="goods.php?type=is_show_no">未审核的商品</a></li>
-                <li><a href="offer01.html">商品分组</a></li>
+                <li{if $nav_left eq "goods_cat"} class="cur"{/if}><a href="goods_cat.php">商品分组</a></li>
             </ul>
          </div>
         </div>
@@ -82,8 +82,11 @@
                         <li class="ten" goods_id="<!-- {$info.goods_info.goods_id} -->"><em>隐藏</em></li>
                         <li class="ten1" style="display:none"><em>显示</em></li>
                         {/if}
-                        <li class="tenOne"><img src="{$template_dir}images/yes.gif" /></li>
-                        <li class="tenOne1"><img src="{$template_dir}images/no.gif" /></li>
+                        {if $info.goods_info.is_on_sale eq 1}
+                        <li class="tenOne" style="display:block;"><img src="{$template_dir}images/yes.gif" /></li>
+                        {else}
+                        <li class="tenOne1" style="display:block;"><img src="{$template_dir}images/no.gif" /></li>
+                        {/if}
                     </ul>
                     <span class="aySure">
                         <em>确定删除？</em><em class="sure" goods_id="<!-- {$info.goods_info.goods_id} -->">确定</em><em class="noSure">取消</em>
@@ -113,8 +116,6 @@
         </div>
 	</div>
 </div>
-</body>
-</html>
 <script type="text/javascript">
 	function check(){
         var checkbox=document.getElementById('click')
@@ -218,3 +219,5 @@
 
 </script>
 
+</body>
+</html>

@@ -1,0 +1,54 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/offer01.css" />
+<div class="main">
+    <div class="offerMain clearfix">
+    	<div class="mainLeft left">
+         <span><a href="information01.html">发布商品</a></span>
+         <div class="naver">
+            <em>商品管理</em>
+            <ul class="leftNav">
+                <li><a href="offer.html">出售中的商品</a></li>
+                <li><a href="page04.html">已售罄的商品</a></li>
+                <li><a href="page03.html">仓库中的商品</a></li>
+                <li class="cur"><a href="">商品分组</a></li>
+            </ul>
+         </div>    
+        </div>
+        <div class="mainRight right">
+            <div class="fzName">*分组名称<input type="text" placeholder="商品分组不能少于一个字或者多余50个字" class="fenzu" name="cat_name" /><input type="checkbox" class="check" /><em>页面上显示商品分组名称</em></div>
+           <div class="brief" style="margin-top:40px;">
+                <p>商品标签简介</p>
+                <textarea name="cat_desc" style=" width: 920px;border-radius: 3px;background: #fff;border: 1px #ccc solid;margin-top: 10px; resize: none;padding: 10px;"></textarea>
+                </div>
+            <span class="keep"><input type="button" value="保存" class="button_save" /></span>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function ()
+{
+	$(".button_save").bind("click",function ()
+	{
+		cat_name=$("input[name='cat_name']").val();
+		cat_desc=$("textarea[name='cat_desc']").val();
+		if(cat_name=="")
+		{
+			alert("请输入分组名称");
+			return false;
+		}
+		data={cat_name:cat_name,cat_desc:cat_desc}
+		$.post("goods_cat.php?act=ajax_add",data,function (res)
+		{
+			if(res.error==1)
+			{
+				alert(res.info);
+				return false;
+			}
+			else
+			location.href='goods_cat.php';
+		},"json")
+	})
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/sheet01.css" />
+<script type="text/javascript" src="js/showdate.js"></script>
+<div class="main">
+	<div class="mainLeft left">
+    	<span class="currt"><a href="order.php?act=overview">订单概况</a></span>
+         <div class="naver">
+            <em>微商城</em>
+            <ul class="leftNav">
+                <li><a href="order.php">所有订单</a></li>
+                <li><a href="">维权订单</a></li>
+                <li><a href="">代付订单</a></li>
+                <li><a href="">送礼订单</a></li>
+                <li><a href="">加星订单</a></li>
+            </ul>
+            <em>客服服务</em>
+            <ul class="leftNav">
+                <li><a href="">评价管理</a></li>
+            </ul>
+            <em>交易及物流</em>
+            <ul class="leftNav">
+                <li><a href="">物流工具</a></li>
+                <li><a href="">心愿单</a></li>
+                <li><a href="income.php">收入/提现</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="contentText01">
+        	<ul>
+            	<li><a href="#">0</a><p>7天下单笔数</p></li>
+                <li><a href="#">0</a><p>待付款</p></li>
+                <li><a href="#">0</a><p>代发货</p></li>
+                <li><a href="#">0</a><p>积压维权</p></li>
+                <li class="five"><a href="#">0</a><p>7天收入-<a href="">提现</a></p></li>
+            </ul>
+        </div>
+		<div class="contentText02"><strong class="seven">7天订单趋势</strong></div>
+		<div class="contentText03">
+			<div class="before left">
+				<ul>
+					<li><a href="#">0</a><p>昨日下单笔数</p></li>
+					<li><a href="#">0</a><p>昨日付款笔数</p></li>
+				</ul>
+			</div>
+			<div class="after right">
+				<div class="top"><img src="{$path_dir}images/page1_03.jpg" height="40" width="670" alt="" /></div>
+				<div class="center">
+					<ul class="left">
+						<li>100</li>
+						<li>80</li>
+						<li>40</li>
+						<li>20</li>
+						<li>0</li>
+					</ul>
+					<ol class="left">
+						<li class="li">&nbsp;—————————————————————————————————————————————</li>
+						<li class="li">&nbsp;—————————————————————————————————————————————</li>
+						<li class="li">&nbsp;—————————————————————————————————————————————</li>
+						<li class="li">&nbsp;—————————————————————————————————————————————</li>
+						<li class="li five">&nbsp;</li>
+					</ol>
+				</div>
+				<div class="data">
+						<i>2016-02-17</i>
+						<i>2016-02-18</i>
+						<i>2016-02-19</i>
+						<i>2016-02-20</i>
+						<i>2016-02-21</i>
+						<i>2016-02-22</i>
+						<i>2016-02-23</i>
+				</div>
+			</div>
+		</div>
+		<div class="contentText04">
+			<div class="dress">
+				<span>筛选日期：</span><input type="text" value=""  class="input01" id="time" onclick="return Calendar('time');" class="text_time" /><span>至</span><input type="text" value=""  class="input01" id="time2" onclick="return Calendar('time2');" class="text_time" /><!--<span class="check">快速查看：</span><input type="text" value="最近7天" /><span class="check">最近30天</span>-->
+			</div>
+			<!-- <div style="width:800px; text-align:center; h"></div> -->
+			<button>筛选</button>
+		</div>
+		<div class="contentText05">
+			<strong class="seven left">订单概况</strong>
+			<span class="right">?</span>
+		</div>
+		<div class="contentText06">
+			<div class="visitor">
+				<div class="left">
+					<p>访客数</p><a href="#">0</a>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<ul>
+						<li><p>下单人数</p><a href="#">0</a></li>
+						<li><p>下单笔数</p><a href="#">0</a></li>
+						<li><p>下单金额</p><a href="#">0</a></li>
+					</ul>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="pay">
+				<div class="left">
+					<ul>
+						<li><p>付款人数</p><a href="#">0</a></li>
+						<li><p>付款笔数</p><a href="#">0</a></li>
+						<li><p>商品销量</p><a href="#">0</a></li>
+						<li><p>付款金额</p><a href="#">0.00</a></li>
+						<li><p>客单价</p><a href="#">0.00</a></li>
+					</ul>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="rates01">
+				<img src="{$path_dir}images/page1_05.png" height="57" width="52" alt="" />
+				<div>
+					<p>下单转化率</p>
+					<a href="#">0.00%</a>
+				</div>
+			</div>
+			<div class="rates02">
+				<img src="{$path_dir}images/page1_06.png" height="57" width="52" alt="" />
+				<div>
+					<p>付款转化率</p>
+					<a href="#">0.00%</a>
+				</div>
+			</div>
+			<div class="rates03">
+				<img src="{$path_dir}images/page1_07.png" height="177" width="166" alt="" />
+				<div>
+					<p>全店转化率</p>
+					<a href="#">0.00%</a>
+				</div>
+			</div>
+		</div>
+		<div class="contentText05">
+			<strong class="seven left">交易趋势</strong>
+			<span class="right">?</span>
+		</div>
+		<div class="contentText07">
+			<div><img src="{$path_dir}images/page1_02.png" height="43" width="850" alt="" /></div>
+			<div class="center">
+				<ul class="left">
+					<li>100</li>
+					<li>80</li>
+					<li>40</li>
+					<li>20</li>
+					<li>0</li>
+				</ul>
+				<ol class="left">
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+				</ol>
+			</div>
+			<div class="data">
+				<i>2016-02-17</i>
+				<i>2016-02-18</i>
+				<i>2016-02-19</i>
+				<i>2016-02-20</i>
+				<i>2016-02-21</i>
+				<i>2016-02-22</i>
+				<i class="seven">2016-02-23</i>
+			</div>
+		</div>
+		<div class="contentText05">
+			<strong class="seven left">转化趋势</strong>
+			<span class="right">?</span>
+		</div>
+		<div class="contentText07">
+			<div><img src="{$path_dir}images/page1_03.png" height="44" width="850" alt="" /></div>
+			<div class="center">
+				<ul class="left">
+					<li>100</li>
+					<li>80</li>
+					<li>40</li>
+					<li>20</li>
+					<li>0</li>
+				</ul>
+				<ol class="left">
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+					<li class="li"></li>
+				</ol>
+			</div>
+			<div class="data">
+				<i>2016-02-17</i>
+				<i>2016-02-18</i>
+				<i>2016-02-19</i>
+				<i>2016-02-20</i>
+				<i>2016-02-21</i>
+				<i>2016-02-22</i>
+				<i class="seven">2016-02-23</i>
+			</div>
+		</div>
+		<div class="contentText05">
+			<strong class="seven left">粉丝标签成交分析-<i>导出</i></strong>
+			<span class="right">?</span>
+		</div>
+		<div class="contentText08">
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

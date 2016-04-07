@@ -1,7 +1,7 @@
 <?php
 require(dirname(dirname(__FILE__))."/includes/common.php");
 require(dirname(dirname(__FILE__))."/includes/common_admin.php");
-class index extends base
+class goods extends base
 {
 	/*
 	1.放一个保存按钮，保存的判断商品名称存在不存在，保存的时候，标题和内容存到一个新表里 pocket_goods_desc	 id,goods_id,desc,
@@ -26,7 +26,7 @@ class index extends base
 	}
 	function main()
 	{
-		$sql = "SELECT goods_id, goods_name, goods_type, goods_sn, style_sn, product_sn, shop_price,market_price, integral_price, is_on_sale, is_best, is_new, is_hot, sort_order, goods_number, integral FROM ". $GLOBALS['ecs']->table('goods')." AS g WHERE  is_delete='0'  AND is_real='1' and is_pocket=1 and is_on_sale=1 ORDER BY goods_id DESC";
+		$sql = "SELECT goods_id, goods_name, goods_type, goods_sn, style_sn, product_sn, shop_price,market_price, integral_price, is_on_sale, is_best, is_new, is_hot, sort_order, goods_number, integral FROM ". $GLOBALS['ecs']->table('goods')." AS g WHERE  is_delete='0'  AND is_real='1' and is_pocket=1 ORDER BY goods_id DESC";
 		$info = $GLOBALS['db']->getAll($sql);
 		foreach ($info as $key => $val)
 		{
@@ -43,7 +43,7 @@ class index extends base
 				"sort_order"=>0,
 				"goods_number"=>$val['goods_number'],
 				"is_on_sale"=>$val['is_on_sale'],
-				"is_show"=>1,
+				"is_show"=>0,
 				"postdate"=>gmtime()
 				);
 				$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data);
@@ -78,7 +78,7 @@ class index extends base
 			$GLOBALS['smarty']->assign('page_bar',$page->myde_write());
 		}
 		$where=$this->get_search_where();
-		$sql = "select * from ". $GLOBALS['ecs']->table($this->table_name_pocket_goods)." ".$where." order by sort_order desc, id desc LIMIT " . ($curpage - 1) * $this->page_size . ",$this->page_size";
+		$sql = "select * from ". $GLOBALS['ecs']->table($this->table_name_pocket_goods)." ".$where." order by sort_order desc, pid desc LIMIT " . ($curpage - 1) * $this->page_size . ",$this->page_size";
 		//分页
 		$info = $GLOBALS['db']->getAll($sql);
 		foreach($info as $key=>$row)
@@ -106,7 +106,7 @@ class index extends base
 			{
 				if(preg_match("/^\d+$/is",$keyword))
 				return "where goods_id='$keyword' or goods_name='$keyword'";
-				else 
+				else
 				{
 					return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
 				}
@@ -128,13 +128,13 @@ class index extends base
 			{
 				if(preg_match("/^\d+$/is",$keyword))
 				return "where goods_id='$keyword' or goods_name='$keyword'";
-				else 
+				else
 				{
 					return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
 				}
 			}
 		}
-		
+
 	}
 	function get_title()
 	{
@@ -153,7 +153,7 @@ class index extends base
 		$goods = get_goods_info($goods_id);
 		if(empty($goods))
 		$goods = parent::get_goods_info($goods_id);
-		$info[$key]['goods_info']=$goods;
+		$goods_info=$goods;
 		/**编辑器**/
 		require(ROOT_PATH . 'includes/fckeditor/fckeditor.php');
 
@@ -165,7 +165,7 @@ class index extends base
 		$editor->Value = $goods['goods_desc'];
 		$FCKeditor     = $editor->CreateHtml();
 		$GLOBALS['smarty']->assign('FCKeditor', $FCKeditor);
-		$GLOBALS['smarty']->assign('info', $info);
+		$GLOBALS['smarty']->assign('goods_info', $goods_info);
 		$GLOBALS['smarty']->display('goods_edit.htm');
 	}
 	/**
@@ -238,12 +238,31 @@ class index extends base
 		$data=array("is_show"=>$is_show);
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data,'',"goods_id=".$goods_id." limit 1");
 	}
-
+	/**
+	 * 商品预览保存
+	 *
+	 */
+	function ajax_save_preview()
+	{
+		$data = array(
+		'goods_id'        =>trim($_POST['goods_id']),//产品编号
+		'goods_name'        =>trim($_POST['goods_name']),//产品名称
+		'goods_desc'              =>trim($_POST['goods_info']),//姓名
+		'time'              =>gmtime()//时间
+		);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('pocket_goods_preview'),$data);
+		$insert_id=$GLOBALS['db']->insert_id();
+		if($insert_id)
+		$array=array("error"=>0,"pid"=>$insert_id);
+		else 
+		$array=array("error"=>1,"info"=>"操作失败");
+		echo json_encode($array);die();
+	}
 }
 $act=(empty($_REQUEST['act'])) ? "main" : $_REQUEST['act'];
-$index = new index();
-$sign=@is_callable(array($index,$act));
+$goods = new goods();
+$sign=@is_callable(array($goods,$act));
 if($sign)
-$index->$act();
+$goods->$act();
 else
 ecs_header("Location:http://m.wm18.com/\n");

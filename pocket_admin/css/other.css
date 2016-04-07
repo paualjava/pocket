@@ -14,3 +14,9 @@
 .thing li.tenOne img{ cursor:default;}
 .thing li.tenOne{padding-top:4px;}
 body{overflow:scroll;overflow-x:hidden;}
+.thing li.tenOne{display:none;}
+
+.thing li.tenOne1 img{cursor:text}
+.thing li.tenOne img{cursor:text}
+.next3 a{cursor:pointer}
+

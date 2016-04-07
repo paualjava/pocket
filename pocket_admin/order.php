@@ -8,9 +8,12 @@ class index extends base
 	private $type = ''; //类型
 	function __construct()
 	{
+		global $_LANG;
+		$GLOBALS['smarty']->assign('lang', $_LANG);
 		$this->type=$_GET['type'];
 		$GLOBALS['smarty']->assign('nav_order',$this->type);
 		$GLOBALS['smarty']->assign('nav', "order");
+		$GLOBALS['smarty']->assign('title', "订单概况");
 	}
 	function main()
 	{
@@ -71,7 +74,21 @@ class index extends base
 		$order_row = parent::table_get_row("order_info",$order_id,"order_id");
 		return $order_row;
 	}
+	function info()
+	{
+		$order_id=$_GET['order_id'];
+		$order_info=$this->order_info($order_id);
+		$GLOBALS['smarty']->assign('title', "订单详情");
+		$GLOBALS['smarty']->display('order_info.htm');
+	}
+	function overview()
+	{
+		$GLOBALS['smarty']->assign('title', "订单概述");
+		$GLOBALS['smarty']->display('order_overview.htm');
+	}
+	
 }
+include(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/admin/' . basename(PHP_SELF));
 $act=(empty($_REQUEST['act'])) ? "main" : $_REQUEST['act'];
 $index = new index();
 $sign=@is_callable(array($index,$act));

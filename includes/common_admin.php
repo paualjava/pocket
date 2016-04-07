@@ -10,3 +10,5 @@ if ((DEBUG_MODE & 2) == 2)
 {
     $smarty->force_compile = true;
 }
+$GLOBALS['smarty']->assign('path_dir',dirname(PHP_SELF)."/");
+$GLOBALS['smarty']->assign('path_dir_head',dirname(dirname(PHP_SELF))."/");
