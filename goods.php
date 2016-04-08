@@ -26,14 +26,57 @@ class goods extends base
 		$type=$_GET['type'];
 		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_goods_preview')."  where pid='".$pid."' limit 0,1";
 		$info = $GLOBALS['db']->getRow($sql);
-		var_dump($info);die();
 		if($info)
 		{
 			$GLOBALS['smarty']->assign('goods_info', $info);
 			$GLOBALS['smarty']->assign('pid', $pid);
 			//图片
-			$sql = "select img_url from ". $GLOBALS['ecs']->table('goods_gallery')."  where goods_id='".$pid."' limit 0,1";
-			$info = $GLOBALS['db']->getRow($sql);
+			$sql = "select img_url from ". $GLOBALS['ecs']->table('goods_gallery')."  where goods_id='".$info['goods_id']."' limit 0,5";
+			$pic_list = $GLOBALS['db']->getAll($sql);
+			$GLOBALS['smarty']->assign('pic_list', $pic_list);
+			//更多商品
+			$sql = "select goods_id,goods_name,shop_price,goods_img from ". $GLOBALS['ecs']->table('pocket_goods')."  where goods_id!='".$info['goods_id']."' and is_show=1 and is_on_sale=1 order by rand() limit 0,4";
+			$more_list = $GLOBALS['db']->getAll($sql);
+			foreach($more_list as $key=>$row)
+			{
+				$goods = parent::get_goods_info($row['goods_id']);
+				$more_list[$key]['goods_info']=$goods;
+			}
+
+			$GLOBALS['smarty']->assign('more_list', $more_list);
+			if($type!=2)
+			$GLOBALS['smarty']->display('goods_preview.htm');
+			else
+			$GLOBALS['smarty']->display('goods_preview2.htm');
+		}
+		else
+		ecs_header("Location:http://m.wm18.com/\n");
+	}
+	function preview_qrcode()
+	{
+		//url=goods.php?act=detail&goods_id=2323
+		$pid=$_GET['pid'];
+		$type=$_GET['type'];
+		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_goods_preview')."  where pid='".$pid."' limit 0,1";
+		$info = $GLOBALS['db']->getRow($sql);
+		if($info)
+		{
+			$GLOBALS['smarty']->assign('goods_info', $info);
+			$GLOBALS['smarty']->assign('pid', $pid);
+			//图片
+			$sql = "select img_url from ". $GLOBALS['ecs']->table('goods_gallery')."  where goods_id='".$info['goods_id']."' limit 0,5";
+			$pic_list = $GLOBALS['db']->getAll($sql);
+			$GLOBALS['smarty']->assign('pic_list', $pic_list);
+			//更多商品
+			$sql = "select goods_id,goods_name,shop_price,goods_img from ". $GLOBALS['ecs']->table('pocket_goods')."  where goods_id!='".$info['goods_id']."' and is_show=1 and is_on_sale=1 order by rand() limit 0,4";
+			$more_list = $GLOBALS['db']->getAll($sql);
+			foreach($more_list as $key=>$row)
+			{
+				$goods = parent::get_goods_info($row['goods_id']);
+				$more_list[$key]['goods_info']=$goods;
+			}
+
+			$GLOBALS['smarty']->assign('more_list', $more_list);
 			if($type!=2)
 			$GLOBALS['smarty']->display('goods_preview.htm');
 			else

@@ -2,15 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 <title>预览</title>
 <link type="text/css" rel="stylesheet" href="resource/css/base.css" />
-<link type="text/css" rel="stylesheet" href="resource/css/yulan.css" />
+<link type="text/css" rel="stylesheet" href="resource/css/yulan01.css" />
 <script type="text/javascript" src="resource/js/jquery-1.11.2.min.js"></script>
 <style type="text/css">
-.textarea img{width:360px;}
-.lieList ul li p{height:36px;}
-.slide_pic img{width:360px;}
+.textarea img{width:450px;}
+.lieList ul li p{height:45px;}
+.slide_pic img{width:450px;}
 </style>
 </head>
 
@@ -20,8 +19,8 @@
 		<div class="left">
 			<ul class="clearfix">
 				<li>预览:</li>
-				<li id="two" class="current"><a href="goods.php?act=preview&pid=6">iPhone版</a></li>
-				<li id="two"><a href="goods.php?act=preview&pid=6&type=2">三星Note3版</a></li>
+				<li id="two"><a href="goods.php?act=preview&pid=6">iPhone版</a></li>
+				<li id="two" class="current"><a href="goods.php?act=preview&pid=6&type=2">三星Note3版</a></li>
 			</ul>
 		</div>
 		<input type="button" value="重新编辑" class="right" />
@@ -35,7 +34,7 @@
 				<ul class="clearfix slide_pic">
                 {foreach from=$pic_list item=info}
                 
-					<li><img src="http://www.wm18.com/{$info.img_url}" height="360" alt="" /></li>
+					<li><img src="http://www.wm18.com/{$info.img_url}" height="450" alt="" /></li>
                {/foreach}
 				</ul>
 				<ol class="clearfix">
@@ -76,7 +75,7 @@
                {/foreach}			
 				</ul>
 			</div>
-			<a class="join" href="#">进入店铺</a>
+			<a class="join" href="#">进入店铺</a><br/>
 		</div>
 	</div>
 </div>
@@ -93,7 +92,7 @@
 <div class="lxmj">
 	<em>联系卖家</em>
 </div>
-<div class="joinGwc">
+<!--<div class="joinGwc">
 	<div class="inJoin">
     	<ul class="clearfix">
         	<li class="one left clearfix"><img /><p>实物商品（购买时需填写收货地址，测试商品，不发货，不退款）</p><strong>￥1:00</strong></li>
@@ -107,7 +106,7 @@
         </div>
        	<div class="button"><button>加入购物车</button></div>
     </div>
-</div>
+</div>-->
 <div class="tankuang03">
 	<div>预览不支持进行购买<br />
 实际效果请在手机上进行。</div>
@@ -149,10 +148,10 @@
 			$('.tankuang03').css('display','block');
 			//$('body').css('overflow-y','hidden')
 			})
-		$('.tankuang03').click(function(){
+/*		$('.tankuang03').click(function(){
 			$('.tankuang03').css('display','none');
 			//$('body').css('overflow-y','visible')
-			})	
+			})	*/
 	});
 </script>
 </body>
