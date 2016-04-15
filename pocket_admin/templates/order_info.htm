@@ -44,13 +44,14 @@
                         <span class="left">订单信息</span><em class="right">担保交易</em>
                     </div>
                     <div class="sellNews">
-                        <span>订单编号：</span><em>E20160225170029049757492</em><a href="#">更多</a><br />
+                        <span>订单编号：</span><em>{$order.order_sn}</em><!--<a href="#">更多</a>--><br />
                         <span>付款方式：</span><em>微信安全支付-代销</em><br />
-                        <span>买家：</span><em>*****</em><br />
+                        <span>买家：</span><em>{$order.consignee|escape}</em><br />
                     </div>
                     <div class="liveWay">
-                        <span>配送方式：</span><em>快递配送</em><br />
-                        <span>收货信息：</span><em>上海市 上海市 徐家汇 宜山路 ***号*号楼**，***，11548655874</em><br /><!--<a href="#">[复制]</a><br />-->
+                        <span>配送方式：</span><em>{$order.shipping_name}</em><br />
+                        <span>收货信息：</span><em>[{$order.region}] {$order.address|escape}，{$order.tel} {if $order.tel neq $order.mobile}{$order.mobile}{/if}</em><br /><!--<a href="#">[复制]</a><br />-->
+                        
                         <span>买家留言：</span><em>*****</em><br />
                     </div>
                     <div class="ewm">
@@ -124,7 +125,36 @@
                 </div>
                 <div class="amount clearfix">
                     <span class="left">使用优惠券：<i>秘密花园鲜活水礼券</i></span>
-                    <div class="right"><p>商品总金额:￥69-折扣:￥0+发票税额:￥0+配送费用:￥0+支付费用:￥0</p><p>=订单总金额:<strong>￥69</strong></p><p>-已付款金额:￥3-使用余额:￥0-使用积分:0-使用红包:￥66</p><p>=应付款金额:<strong>￥0</strong></p></div>
+                    <div class="right">
+                    
+                    
+<table width="100%" cellpadding="3" cellspacing="1">
+ 
+  <tr>
+    <td><div align="right" style="font-weight:normal;">{$lang.label_goods_amount}<strong>{$order.formated_goods_amount}</strong> - {$lang.label_discount}<strong>{$order.formated_discount}</strong> + {$lang.label_tax}<strong>{$order.formated_tax}</strong> + {$lang.label_shipping_fee}<strong>{$order.formated_shipping_fee}</strong> + {$lang.label_insure_fee}<strong>{$order.formated_insure_fee}</strong> + {$lang.label_pay_fee}<strong>{$order.formated_pay_fee}</strong> + {$lang.label_pack_fee}<strong>{$order.formated_pack_fee}</strong> + {$lang.label_card_fee}<strong>{$order.formated_card_fee}</strong></div></td>
+  <tr>
+    <td><div align="right"> = {$lang.label_order_amount}<strong>{$order.formated_total_fee}</strong></div></td>
+  </tr>
+  <tr>
+    <td><div align="right"> - {$lang.label_money_paid}<strong>{$order.formated_money_paid}</strong> - {$lang.label_surplus} <strong>{$order.formated_surplus}</strong> - {$lang.label_integral} <strong>{$order.formated_integral}</strong> - {$lang.label_bonus} <strong>{$order.formated_bonus}</strong> {if $order.mbonus_fee > 0}
+        - {$order.mbonus_name} <strong>{$order.mbonus_fee}</strong> {/if} </div></td>
+  <tr>
+    <td><div align="right"> = {if $order.order_amount >= 0}{$lang.label_money_dues}<strong>{$order.formated_order_amount}</strong> {else}{$lang.label_money_refund}<strong>{$order.formated_money_refund}</strong>
+        <input name="refund" type="button" value="{$lang.refund}" onClick="location.href='order.php?act=process&func=load_refund&anonymous={if $order.user_id <= 0}1{else}0{/if}&order_id={$order.order_id}&refund_amount={$order.money_refund}'" />
+        {/if}{if $order.extension_code eq "group_buy"}<br />
+        {$lang.notice_gb_order_amount}{/if}</div></td>
+  </tr>
+  <tr>
+    <td><div align="right"> {if $istkmoney gt 0}
+        <p class="clearfix"><em><b>退货返还金额</b>：</em><span style="color:#FD2280;">{$tkmoney}</span></p>
+        {/if}
+        {if $istkjf gt 0}
+        <p class="clearfix"><em><b>退货返还积分</b>：</em><span style="color:#FD2280;">{$tkjf}</span></p>
+        {/if} </div></td>
+  </tr>
+</table>
+
+                    </div>
                 </div>
             </div>
         </div>

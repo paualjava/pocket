@@ -3,6 +3,8 @@
 .main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
 .offerMain{ overflow: hidden; zoom:1;}
 .offerMain .mainRight{ width:984px; }
+
+/*出售中的商品、已售罄的商品、库存中的商品*/
 .offerHeader{ overflow: hidden; zoom: 1; padding:10px;}
 .offerHeader span{ font-size: 15px; line-height: 30px;}
 .offerHeader .right li{ float: left; width: 100px; height: 30px; margin-right: 10px; color: #999;}
@@ -62,12 +64,12 @@
 .lieThing .aySure em.sure{ width:40px; background:#0080ED; margin-right:5px; border-radius:3px; color:#fff; cursor:pointer;}
 .lieThing .aySure em.noSure{width:40px; color:#333; border:1px solid #ccc; border-radius:3px; cursor:pointer;}
 
-.lieThing .copy{ width:291px; height:58px; background:url(../images/del_02.png) no-repeat center; position:absolute; top:17px; right:175px; font-size:15px; line-height:24px; padding:5px 10px; display:none;}
+.lieThing .copy{ width:291px; background:url(../images/del_03.png) no-repeat center; position:absolute; top:17px; right:175px; font-size:15px; line-height:24px; padding:20px 10px; display:none; z-index:999;}
 .lieThing .copy p{ font-size:12px; color:#999; padding-left:20px;}
 .lieThing .copy input.one{ background:#f8f8f8; width:170px; color:#999; line-height:24px; padding:0 10px 0 10px; margin-left:20px; border-radius:6px 0 0 6px; border:1px solid #ccc; font-size:12px;cursor: not-allowed;}
 .lieThing .copy input.two{ font-size:12px; width:60px; line-height:24px; margin-left:-5px; border-radius:0 6px 6px 0; border:1px solid #ccc; cursor:pointer;}
-
-
+.copy img{ width:200px; height:200px; border:1px solid #ccc; margin-left:45px;}
+.copy i{ margin-right:30px; cursor:pointer;}
 
 .module{ margin-top: 20px; }
 .module ul{ overflow: hidden; zoom: 1;}
@@ -75,6 +77,83 @@
 .module p input{ width:50px;text-align:center; line-height:20px;}
 .module p i{ cursor:pointer;}
 /*.module ul li.currnt{ color:#333;}*/
+
+
+/*商品分组*/
+.main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
+.offerMain .mainRight{ width: 984px; }
+.offer01Header{padding:10px;}
+.offer01Header span{ font-size: 15px; line-height: 30px;}
+.offer01Header .left li{ float: left;}
+.offer01Header .left li.one a{ display: block; height: 26px; line-height: 26px; color: #fff; background: #0080ED; border-radius: 3px; font-size: 12px; padding:0 10px;}
+.offer01Header .left li.two a{ font-size: 12px; color: #0080ED; line-height: 26px; padding:0 10px;}
+.offer01Header .right li{ height:30px; float:left;}
+
+.offer01Header .right li.one input{ display: block;; border: 1px solid #ccc; border-radius: 3px 0 0 3px; font-size: 14px; padding-left:30px; line-height: 30px; width: 160px; background: url(../images/find.png) no-repeat 5px center; color:#999; height: 28px; border-right:none; padding-right:10px;}
+.offer01Header .right li.two input{width:80px; height:30px; background:#007ADE; text-align:center; border:0; border-radius:0 3px 3px 0;/* border:1px solid #007ade;*/ color:#fff; cursor:pointer;}
+.sur .surName{ width: 984px; padding:10px; background: #f8f8f8; border-bottom: 1px solid #ccc; margin-top: 10px; height: 20px;}
+.sur .surName li{ float: left; font-size: 14px;}
+.sur .surName li.one{ width: 320px;}
+.sur .surName li.two{ width: 80px; text-align: center;}
+.sur .surName li.three{ width: 170px; text-align: center;}
+.sur .surName li.four{ width: 260px; text-align: right;}
+/*.surContent{ width: 984px; padding:10px; height: 40px; border-bottom: 1px solid #ccc; }*/
+.surContent:hover{ background: #f8f8f8;}
+.surContent li{ float: left; font-size: 14px;}
+.surContent li input{ display:none;}
+.surContent li.one{ width: 320px; color: #0000FF;}
+.surContent li.one em{ color: #999;}
+.surContent li.two{ width: 80px; text-align: center;}
+.surContent li.three{ width: 170px; text-align: center;}
+.surContent li.four{ width: 295px; text-align: right; margin-top:6px;}
+.surContent li.four em{ color:#0080ed; cursor:pointer;}
+.surContent li.four a{ font-size: 14px; color:#0080ED; }
+
+.curs{ text-align: right; padding:10px; margin-top: 10px;}
+.curs input{ width:50px;text-align:center; line-height:20px;}
+
+.thing{ position: relative;}
+.thing .aySure{position:absolute; width:271px; height:24px; right:170px; background:url(../images/del_01.png) no-repeat center; top:0px; padding: 15px 20px; font-size:15px; line-height:24px; display: none;}
+.thing .aySure em{display:inline-block; width:155px; text-align:center;}
+.thing .aySure em.sure{ width:40px; background:#0080ED; margin-right:5px; border-radius:3px; color:#fff; cursor:pointer;}
+.thing .aySure em.noSure{width:40px; color:#333; border:1px solid #ccc; border-radius:3px; cursor:pointer;}
+
+/*新建商品分组*/
+.mainRight .fzName{ color: #f40; font-size: 14px;}
+.fzName .fenzu{ width: 360px; line-height: 24px; border: 1px solid #f40; margin-left: 10px; margin-right: 20px; padding-left: 10px; font-size: 12px; border-radius: 6px; }
+.fzName .check{margin-right: 10px;}
+.mainRight .fzName em{ color: #333;}
+.mainRight .bianji{ border: 1px solid #ccc; margin-top: 20px; width:982px; height: 500px; border-radius: 6px; }
+.mainRight .keep{ margin-top: 20px; background: #E2D39E; display: block; padding:20px 452px;}
+.mainRight .keep input{ line-height: 28px; background: #0080ed; width: 80px; border:0; border-radius: 6px; color: #fff;}
+.fuzhi01{ width:271px; height:24px; background:url(../images/del_01.png) no-repeat center; position:absolute; top:0; right:138px; font-size:15px; line-height:24px; padding:15px 20px; display:none;}
+.fuzhi01 input.one{ background:#f8f8f8; width:170px; color:#999; line-height:24px; padding:0 10px 0 10px; margin-left:5px; border-radius:6px 0 0 6px; border:1px solid #ccc; font-size:12px;cursor: not-allowed;}
+.fuzhi01 input.two{ font-size:12px; width:60px; line-height:24px; margin-left:-5px; border-radius:0 6px 6px 0; border:1px solid #ccc; cursor:pointer;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

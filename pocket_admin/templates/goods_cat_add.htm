@@ -1,5 +1,8 @@
 {include file="common/header.htm"}
 <link type="text/css" rel="stylesheet" href="css/offer01.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+</style>
 <div class="main">
     <div class="offerMain clearfix">
     	<div class="mainLeft left">
@@ -7,10 +10,11 @@
          <div class="naver">
             <em>商品管理</em>
             <ul class="leftNav">
-                <li><a href="offer.html">出售中的商品</a></li>
-                <li><a href="page04.html">已售罄的商品</a></li>
-                <li><a href="page03.html">仓库中的商品</a></li>
-                <li class="cur"><a href="">商品分组</a></li>
+                <li><a href="goods.php">仓库中的商品</a></li>
+                <li><a href="goods.php?type=is_show">出售中的商品</a></li>
+                <li><a href="goods.php?type=sell_out">已售罄的商品</a></li>
+                <li><a href="goods.php?type=is_show_no">未审核的商品</a></li>
+                <li class="cur"><a href="goods_cat.php">商品分组</a></li>
             </ul>
          </div>    
         </div>

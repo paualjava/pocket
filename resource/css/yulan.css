@@ -14,12 +14,6 @@
 .dianpu a.right{ display: block; padding-left: 20px; line-height: 30px; background: url(../images/find01.png) no-repeat left center; color: #999; margin-right: 10px;}
 .change{ margin:0 auto; position: relative; width: 360px;}
 .change img{ display: block; border:0;}
-.changelb{ width: 360px; height: 360px; position: relative; overflow: hidden;}
-.changelb ul{ width: 1500px; position: absolute; left: 0;top: 0;}
-.changelb ul li{ float: left; width: 360px;}
-.changelb ol li{ width: 10px; height: 10px; border-radius: 50%; background: #ccc; float: left;margin:0 10px;}
-.changelb ol{ position: absolute; bottom: 10px; left: 135px;}
-.changelb ol li.cur{ background: #f40;}
 
 .sayWay{ padding:10px; background: #fff; font-size: 16px;}
 .price{ padding:0 10px 10px 10px; background: #fff; font-size: 16px; color: #FF6600;}
@@ -54,15 +48,29 @@
 .ewm em{ display: block; padding-left: 40px; background: url(../images/weixin_logo.png) no-repeat left center; font-size: 18px; color: #8ECE4B; border-bottom: 1px #ccc dashed; padding-bottom: 10px;}
 .ewm p{ padding:10px 0; text-align: center;}
 .ewm img{ display: block; width: 150px; height: 150px; border: 1px solid #000;}
-.lxmj{ position: fixed; bottom: 60px; left: 10px; }
+.lxmj{ position: fixed; bottom: 60px; left: 10px; cursor:pointer;}
 .lxmj em{ display: block; padding:0 20px; border: 1px solid #8ECE4B; border-radius: 20px; color: #8ECE4B; line-height: 30px; background:#fff;}
 
 /*弹框*/
 .tankuang03{ position:fixed; top:0; left:0; background:rgba(0,0,0,.8); width:100%; height:100%; display:none;}
 .tankuang03 div{ background:#000; color:#fff; margin:150px auto; text-align:center; width:200px; border-radius:6px; padding:10px 0; line-height:20px;}
 
+/* 本例子css -------------------------------------- */
+.focus {width: 360px;margin: 0 auto;position: relative;overflow: hidden;}
+.focus .hd {width: 360px;height: 5px;position: absolute;z-index: 1;bottom: 10px;text-align: center;font-size: 0;}
+.focus .hd ul {overflow: hidden;text-align: center;}
+.focus .hd ul li {width: 5px;height: 5px;border: 1px solid #ff6600;border-radius: 50%;display: inline-block;margin-right: 10px;}
+.focus .hd ul .on {background: #ff6600;}
+.focus .bd {position: relative;z-index: 0;}
+.focus .bd li img {width: 100%;}
+.change{ margin:0 auto; position: relative; width: 360px;}
+/* 轮播图 */
 
-
-
+/*.changelb{ width: 360px; height: 360px; position: relative; overflow: hidden;}
+.changelb ul{ width: 1500px; position: absolute; left: 0;top: 0;}
+.changelb ul li{ float: left; width: 360px;}
+.changelb ol li{ width: 10px; height: 10px; border-radius: 50%; background: #ccc; float: left;margin:0 10px;}
+.changelb ol{ position: absolute; bottom: 10px; left: 135px;}
+.changelb ol li.cur{ background: #f40;}*/
 
 

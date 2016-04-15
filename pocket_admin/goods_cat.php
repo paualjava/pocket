@@ -54,6 +54,51 @@ class goods_cat extends base
 		$array=array("error"=>0,"info"=>"添加成功");
 		echo json_encode($array);die();
 	}
+	function ajax_edit()
+	{
+		$cat_name=trim($_POST['cat_name']);
+		$cat_id_post=$_POST['cat_id'];
+		if($cat_name=="")
+		{
+			$array=array("error"=>1,"info"=>"请输入分组名称");
+			echo json_encode($array);die();
+		}
+		$sql = "select cat_id from ". $GLOBALS['ecs']->table($this->table_name)." where cat_name='".$cat_name."' and cat_id!=".$cat_id_post." limit 0,1";
+		$cat_id = $GLOBALS['db']->getOne($sql);
+		if($cat_id>0)
+		{
+			$array=array("error"=>1,"info"=>"分组名称已存在");
+			echo json_encode($array);die();
+		}
+		$data = array(
+		'cat_name'         =>$cat_name,
+		'cat_desc'         =>trim($_POST['cat_desc']),
+		);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"cat_id=".$cat_id_post." limit 1");
+		$array=array("error"=>0,"info"=>"修改成功");
+		echo json_encode($array);die();
+	}
+	function edit()
+	{
+		$cat_id=$_GET['cat_id'];
+		$cate = parent::table_get_row($this->table_name,$cat_id,$id="cat_id");
+		$GLOBALS['smarty']->assign('cat_info', $cate);
+		$GLOBALS['smarty']->display('goods_cat_edit.htm');
+	}
+	/**
+	 * 删除分类
+	 *
+	 */
+	function delete()
+	{
+		$cat_id=$_POST['cat_id'];
+		$cate = parent::table_get_row($this->table_name,$cat_id,$id="cat_id");
+		if(!empty($cate))
+		{
+			$sql = "DELETE FROM " .$GLOBALS['ecs']->table($this->table_name). " where cat_id=".$cat_id." limit 1";
+			$GLOBALS['db']->query($sql);
+		}
+	}
 }
 $act=(empty($_REQUEST['act'])) ? "main" : $_REQUEST['act'];
 $goods_cat = new goods_cat();

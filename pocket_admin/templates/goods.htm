@@ -2,7 +2,7 @@
 <div class="main">
     <div class="offerMain">
     	<div class="mainLeft left">
-         <span><a href="javascript:void(0)">发布商品</a></span>
+         <span><a href="goods.php">所有商品</a></span>
          <div class="naver">
             <em>商品管理</em>
             <ul class="leftNav">
@@ -91,11 +91,15 @@
                     <span class="aySure">
                         <em>确定删除？</em><em class="sure" goods_id="<!-- {$info.goods_info.goods_id} -->">确定</em><em class="noSure">取消</em>
                     </span>
-                    <span class="copy">
-                    	<p>商品页链接</p>
-                        <input readonly="readonly" type="text" value="http://www.wm18.com" class="one" id="contents" />
-                        <input type="button" value="复制" class="two" id="copy" onclick="jsCopy();">
+                   <span class="copy">
+                    	<p class="clearfix"><em class="left">商品页链接</em><i class="right">X</i></p>
+                        <input readonly="readonly" type="text" value="{$info.buy_link}" class="one link" />
+                        <input type="button" value="复制" class="two copyBtn" />
+                        <p>商品二维码</p>
+                        <img src="{$BASEE_URL}QRcode/QRcode_{$info.goods_info.goods_id}.png"/>
                     </span>
+                     
+                    </span
                 </div>
 
 {/foreach}
@@ -116,6 +120,17 @@
         </div>
 	</div>
 </div>
+<script type="text/javascript"> 
+		//复制
+    $('.copyBtn').click(function(){
+		var e = $(this).parent().find('.link');
+		e.select();	
+		document.execCommand("Copy");
+		$('.copy').eq($(this).index('.copyBtn')).css('display','none');
+		alert('成功复制');
+	})
+</script>
+
 <script type="text/javascript">
 	function check(){
         var checkbox=document.getElementById('click')
@@ -180,6 +195,13 @@
 			})
 			})
 	});
+	$('.spread').click(function(event) {
+			$('.copy').eq($(this).index('.spread')).css('display','block')
+		});
+		$('.copy').click(function(){
+			$(this).css('display','none');
+			});
+
 	$(".sort_order").focusin(function() {
 		$(this).attr("v", $(this).val());
 	}).focusout(function() {

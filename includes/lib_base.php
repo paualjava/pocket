@@ -58,6 +58,10 @@ class base
 		@header("Location: ".$url."\n", true);
 		exit();
 	}
+	function location_main()
+	{
+		ecs_header("Location:http://m.wm18.com/\n");
+	}
 	/**
 	 * 获得商品的详细信息
 	 *

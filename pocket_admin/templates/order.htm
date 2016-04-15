@@ -1,5 +1,6 @@
 {include file="common/header.htm"}
 <link type="text/css" rel="stylesheet" href="css/sheet03.css" />
+<script type="text/javascript" src="js/jedate.js"/></script>
 <div class="main">
 	<div class="mainLeft left">
     	<span><a href="order.php?act=overview">订单概况</a></span>
@@ -26,59 +27,37 @@
     </div>
     <div class="mainRight right">
     	<div class="filter">
-    		<form action="">
-    			<div><span>日期：</span><input type="text" class="input01" id="time" onclick="return Calendar('time');" class="text_time" /><span>下单时间：</span><input type="text" class="input02"  id="time01" onclick="return Calendar('time01');" class="text_time" /><i class="zhi">至</i><input type="text" class="input02"  id="time02" onclick="return Calendar('time02');" class="text_time" /><!--<a href="">最近7天</a><a href="">最近30天</a>--></div>
+    		<form action="order.php" method="get" class="this_form">
+    			<div><span>订单号：</span><input type="text" class="input01" name="order_sn" value="{$order_sn}" /><span>下单时间：</span><input type="text" class="input02"  id="time01" name="time_start" style="width:200px" value="{$time_start}"/><i class="zhi">至</i><input type="text" class="input02"  id="time02" style="width:200px" name="time_end" value="{$time_end}"/><!--<a href="">最近7天</a><a href="">最近30天</a>--></div>
     			<br />
-    			<div><span>外部单号：</span><input type="text" class="input01" /><span class="span01">订单类型：</span>
-                    <select name="allware" id="" class="input02 input03 input04">
-                        <option value="全部">全部</option>
-                        <option value="所有订单">所有订单</option>
-                        <option value="代付订单">代付订单</option>
-                        <option value="送礼订单">送礼订单</option>
-                        <option value="心愿订单">心愿订单</option>
-                        <option value="分销订单">分销订单</option>
-                        <option value="收银台">收银台</option>
+    			<div><span>收货人手机：</span><input type="text" class="input01" name="mobile" value="{$mobile}"/><span class="span01">订单状态：</span>
+                    <select name="pay_status" id="" class="input02 input03 input04">
+                       <option>全部</option>
+                    <option value="1" {if $pay_status eq "1"}selected="selected"{/if}>未付款</option>
+                    <option value="2" {if $pay_status==2}selected="selected"{/if}>已付款</option>
                     </select>
                 <!--<input type="text" value="全部" class="input02 input03" />--><span class="span01">付款方式：</span>
-                    <select name="allware" id="" class="input02 input03">
-                        <option value="全部">全部</option>
-                        <option value="微信安全支付">微信安全支付</option>
-                        <option value="银行卡付款">银行卡付款</option>
-                        <option value="支付宝付款">支付宝付款</option>
-                        <option value="货到付款/到店付款">货到付款/到店付款</option>
-                        <option value="找人代付">找人代付</option>
-                        <option value="领取赠品">领取赠品</option>
-                        <option value="优惠兑换">优惠兑换</option>
+                    <select name="pay_id" id="" class="input02 input03">
+                        <option value="">全部</option>
+                      {foreach from=$payment_list item=info}
+                        <option value="{$info.pay_id}" {if $pay_id==$info.pay_id}selected="selected"{/if}>{$info.pay_desc}</option>
+                        {/foreach} 
+                     
                     </select>
                 <!--<input type="text" value="全部" class="input02 input03" />--></div>
     			<br />
-    			<div><span>收货地址：</span><input type="text" class="input01" /><span class="span01">订单状态：</span>
-                <select name="allware" id="" class="input02 input03 input04">
-                    <option value="待发货">全部</option>
-                    <option value="待付款">待付款</option>
-                    <option value="待发货">待发货</option>
-                    <option value="已发货">已发货</option>
-                    <option value="已完成">已完成</option>
-                    <option value="已关闭">已关闭</option>
-                    <option value="退款中">退款中</option>
-                </select>
-                <!--<input type="text" value="待发货" class="input02 input03" />--><span class="span01">物流方式：</span>
-                <select name="allware" id="" class="input02 input03">
-                    <option value="全部">全部</option>
-                    <option value="快递发货">快递发货</option>
-                    <option value="上门提醒">上门提醒</option>
-                </select>
-                <!--<input type="text" value="全部" class="input02 input03" />--></div>
-    			<br />
-    			<div><span>收货人手机：</span><input type="text" class="input01" /><span>微信昵称：</span><input type="text" class="input02" /><span class="wqzt span01">维权状态：</span>
-                <select name="allware" id="" class="input02 input03">
-                    <option value="全部">全部</option>
-                    <option value="退款处理中">退款处理中</option>
-                    <option value="退款结束">退款结束</option>
+    			
+    			<div><span>收货地址：</span><input type="text" class="input01" name="address" value="{$address}"/><span>微信昵称：</span><input type="text" class="input02" /><span class="wqzt span01">物流方式：</span>
+                <select id="" class="input02 input03" name="shipping_id">
+                    <option value="">全部</option>
+                    {foreach from=$shipping_list item=info}
+                        <option value="{$info.shipping_id}" {if $shipping_id==$info.shipping_id}selected="selected"{/if}>{$info.shipping_name}</option>
+                        {/foreach} 
                 </select>
                 <!--<input type="text" class="input02 input03" value="全部" />--></div>
     			<br />
-    			<input type="button" id="btn" value="筛  选" />
+                <input name="search_type" type="hidden" value="search_order" />
+    			<input type="button" id="btn" value="筛  选" class="button_search"/>
     		</form>
     	</div>
     	<div class="cancel">
@@ -154,7 +133,46 @@
         $('.guanbi').click(function(event) {
             $('.remark').stop().fadeOut(500);
         });
+		//表单查询
+		$(".button_search").click(function ()
+		{
+			data=$(".this_form").serialize();
+			$.post("order.php?act=ajax_check_form",data,function (res)
+			{
+				if(res.error==0)
+				$(".this_form").submit();
+				else
+				{
+					column=res.column;
+					alert(res.info);
+					if(column)
+					$("input[name="+column+"]").focus();
+				}
+			},"json")
+		})
     });
 </script>
+<script type="text/javascript">
+
+    jeDate({
+		dateCell:"#time01",
+		format:"YYYY-MM-DD hh:mm:ss",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00",
+		okfun:function(val){}
+	})
+	 jeDate({
+		dateCell:"#time02",
+		format:"YYYY-MM-DD hh:mm:ss",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00",
+		okfun:function(val){}
+	})
+
+    //alert("YYYY/MM".match(/\w+|d+/g).join("-"))
+</script>
+
 </body>
 </html>

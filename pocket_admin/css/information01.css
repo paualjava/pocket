@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*编辑基本信息*/
 .main{width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
 .mainRight .nav ul li{ float: left;font-size: 18px; font-weight: bold; border: 1px solid #ccc; width: 320px; background: #f8f8f8; text-align: center;line-height: 40px; margin-left: -1px; cursor:pointer;}
 .mainRight .nav ul li.one{ margin-left: 0;}
@@ -26,16 +27,92 @@
 .next2{ width: 1094px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -562px; margin-top: 25px; padding:15px;}
 .next2 span{ float:left; width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto;margin-right:20px; font-size:14px; cursor: pointer;}
 .next3,.next2,.next1{ margin-top: 30px;}
-.next3 div{ width: 330px; margin:0 auto;}
+.next3 div{ width: 340px; margin:0 auto;}
 .next3{ width: 1094px; height: 50px; background: #ffffcd; position: relative; left: 50%; margin-left: -562px; margin-top: 25px; padding:15px;}
-.next3 span{ width: 60px; float:left; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; font-size:14px; cursor: pointer;}
-.next3 a{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; float:left;}
+.next3 span,.next3 .button_preview{ width: 60px; float:left; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; font-size:14px; cursor: pointer;}
+.next3 em.one{ width: 60px; height: 30px; background: #007ce9; color: #fff; border-radius: 3px; border:0; display: block; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; float:left; cursor:pointer;}
+.next3 em.two{ width: 75px; height: 30px; background: #ccc; color: #999; border-radius: 3px; border:0; display: none; text-align: center; line-height: 30px; margin:10px auto; margin-right:20px; float:left; cursor:none;}
 .brief{ width:943px; border:1px #ccc solid; border-radius:3px; padding:10px; margin-top:20px; background:f8f8f8;}
 textarea{ width:920px; border-radius:3px; background:#fff; border:1px #ccc solid; margin-top:10px; resize:none; padding:10px;}
 iframe{ margin-top:20px;}
 
+/*编辑商品详情*/
 
+.mainLeft span a{width: 110px; height: 30px; background: #d6134c; color: #fff; border-radius: 3px; display:  block; text-align: center; line-height: 30px; font-size: 14px; font-weight: bold;}
 
+.basicNews{ margin-top: 20px;}
+.basicNews .newsLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.basicNews .newsLeft p{margin-top: 30px;}
+.basicNews .newsRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px;color: #333;}
+.basicNews .newsRight{ font-size: 14px;}
+.basicNews .newsRight .way{ margin-top: 25px;}
+.basicNews .newsRight .set{ margin-top: 25px;}
+.basicNews .newsRight .set input{ width: 190px; height: 30px; border-radius: 3px; border: 1px solid #ccc; padding-left: 10px;}
+.basicNews .newsRight .mold{ margin-top: 25px;}
+.basicNews .newsRight .mold em{ color: #999;}
+.basicNews .newsRight .sale{ margin-top: 25px;}
+.basicNews .newsRight .sale input{ border-radius: 3px;}
+.stock{ margin-top: 5px; overflow: hidden; zoom:1;}
+.stockLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.stockLeft p{margin-top: 30px;}
+.stockRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
+.stockRight .commer{ width: 600px; height: 75px; border: 1px solid #ccc; margin-top: -20px; margin-left: 75px; background: #fff;}
+.stockRight{ display: inline-block;font-size: 15px;}
+.stockRight .commer em{ width: 100px; border: 1px solid #ccc; height: 30px; display: inline-block; text-align: center; margin-top: 7px; margin-left: 17px; line-height: 30px; margin-bottom: 7px;}
+.stockRight .commer div{ margin: 15px; background: #f8f8f8;}
+.stockRight .gi{ margin-top: 25px;}
+.stockRight .gi em{ color: #c14a46;}
+.stockRight .gi input{ margin-left: 10px;}
+.stockRight .gi input.one{ width: 100px; height: 30px;}
+.noShow{ width: 95px; height: 30px; border-radius: 3px; border: 1px solid #ccc; padding-left: 10px; color: #ccc; font-size: 15px;}
+.stockRight .gi p{ color: #bdbfbe; margin-top: 5px;}
+.stockRight .seller{ margin-top: 25px;}
+.stockRight .seller input{ width: 95px; height: 30px; border: 1px solid #ccc; padding-left: 10px; font-size: 15px; border-radius: 3px;}
+.blurb{ margin-top: 5px; overflow: hidden; zoom:1;}
+.blurbLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.blurbLeft p{margin-top: 30px;}
+.blurbRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
+.blurbRight{ font-size: 14px;}
+.blurbRight em{ color: #c14a46;}
+.blurbRight .name input{ width: 310px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333; border-radius: 3px; margin-left: 10px;}
+.blurbRight .name a{ font-size: 14px; color: #396572;}
+.blurbRight .prix{ margin-top: 25px;}
+.blurbRight .prix input{ width: 140px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333;}
+.blurbRight .img{ margin-top: 25px;}
+.blurbRight .img div{ width: 64px; height: 64px; text-align: center; line-height: 64px; border: 1px solid #ccc; margin-top: -17px; margin-left: 75px;}
+.blurbRight .img p{ color: #a8a9ab; margin-top: 10px;}
+
+.stream{ margin-top: 5px; overflow: hidden; zoom:1;}
+.streamLeft{width: 115px; height: 698px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
+.streamLeft p{margin-top: 30px;}
+.streamRight{ width: 780px; background: #f8f8f8; padding:30px; color: #333;}
+.streamRight { font-size: 14px;}
+.streamRight  em{  color: #c14a46;}
+.streamRight  .shezhi .one{ width: 120px; height: 30px; padding-left: 10px;border-radius: 3px; border: 1px solid #ccc;}
+.streamRight  .shezhi .two{ width: 190px; height: 30px; color: #333; padding-left: 10px;border-radius: 3px; margin-top: 10px; border: 1px solid #ccc;}
+.streamRight  .shezhi .three{ margin-left: 76px;}
+.streamRight  .shezhi a{ color: #180771;}
+.streamRight  .xiangou{ margin-top: 25px; font-size: 14px;}
+.streamRight  .xiangou .one{ width: 95px; height: 30px; border: 1px solid #ccc; padding-left: 10px; border-radius: 3px;}
+.streamRight  .xiangou i{ color: #999;}
+.streamRight  .xiangou .two{ margin-bottom: 10px; width: 230px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #999;}
+.streamRight  .xiangou .three{ margin-bottom: 10px; width: 230px; height: 30px; border: 1px solid #ccc; color: #999; padding-left: 10px; }
+.streamRight  .liuyan{ margin-top: 25px;}
+.streamRight  .liuyan em{ display: inline-block; color: #2774b8; cursor: pointer;}
+.streamRight  .liuyan p{ margin-left: 70px;}
+.streamRight  .liuyan .ckone{ width: 70px; height: 30px; border-radius: 3px; color: #999; border: 1px solid #ccc; padding-left: 10px;}
+.streamRight  .liuyan select{ width: 100px; height: 30px; border:1px #ccc solid; margin-left: 5px; margin-right: 5px; color: #999; text-align: center; border-radius: 3px;}
+.streamRight  .liuyan .liuyn{ margin-top: 5px; margin-bottom: 10px; display: none;}
+.streamRight  .liuyan .cktwo{ margin-left: 10px; margin-right: 5px;}
+.streamRight  .liuyan .ckthree{ margin-left: 5px; margin-right: 5px;}
+.streamRight  .liuyan span.del{ margin-left: 10px; color: #0077dd; cursor: pointer;}
+.streamRight  .time{ margin-top: 25px;}
+.streamRight  .time .two{ margin-left: 70px;}
+.streamRight  .time .three{ width: 110px; height: 30px; border: 1px solid #ccc; padding-left: 10px; border-radius: 3px; margin-left: 10px;}
+.streamRight  .zhekou{ margin-top: 25px; font-size: 14px;}
+
+.suess{ display:none; position: fixed; top:0; left:0; width:100%; height:100%;}
+.suess div{ background:#c3e2b8; color:#666; width:300px; line-height:36px; border-radius:3px; margin:50px auto; text-align:center;}
 
 
 

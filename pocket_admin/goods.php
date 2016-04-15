@@ -23,6 +23,7 @@ class goods extends base
 		$GLOBALS['smarty']->assign('nav', "goods");
 		$GLOBALS['smarty']->assign('keyword', $_REQUEST['keyword']);
 		$GLOBALS['smarty']->assign('title', $this->get_title());
+		$GLOBALS['smarty']->assign('BASEE_URL','http://'.$_SERVER['SERVER_NAME'].":8090". str_replace( '/pocket_admin' , '' , str_replace( $_SERVER['DOCUMENT_ROOT'],'' , str_replace('\\', '/', dirname(__FILE__) ))  ).'/' );
 	}
 	function main()
 	{
@@ -47,6 +48,7 @@ class goods extends base
 				"postdate"=>gmtime()
 				);
 				$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data);
+				$this->createQRcode($val['goods_id']);
 			}
 		}
 		/**如果产品的is_pocket=0那么删除此产品*/
@@ -62,7 +64,6 @@ class goods extends base
 				$sql = "DELETE FROM " .$GLOBALS['ecs']->table($this->table_name_pocket_goods). " where goods_id=".$goods_id." limit 1";
 				$GLOBALS['db']->query($sql);
 			}
-
 		}
 		/* 显示商品列表页面 */
 		$curpage = (empty($_GET['page']) && !preg_match("/^\d+$/is",$_GET['page'])) ? 1 : $_GET['page'];
@@ -87,6 +88,7 @@ class goods extends base
 			if(empty($goods))
 			$goods = parent::get_goods_info($row['goods_id']);
 			$info[$key]['goods_info']=$goods;
+			$info[$key]['buy_link']=$this->get_buy_link($row['goods_id']);
 		}
 		$GLOBALS['smarty']->assign('info', $info);
 		$GLOBALS['smarty']->display('goods.htm');
@@ -182,6 +184,7 @@ class goods extends base
 			$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('goods'),$data,'',"goods_id=".$goods_id." limit 1");
 			$sql = "DELETE FROM " .$GLOBALS['ecs']->table($this->table_name_pocket_goods). " where goods_id=".$goods_id." limit 1";
 			$GLOBALS['db']->query($sql);
+			$this->goods_unlink($goods_id);
 		}
 	}
 	/**
@@ -244,19 +247,57 @@ class goods extends base
 	 */
 	function ajax_save_preview()
 	{
+		$goods_id=trim($_POST['goods_id']);
 		$data = array(
-		'goods_id'        =>trim($_POST['goods_id']),//产品编号
+		'goods_id'      	=>$goods_id,//产品编号
 		'goods_name'        =>trim($_POST['goods_name']),//产品名称
-		'goods_desc'              =>trim($_POST['goods_info']),//姓名
+		'goods_desc'        =>trim($_POST['goods_info']),//姓名
 		'time'              =>gmtime()//时间
 		);
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('pocket_goods_preview'),$data);
 		$insert_id=$GLOBALS['db']->insert_id();
 		if($insert_id)
-		$array=array("error"=>0,"pid"=>$insert_id);
-		else 
+		{
+			$array=array("error"=>0,"pid"=>$insert_id);
+			$this->createQRcode($goods_id);
+		}
+		else
 		$array=array("error"=>1,"info"=>"操作失败");
 		echo json_encode($array);die();
+	}
+	function createQRcode($goods_id,$matrixPointSize=5)
+	{
+		$filename = ROOT_PATH.'pocket/QRcode/QRcode_'.$goods_id.'.png';
+		if(!@file_exists($filename))
+		{
+			$data = $this->get_buy_link($goods_id);
+			include('plugins/phpqrcode/phpqrcode.php');
+			// 二维码数据
+			// 生成的文件名
+			// 纠错级别：L、M、Q、H
+			$errorCorrectionLevel = 'L';
+			// 点的大小：1到10
+			//$matrixPointSize = 10;
+			QRcode::png($data, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
+		}
+	}
+	/**
+	 * 获取购买链接
+	 *
+	 * @param unknown_type $goods_id
+	 */
+	function get_buy_link($goods_id)
+	{
+		return "http://m.wm18.com/goods.php?id=".$goods_id;;
+	}
+	/**
+	 * 删除产品的时候,删除生成的二维码
+	 *
+	 * @param unknown_type $goods_id
+	 */
+	function goods_unlink($goods_id)
+	{
+		@unlink(ROOT_PATH.'pocket/QRcode/QRcode_'.$goods_id.'.png');
 	}
 }
 $act=(empty($_REQUEST['act'])) ? "main" : $_REQUEST['act'];

@@ -23,13 +23,21 @@ class goods extends base
 	function preview()
 	{
 		$pid=$_GET['pid'];
-		$type=$_GET['type'];
+		$goods_id=$_GET['goods_id'];
+		$type=(in_array($_GET['type'],array(1,2))) ? $_GET['type'] : 1;
+		if(preg_match("/^\d+/is",$pid) && $pid>0)
 		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_goods_preview')."  where pid='".$pid."' limit 0,1";
+		elseif(preg_match("/^\d+/is",$goods_id) && $goods_id>0)
+		$sql = "select * from ". $GLOBALS['ecs']->table('goods')."  where goods_id='".$goods_id."' limit 0,1";
+		else 
+		parent::location_main();
 		$info = $GLOBALS['db']->getRow($sql);
 		if($info)
 		{
 			$GLOBALS['smarty']->assign('goods_info', $info);
 			$GLOBALS['smarty']->assign('pid', $pid);
+			$GLOBALS['smarty']->assign('type', $type);
+			$GLOBALS['smarty']->assign('goods_id', $goods_id);
 			//图片
 			$sql = "select img_url from ". $GLOBALS['ecs']->table('goods_gallery')."  where goods_id='".$info['goods_id']."' limit 0,5";
 			$pic_list = $GLOBALS['db']->getAll($sql);
@@ -50,8 +58,9 @@ class goods extends base
 			$GLOBALS['smarty']->display('goods_preview2.htm');
 		}
 		else
-		ecs_header("Location:http://m.wm18.com/\n");
+		parent::location_main();
 	}
+	
 	function preview_qrcode()
 	{
 		//url=goods.php?act=detail&goods_id=2323

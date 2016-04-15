@@ -6,6 +6,7 @@
 <link type="text/css" rel="stylesheet" href="resource/css/base.css" />
 <link type="text/css" rel="stylesheet" href="resource/css/yulan01.css" />
 <script type="text/javascript" src="resource/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="resource/js/TouchSlide.1.1.js"></script>
 <style type="text/css">
 .textarea img{width:450px;}
 .lieList ul li p{height:45px;}
@@ -19,30 +20,47 @@
 		<div class="left">
 			<ul class="clearfix">
 				<li>预览:</li>
-				<li id="two"><a href="goods.php?act=preview&pid=6">iPhone版</a></li>
-				<li id="two" class="current"><a href="goods.php?act=preview&pid=6&type=2">三星Note3版</a></li>
+                 {if $goods_id gt 0}
+				<li id="two"><a href="goods.php?act=preview&goods_id={$goods_id}">iPhone版</a></li>
+				<li id="two" class="current"><a href="goods.php?act=preview&goods_id={$goods_id}&type=2">三星Note3版</a></li>
+                {else}
+                <li id="two"><a href="goods.php?act=preview&pid={$pid}">iPhone版</a></li>
+				<li id="two" class="current"><a href="goods.php?act=preview&pid={$pid}&type=2">三星Note3版</a></li>
+                {/if}
 			</ul>
 		</div>
-		<input type="button" value="重新编辑" class="right" />
+		<input type="button" value="重新编辑" class="right edit_again" />
 	</div>
 	<div class="dianpu clearfix">
 		<a href="#" class="left clearfix"><img src="" alt="" /><span>11111</span></a><a href="#" class="right">我的记录</a>
 	</div>
 	<div class="change">
 		<div class="inChange">
-			<div class="changelb">
-				<ul class="clearfix slide_pic">
-                {foreach from=$pic_list item=info}
+			<!-- 本例主要代码 Start ================================ -->
+            <div id="focus" class="focus">
+                <div class="hd">
+                    <ul></ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                    {foreach from=$pic_list item=info}
                 
-					<li><img src="http://www.wm18.com/{$info.img_url}" height="450" alt="" /></li>
+					<li><img src="http://www.wm18.com/{$info.img_url}" height="360" alt="" /></li>
                {/foreach}
-				</ul>
-				<ol class="clearfix">
-					<li class="cur"></li>
-					<li></li>
-					<li></li>
-				</ol>
-			</div>
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+                TouchSlide({ 
+                    slideCell:"#focus",
+                    titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                    mainCell:".bd ul", 
+                    effect:"leftLoop", 
+                    autoPlay:true,//自动播放
+                    autoPage:true //自动分页
+                });
+            </script>
+            <!-- 本例主要代码 End ================================ -->
 			<p class="sayWay">{$goods_info.goods_name}</p>
 			<p class="price">￥<strong>{$goods_info.shop_price}</strong></p>
 			<div class="lost">
@@ -68,8 +86,8 @@
 				<ul class="clearfix">
                 {foreach from=$more_list item=info}
                 	<li>
-						<img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" height="160" width="160" alt="" />
-						<p><!-- {$info.goods_name} --></p>
+						<a href="goods.php?act=preview&type={$type}&goods_id=<!-- {$info.goods_info.goods_id} -->" target="_self"><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" height="160" width="160" alt="" /></a>
+						<p><a href="goods.php?act=preview&type={$type}&goods_id=<!-- {$info.goods_info.goods_id} -->" target="_self"><!-- {$info.goods_name} --></a></p>
 						<p>￥<strong><!-- {$info.shop_price} --></strong></p>
 					</li>
                {/foreach}			
@@ -87,7 +105,7 @@
 <div class="ewm">
 	<em>手机扫码购买</em>
 	<p>微信"扫一扫"立即购买</p>
-	<img src="" alt="" />
+	<img src="QRcode/QRcode_{$goods_info.goods_id}.png" alt="" />
 </div>
 <div class="lxmj">
 	<em>联系卖家</em>
@@ -113,7 +131,7 @@
 </div>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		var num = 0;
+	/*	var num = 0;
 		var num1 = 0;
 		var timer = 0;
 		$('.changelb ul li:first()').clone().appendTo('.changelb ul')
@@ -137,21 +155,33 @@
 		}, function() {
 			clearInterval(timer)
 			timer=setInterval(autoplay,3000)
-		});
+		});*/
 		$('.changelb ol li').click(function(event) {
 			num = $(this).index();
 			num1 = $(this).index();
 			$('.changelb ul').stop().animate({'left':-num*$('.changelb ul li').width()}, 1000);
 			$('.changelb ol li').eq(num1).addClass('cur').siblings().removeClass('cur')
 		});
+		$('.inFooter .three,.inFooter .two,.inFooter .one').click(function(){
+			$('.tankuang03').css('display','block');
+			//$('body').css('overflow-y','hidden')
+			})
+		$('.tankuang03').click(function(){
+			$('.tankuang03').css('display','none');
+			//$('body').css('overflow-y','visible')
+			})
 		$('.inFooter .three').click(function(){
 			$('.tankuang03').css('display','block');
 			//$('body').css('overflow-y','hidden')
 			})
-/*		$('.tankuang03').click(function(){
+		$('.tankuang03').click(function(){
 			$('.tankuang03').css('display','none');
 			//$('body').css('overflow-y','visible')
-			})	*/
+			})	
+		$(".edit_again").click(function ()
+		{
+			location.href="pocket_admin/goods.php?act=edit&goods_id={$goods_info.goods_id}";
+		})
 	});
 </script>
 </body>

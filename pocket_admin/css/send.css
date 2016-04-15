@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 .main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
-.flow{ width: 735px; height: 76px; background: #f8f8f8; border: 1px solid #ccc; padding:15px 120px;}
+.flow{ width: 752px; height: 76px; background: #f8f8f8; border: 1px solid #ccc; padding:15px 120px;}
 .flow .text01{ overflow: hidden; zoom: 1; font-size: 14px; font-weight: bold;}
 .flow .text01 li{ float: left;}
 .flow .text01 li.one,.flow .text01 li.two,.flow .text01 li.three{ float: left; margin-right: 130px; color: #83ccff; }
@@ -71,12 +71,13 @@
 .fare li.one{ width: 50px; height: 50px; margin-top: 10px; margin-left: 10px; border: 1px solid #ccc;}
 .fare li.two{ width: 271px; font-size: 13px; color: #2e69a5;padding-left: 25px; margin-top: 10px;}
 .fare li.three,.fare li.four,.fare li.five,.fare li.six,.fare li.seven{ width: 103px; text-align: center; margin-top: 10px; font-size: 14px;}
-.cargo .right{ width: 101px; height: 111px; border: 1px solid #ccc; color: #999; line-height: 108px; text-align: center; border-top: none; border-left: none;}
+.cargo .right{ width: 118px; height: 111px; border: 1px solid #ccc; color: #999; line-height: 108px; text-align: center; border-top: none; border-left: none;}
 .amount{ padding:20px; background: #f2f2f2;}
 .amount div.right p{ font-size: 13px; color: #666; text-align: right; line-height: 24px;}
 .amount div.right p strong{ font-size: 14px; color:#55BD47;}
-.amount span.left{font-size: 14px; line-height: 24px;}
+.amount span.left{font-size: 13px; line-height: 24px;}
 .amount span.left i{ color: #f40;}
+.amount td{ line-height:24px;}
 
 
 

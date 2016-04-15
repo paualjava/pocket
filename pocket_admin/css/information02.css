@@ -7,43 +7,43 @@
 .basicNews .newsLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .basicNews .newsLeft p{margin-top: 30px;}
 .basicNews .newsRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px;color: #333;}
-.basicNews .newsRight { font-size: 14px;}
-.basicNews .newsRight  .way{ margin-top: 25px;}
-.basicNews .newsRight  .set{ margin-top: 25px;}
-.basicNews .newsRight  .set input{ width: 190px; height: 30px; border-radius: 3px; border: 1px solid #ccc; padding-left: 10px;}
-.basicNews .newsRight  .mold{ margin-top: 25px;}
-.basicNews .newsRight  .mold em{ color: #999;}
-.basicNews .newsRight  .sale{ margin-top: 25px;}
-.basicNews .newsRight  .sale input{ border-radius: 3px;}
+.basicNews .newsRight{ font-size: 14px;}
+.basicNews .newsRight .way{ margin-top: 25px;}
+.basicNews .newsRight .set{ margin-top: 25px;}
+.basicNews .newsRight .set input{ width: 190px; height: 30px; border-radius: 3px; border: 1px solid #ccc; padding-left: 10px;}
+.basicNews .newsRight .mold{ margin-top: 25px;}
+.basicNews .newsRight .mold em{ color: #999;}
+.basicNews .newsRight .sale{ margin-top: 25px;}
+.basicNews .newsRight .sale input{ border-radius: 3px;}
 .stock{ margin-top: 5px; overflow: hidden; zoom:1;}
 .stockLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .stockLeft p{margin-top: 30px;}
 .stockRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
-.stockRight  .commer{ width: 600px; height: 75px; border: 1px solid #ccc; margin-top: -20px; margin-left: 75px; background: #fff;}
-.stockRight { display: inline-block;font-size: 15px;}
-.stockRight  .commer em{ width: 100px; border: 1px solid #ccc; height: 30px; display: inline-block; text-align: center; margin-top: 7px; margin-left: 17px; line-height: 30px; margin-bottom: 7px;}
-.stockRight  .commer div{ margin: 15px; background: #f8f8f8;}
-.stockRight  .gi{ margin-top: 25px;}
-.stockRight  .gi em{ color: #c14a46;}
-.stockRight  .gi input{ margin-left: 10px;}
-.stockRight  .gi input.one{ width: 100px; height: 30px;}
+.stockRight .commer{ width: 600px; height: 75px; border: 1px solid #ccc; margin-top: -20px; margin-left: 75px; background: #fff;}
+.stockRight{ display: inline-block;font-size: 15px;}
+.stockRight .commer em{ width: 100px; border: 1px solid #ccc; height: 30px; display: inline-block; text-align: center; margin-top: 7px; margin-left: 17px; line-height: 30px; margin-bottom: 7px;}
+.stockRight .commer div{ margin: 15px; background: #f8f8f8;}
+.stockRight .gi{ margin-top: 25px;}
+.stockRight .gi em{ color: #c14a46;}
+.stockRight .gi input{ margin-left: 10px;}
+.stockRight .gi input.one{ width: 100px; height: 30px;}
 .noShow{ width: 95px; height: 30px; border-radius: 3px; border: 1px solid #ccc; padding-left: 10px; color: #ccc; font-size: 15px;}
-.stockRight  .gi p{ color: #bdbfbe; margin-top: 5px;}
-.stockRight  .seller{ margin-top: 25px;}
-.stockRight  .seller input{ width: 95px; height: 30px; border: 1px solid #ccc; padding-left: 10px; font-size: 15px; border-radius: 3px;}
+.stockRight .gi p{ color: #bdbfbe; margin-top: 5px;}
+.stockRight .seller{ margin-top: 25px;}
+.stockRight .seller input{ width: 95px; height: 30px; border: 1px solid #ccc; padding-left: 10px; font-size: 15px; border-radius: 3px;}
 .blurb{ margin-top: 5px; overflow: hidden; zoom:1;}
 .blurbLeft{width: 115px; height: 280px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
 .blurbLeft p{margin-top: 30px;}
 .blurbRight{ width: 780px; background: #f8f8f8; height: 220px; padding:30px; color: #333;}
-.blurbRight { font-size: 14px;}
-.blurbRight  em{ color: #c14a46;}
-.blurbRight  .name input{ width: 310px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333; border-radius: 3px; margin-left: 10px;}
-.blurbRight  .name a{ font-size: 14px; color: #396572;}
-.blurbRight  .prix{ margin-top: 25px;}
-.blurbRight  .prix input{ width: 140px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333;}
-.blurbRight  .img{ margin-top: 25px;}
-.blurbRight  .img div{ width: 64px; height: 64px; text-align: center; line-height: 64px; border: 1px solid #ccc; margin-top: -17px; margin-left: 75px;}
-.blurbRight  .img p{ color: #a8a9ab; margin-top: 10px;}
+.blurbRight{ font-size: 14px;}
+.blurbRight em{ color: #c14a46;}
+.blurbRight .name input{ width: 310px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333; border-radius: 3px; margin-left: 10px;}
+.blurbRight .name a{ font-size: 14px; color: #396572;}
+.blurbRight .prix{ margin-top: 25px;}
+.blurbRight .prix input{ width: 140px; height: 30px; border: 1px solid #ccc; padding-left: 10px; color: #333;}
+.blurbRight .img{ margin-top: 25px;}
+.blurbRight .img div{ width: 64px; height: 64px; text-align: center; line-height: 64px; border: 1px solid #ccc; margin-top: -17px; margin-left: 75px;}
+.blurbRight .img p{ color: #a8a9ab; margin-top: 10px;}
 
 .stream{ margin-top: 5px; overflow: hidden; zoom:1;}
 .streamLeft{width: 115px; height: 698px; background: #f8f8f8; text-align: center; font-size: 16px; font-weight: bold;}
