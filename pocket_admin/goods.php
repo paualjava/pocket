@@ -158,7 +158,6 @@ class goods extends base
 		$goods_info=$goods;
 		/**编辑器**/
 		require(ROOT_PATH . 'includes/fckeditor/fckeditor.php');
-
 		$editor             = new FCKeditor('goods_info');
 		$editor->BasePath   = '../../includes/fckeditor/';
 		$editor->ToolbarSet = 'Normal';

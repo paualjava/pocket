@@ -10,6 +10,7 @@ class goods_cat extends base
 		$GLOBALS['smarty']->assign('nav', "goods");
 		$GLOBALS['smarty']->assign('keyword', $_REQUEST['keyword']);
 		$GLOBALS['smarty']->assign('title',"商品分组");
+		$GLOBALS['smarty']->assign('BASEE_URL','http://'.$_SERVER['SERVER_NAME'].":8090". str_replace( '/pocket_admin' , '' , str_replace( $_SERVER['DOCUMENT_ROOT'],'' , str_replace('\\', '/', dirname(__FILE__) ))  ).'/' );
 	}
 	function main()
 	{

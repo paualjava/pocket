@@ -171,6 +171,8 @@
 <div class="next1"><span>下一步</span></div>
 <div class="next2"><div class="clearfix"><span class="before" onclick="javascript:history.go(-1)">上一步</span><span class="after">下一步</span></div></div>
 <div class="next3"><div class="clearfix"><span class="before">上一步</span><span onclick="window.open('http://www.jb51.net');  ">保存</span><a class="left button_preview">预览</a></div></div>
+<div class="suess"><div>保存成功，正在重定向到预览页面</div></div>
+
 <script type="text/javascript">
     $(function() {
         $('.mainRight .option button').click(function(event) {
@@ -235,6 +237,10 @@
 		$(".button_preview").bind("click",function ()
 		{
 			data=$("#form_edit").serialize();
+			//$(this).hide();
+			//$('.next3 em.two').show();
+			//$('.suess').show();
+			//setTimeout(function(){$('.suess').hide();},2000);
 			$.post("goods.php?act=ajax_save_preview",data,function (res)
 			{
 				if(res.error==0)

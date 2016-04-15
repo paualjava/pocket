@@ -1,5 +1,5 @@
 {include file="common/header.htm"}
-<link type="text/css" rel="stylesheet" href="css/offer01.css" />
+<link type="text/css" rel="stylesheet" href="css/offer.css" />
 <style type="text/css">
 body{overflow:scroll;overflow-x:hidden;}
 </style>
@@ -44,13 +44,19 @@ body{overflow:scroll;overflow-x:hidden;}
                         <li class="one"><input /><!-- {$info.cat_name} --><br /><em>店内所有商品，新发布的商品排在前面</em></li>
                         <li class="two">57</li>
                         <li class="three">&nbsp;<!-- {$info.time} --></li>
-                        <li class="four"><a href="goods_cat.php?act=edit&cat_id=<!-- {$info.cat_id} -->">编辑</a>-<em class="del">删除</em>-<a href="#">链接</a></li>
+                        <li class="four"><a href="goods_cat.php?act=edit&cat_id=<!-- {$info.cat_id} -->">编辑</a>-<em class="del">删除</em>-<em class="lianjie">链接</em></li>
                     </ul>
                     <span class="aySure">
                         <em>确定删除？</em><em class="sure" cat_id="<!-- {$info.cat_id} -->">确定</em><em class="noSure">取消</em>
                     </span>
+                    <span class="fuzhi01">
+                    	<input readonly="readonly" type="text" value="{$BASEE_URL}goods_cat.php?cat_id={$info.cat_id}" class="one link" />
+                        <input type="button" value="复制" class="two copyBtn">
+                    </span>
+
                 </div>
-{/foreach}                
+{/foreach}   
+             
 
                 
             </div>
@@ -58,9 +64,28 @@ body{overflow:scroll;overflow-x:hidden;}
         </div>
 	</div>
 </div>
+<script type="text/javascript"> 
+		//复制
+    $('.copyBtn').click(function(){
+		var e = $(this).parent().find('.link');
+		e.select();	
+		document.execCommand("Copy");
+		$('.fuzhi01').eq($(this).index('.copyBtn')).css('display','none');
+		alert('成功复制');
+	})
+</script> 
+
 <script type="text/javascript">
     var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
     document.getElementById('totle').innerHTML=inplen;
+	
+	var leng = $('.thing').length;
+		//alert(leng)
+		$('#totle').html(leng);
+		$('.surContent .four .lianjie').click(function(){
+			$('.fuzhi01').eq($(this).index('.surContent .four .lianjie')).css('display','block');
+			})
+			
 	jQuery(document).ready(function($) {
      $('.del').click(function(event) {
          $('.aySure').eq($(this).index('.del')).css('display','block')
@@ -78,6 +103,9 @@ body{overflow:scroll;overflow-x:hidden;}
 			{
 			});
      });  
+	  $('.fuzhi01').click(function(){
+			$(this).css('display','none');
+			}); 
     });
 </script>
 </body>
