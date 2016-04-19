@@ -1,9 +1,9 @@
 <?php
 require(dirname(dirname(__FILE__))."/includes/common.php");
 require(dirname(dirname(__FILE__))."/includes/common_admin.php");
-class goods_cat extends base
+class staff_all extends base
 {
-	private $table_name="pocket_goods_cat";
+	private $table_name="pocket_staff_all";
 	function __construct()
 	{
 		$GLOBALS['smarty']->assign('nav_left',"goods_cat");

@@ -40,7 +40,7 @@ span.wqzt{ margin-left:6px;}
 .groupOne .groupHeader span.five{ width: 110px; color: #007ade;}
 .groupOne .groupHeader span.six{ width: 110px;}
 .groupOne .groupHeader span.seven{ width: 125px;}
-.ware01{ margin-top: 10px; width: 984px; background: #f8f8f8; padding-top: 10px;}
+.ware01{ margin-top: 10px; width: 984px; background: #f8f8f8; padding-top: 10px; position:relative;}
 .ware01 ul{ overflow: hidden; zoom:1; font-size: 14px;}
 .ware01 ul li.left{ margin-left: 10px;}
 .ware01 ul li.left span{ color: #999;}
@@ -50,12 +50,14 @@ span.wqzt{ margin-left:6px;}
 .ware01 p.text03 em{ color: #999;}
 .details{ margin-top: 10px; background: #fff;}
 .details ul{ overflow: hidden; zoom: 1;}
-.details ul li{ float: left; border: 1px solid #ccc; margin-left: -1px; 
-	height: 60px; text-align: center; padding:20px 0;}
+.details ul li{ float: left;/* border: 1px solid #ccc;*/ margin-left: -1px; /*height: 60px;*/ text-align: center; padding:20px 0;}
 .details ul li.one{ margin-left: 0; width: 300px;}	
 .details ul li.one img{ float: left; margin-right: 10px; width: 60px; height: 60px; background: #000; display: block; margin-left:20px;}
 .details ul li.one p{float: left; width:190px; text-align:left;}
+.details ul li.one div{ height:56px; margin-bottom:8px;}
+.details:hover{ background:#f8f8f8;}
 .details ul li.two{ width: 110px;}
+.details ul li.two div{ height:55px; margin-bottom:8px;}
 .details ul li.three{ width:110px;}
 .details ul li.four{ width:110px;}
 .details ul li.five{width:110px;}
@@ -93,24 +95,29 @@ span.wqzt{ margin-left:6px;}
 .star:hover{ background:#f8f8f8;}
 .star ul.star01{ padding:10px; position: relative;}
 .star ul.star01 li.three{ position: absolute; top: 0; right: 0; }
-.star ul.star01 p{ font-size: 14px; line-height: 24px;}
+.star ul.star01 p{ font-size: 14px; line-height: 24px; color:#007ade;}
 .star ul.star01 p a{ font-size: 14px;}
 .star ul.star01 li.left p em,.star ul.star01 li.left p i,.star ul.star01 li.left p span{ color: #999;}
 .star ul.star01 li.left p i{ margin-right: 20px;}
 .star ul.star01 li.right p .sarm{ cursor: pointer;}
+.sarm{ cursor:pointer;}
 .star ul.star01 li.right p .joinStar{ cursor: pointer;}
-.star ul.star02 li{ float: left; width: 120px; height: 82px;}
+.star ul.star02 li{ float: left; width: 120px;/* height: 82px;*/}
 .star ul.star02{ padding:10px;}
-.star02 .one img{ width: 80px; height: 80px; border: 1px solid #ccc; float: left; margin-right: 10px;}
+.star ul.star02 .two div{ margin-bottom:8px; height:40px;}
+.star02 .one img{ width: 40px; height: 40px; border: 1px solid #ccc; float: left; margin-right: 10px;}
 .star .star02 .one{ width: 240px; text-align: left; color: #66f;}
+.star .star02 .one div{ height:40px; margin-bottom:8px;}
 .star ul.star02 li{ text-align: center;}
 .star ul.star02 p{ font-size: 12px;}
 .star .star02 .three{ width: 120px;}
 .maijbz{ padding:10px; background: #FFFAEB; color: #f90; border: 1px solid #ccc;}
+.joinStar{ cursor:pointer;}
 .star01{ position:relative;}
 .newStar{ display:none; position:absolute; right:10px; top:14px; background:#f8f8f8; width:130px;}
 .newStar ul li{ cursor:pointer; float:left; width:16px; height:16px; background:url(../images/star-off.png) no-repeat; margin-left:5px;}
 .newStar ul li.sel{ background:url(../images/star-on.png) no-repeat;}
+.newStar i{ display:inline-block; width:16px; height:16px; background:url(../images/qustar.png) no-repeat;}
 
 /* 物流工具 */
 .farer{width: 988px;}
@@ -156,7 +163,7 @@ p.fareRight i{ cursor:pointer;}
 .inAreaTwo span em i{ color: #666;}
 .inAreaTwo span i.right{ color: #0080ed; cursor: pointer;}
 
-
+.fahuo{ width:50px; line-height:24px; border-radius:3px; background:#0080ed; border:0; color:#fff; margin-top:10px;}
 
 
 

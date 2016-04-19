@@ -237,14 +237,22 @@
 		$(".button_preview").bind("click",function ()
 		{
 			data=$("#form_edit").serialize();
-			//$(this).hide();
-			//$('.next3 em.two').show();
-			//$('.suess').show();
-			//setTimeout(function(){$('.suess').hide();},2000);
+			$(this).hide();
+			$('.next3 em.two').show();
+			$('.suess').show();
+			
+			
 			$.post("goods.php?act=ajax_save_preview",data,function (res)
 			{
 				if(res.error==0)
-				location.href="{$path_dir_head}goods.php?act=preview&pid="+res.pid;
+				{
+					setTimeout(function ()
+					{
+						$('.suess').hide();
+						location.href="{$path_dir_head}goods.php?act=preview&pid="+res.pid;
+					},1500);
+				}
+				
 				else
 				alert(res.info);
 			},'json')
