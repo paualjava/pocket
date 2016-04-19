@@ -22,6 +22,7 @@ class index extends base
 		$GLOBALS['smarty']->assign('pay_id',trim($_GET['pay_id']));
 		$GLOBALS['smarty']->assign('shipping_id',trim($_GET['shipping_id']));
 		$GLOBALS['smarty']->assign('pay_status',trim($_GET['pay_status']));
+		$GLOBALS['smarty']->assign('wx_nickname',trim($_GET['wx_nickname']));
 		$GLOBALS['smarty']->assign('payment_list',$this->get_payment_list());
 		$GLOBALS['smarty']->assign('shipping_list',$this->get_shipping_list());
 	}
@@ -50,12 +51,11 @@ class index extends base
 		$where=$this->get_search_where();
 		$sql = "SELECT o.order_id, o.order_sn,o.downloadid, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
 		"o.pay_status, o.consignee, o.address, o.email, o.tel, o.extension_code, o.extension_id, o.is_from_mobile_phone ,
-		( o.goods_amount + o.tax + o.shipping_fee + o.insure_fee + o.pay_fee + o.pack_fee + o.card_fee ) AS total_fee".
+		( o.goods_amount + o.tax + o.shipping_fee + o.insure_fee + o.pay_fee + o.pack_fee + o.card_fee ) AS total_fee,o.pay_name,o.pay_id".
 		" FROM " . $GLOBALS['ecs']->table('order_info') . " AS o " . $where ." ORDER BY order_id desc ".
 		" LIMIT " . ($curpage - 1) * $this->page_size . ",$this->page_size";
 		//echo $sql;
 		$info = $GLOBALS['db']->getAll($sql);
-
 		foreach($info as $key=>$row)
 		{
 			$goods_id = parent::table_get_one("order_goods","goods_id",$row['order_id'],"order_id");
@@ -66,6 +66,11 @@ class index extends base
 				$goods = parent::get_goods_info($goods_id);
 				$info[$key]['goods_info']=$goods;
 				$info[$key]['order_info']=$this->get_order_info($row['order_id']);
+				$sql = "SELECT remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$row['order_id']."' order by  remark_id desc limit 0,1";
+				$remark = $GLOBALS['db']->getOne($sql);
+				$info[$key]['remark']=($remark) ? "卖价备注：".$remark : "";
+				$outside_sn=$this->get_order_outside_sn($row['pay_id'],$row['order_sn']);
+				$info[$key]['outside_sn']=$outside_sn;//外部订单号 out_trade_no,外部交易号 transid
 			}
 		}
 		$GLOBALS['smarty']->assign('info',$info);
@@ -73,9 +78,11 @@ class index extends base
 	function get_search_count_where()
 	{
 		if($this->type=="wait_pay")
-		return 'where o.pay_status=0';
+		return 'where pay_status=0';
 		if($this->type=="wait_shipping")
-		return 'where o.shipping_status=0';
+		return 'where pay_status=2 and shipping_status=0';
+		if($this->type=="aleady_shipping")
+		return 'where shipping_status=1';
 		if($_GET['search_type']=="search_order")
 		{
 			$where=" where order_id>0 ";
@@ -100,6 +107,23 @@ class index extends base
 				elseif($_GET['pay_status']==2)
 				$where.=" and pay_status='2'";
 			}
+			//微信昵称查找
+			if(!empty($_GET['wx_nickname']))
+			{
+				$user_list = parent::table_get_list("users","where wx_nickname='".trim($_GET['wx_nickname'])."'","user_id");
+				if(!empty($user_list))
+				{
+					$user_id="(";
+					foreach($user_list as $user_v)
+					{
+						$user_id.=$user_v['user_id'].",";
+					}
+					$user_id=(!empty($user_id)) ? substr($user_id,0,strlen($user_id)-1).")" : "";
+					$where.=(!empty($user_id)) ? " and user_id in ".$user_id : "";
+				}
+				else
+				$where=' where user_id=-1';
+			}
 			return $where;
 		}
 	}
@@ -108,7 +132,9 @@ class index extends base
 		if($this->type=="wait_pay")
 		return 'where o.pay_status=0';
 		if($this->type=="wait_shipping")
-		return 'where o.shipping_status=0';
+		return 'where o.pay_status=2 and o.shipping_status=0';
+		if($this->type=="aleady_shipping")
+		return 'where shipping_status=1';
 		if($_GET['search_type']=="search_order")
 		{
 			$where=" where o.order_id>0 ";
@@ -133,10 +159,67 @@ class index extends base
 				elseif($_GET['pay_status']==2)
 				$where.=" and pay_status='2'";
 			}
+			//微信昵称查找
+			if(!empty($_GET['wx_nickname']))
+			{
+				$user_list = parent::table_get_list("users","where wx_nickname='".trim($_GET['wx_nickname'])."'","user_id");
+				if(!empty($user_list))
+				{
+					$user_id="(";
+					foreach($user_list as $user_v)
+					{
+						$user_id.=$user_v['user_id'].",";
+					}
+					$user_id=(!empty($user_id)) ? substr($user_id,0,strlen($user_id)-1).")" : "";
+					$where.=(!empty($user_id)) ? " and o.user_id in ".$user_id : "";
+				}
+				else
+				$where=' where o.user_id=-1';
+			}
 			return $where;
 		}
 	}
-
+	/**
+	 * 外部订单号
+	 *
+	 * @param unknown_type $pay_id
+	 * @param unknown_type $order_sn
+	 * @return unknown
+	 */
+	function get_order_outside_sn($pay_id,$order_sn)
+	{
+		//微信支付
+		$array=array();
+		if($pay_id==26)
+		{
+			$pay_info = parent::table_get_row("weixin_pay_log",$order_sn,"order_sn");
+			$array=array("out_trade_no"=>$pay_info['out_trade_no'],"transid"=>$pay_info['transid']);
+		}
+		return $array;
+	}
+	/**
+	 * 获取备注
+	 *
+	 * @param unknown_type $order_id
+	 * @return unknown
+	 */
+	function ajax_remark_get()
+	{
+		$order_id=$_POST['order_id'];
+		$sql = "SELECT order_id,remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$order_id."' order by  remark_id desc limit 0,1";
+		$remark = $GLOBALS['db']->getRow($sql);
+		$array=array("remark"=>$remark['remark'],"order_id"=>$order_id);
+		echo json_encode($array);die();
+	}
+	function ajax_remark_save()
+	{
+		$order_id=$_POST['order_id'];
+		$remark=$_POST['remark'];
+		$data=array("remark"=>$remark,"order_id"=>$order_id,"time"=>gmtime());
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('pocket_order_remark'),$data);
+		$array=array("remark"=>$remark,"order_id"=>$order_id);
+		echo json_encode($array);die();
+	}
 	function get_order_info($order_id)
 	{
 		$order_row = parent::table_get_row("order_info",$order_id,"order_id");
@@ -174,18 +257,35 @@ class index extends base
 		$order['shipping_time'] = $order['shipping_time'] > 0 ? local_date($_CFG['time_format'], $order['shipping_time']) : $_LANG['ss'][SS_UNSHIPPED];
 		$order['status']        = $_LANG['os'][$order['order_status']] . ',' . $_LANG['ps'][$order['pay_status']] . ',' . $_LANG['ss'][$order['shipping_status']];
 		$order['invoice_no']    = $order['shipping_status'] == SS_UNSHIPPED || $order['shipping_status'] == SS_PREPARING ? $_LANG['ss'][SS_UNSHIPPED] : $order['invoice_no'];
-		
+
 		/* 此订单的发货备注(此订单的最后一条操作记录) */
-		
+
 		$sql = "SELECT action_note FROM " . $GLOBALS['ecs']->table('order_action').
 		" WHERE order_id = '$order[order_id]' AND shipping_status = 1 ORDER BY log_time DESC";
 		$order['invoice_note'] = $GLOBALS['db']->getOne($sql);
-
+		//卖价备注
+		$sql = "SELECT remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$order_id."' order by  remark_id desc limit 0,1";
+		$remark = $GLOBALS['db']->getOne($sql);
+		$GLOBALS['smarty']->assign('remark',(($remark) ? $remark : ""));
+		//是否使用优惠券
+		$bonus_name='';
+		if($order['bonus_id'])
+		{
+			$sql = "SELECT bonus_type_id FROM " . $GLOBALS['ecs']->table('user_bonus') . " where bonus_id='".$order['bonus_id']."' limit 0,1";
+			$bonus_type_id = $GLOBALS['db']->getOne($sql);
+			$sql = "SELECT type_name,type_money FROM " . $GLOBALS['ecs']->table('bonus_type') . " where type_id='".$bonus_type_id."' limit 0,1";
+			$bonus_name = $GLOBALS['db']->getRow($sql);
+			$bonus_name=$bonus_name['type_name'];
+		}
+		$sql = "SELECT remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$order_id."' order by  remark_id desc limit 0,1";
+		$remark = $GLOBALS['db']->getOne($sql);
+		$GLOBALS['smarty']->assign('remark',(($remark) ? $remark : ""));
 		/* 取得订单商品总重量 */
 		$weight_price = order_weight_price($order['order_id']);
 		$order['total_weight'] = $weight_price['formated_weight'];
 		$GLOBALS['smarty']->assign('title', "订单详情");
 		$GLOBALS['smarty']->assign('order', $order);
+		$GLOBALS['smarty']->assign('bonus_name', $bonus_name);
 		$GLOBALS['smarty']->display('order_info.htm');
 	}
 	function ajax_check_form()

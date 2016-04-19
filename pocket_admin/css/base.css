@@ -36,8 +36,8 @@ i{ font-style: normal;}
 .naver em{ font-size: 13px; color: #999; display: block; margin-top: 40px;}
 .naver .leftNav li{ margin-top: 10px;}
 .naver .leftNav li a{font-size: 16px; color: #666; width: 110px; display: block; }
-.naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center; pointer-events:none;}
-.mainLeft span.currt a{ color: #d6134c; background: url(../images/sanj.png) no-repeat right center; pointer-event:none;}
+.naver .leftNav li.cur a{ color: #f6134c; background: url(../images/sanj.png) no-repeat right center;}
+.mainLeft span.currt a{ color: #d6134c; background: url(../images/sanj.png) no-repeat right center;}
 /*左侧栏结束*/
 
 

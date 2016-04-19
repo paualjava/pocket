@@ -1,15 +1,15 @@
 <?php
 require(dirname(dirname(__FILE__))."/includes/common.php");
 require(dirname(dirname(__FILE__))."/includes/common_admin.php");
-class goods_cat extends base
+class staff_all extends base
 {
-	private $table_name="pocket_goods_cat";
+	private $table_name="pocket_staff_all";
 	function __construct()
 	{
 		$GLOBALS['smarty']->assign('nav_left',"goods_cat");
 		$GLOBALS['smarty']->assign('nav', "goods");
 		$GLOBALS['smarty']->assign('keyword', $_REQUEST['keyword']);
-		$GLOBALS['smarty']->assign('title',"å•†å“åˆ†ç»„");
+		$GLOBALS['smarty']->assign('title',"ÉÌÆ··Ö×é");
 		$GLOBALS['smarty']->assign('BASEE_URL','http://'.$_SERVER['SERVER_NAME'].":8090". str_replace( '/pocket_admin' , '' , str_replace( $_SERVER['DOCUMENT_ROOT'],'' , str_replace('\\', '/', dirname(__FILE__) ))  ).'/' );
 	}
 	function main()
@@ -28,7 +28,7 @@ class goods_cat extends base
 		$GLOBALS['smarty']->display('goods_cat.htm');
 	}
 	/**
-	 * æ·»åŠ åˆ†ç»„
+	 * Ìí¼Ó·Ö×é
 	 *
 	 */
 	function add()
@@ -40,23 +40,23 @@ class goods_cat extends base
 		$cat_name=$_POST['cat_name'];
 		if($cat_name=="")
 		{
-			$array=array("error"=>1,"info"=>"è¯·è¾“å…¥åˆ†ç»„åç§°");
+			$array=array("error"=>1,"info"=>"ÇëÊäÈë·Ö×éÃû³Æ");
 			echo json_encode($array);die();
 		}
 		$sql = "select cat_id from ". $GLOBALS['ecs']->table($this->table_name)." where cat_name='".$cat_name."' limit 0,1";
 		$cat_id = $GLOBALS['db']->getOne($sql);
 		if($cat_id>0)
 		{
-			$array=array("error"=>1,"info"=>"åˆ†ç»„åç§°å·²å­˜åœ¨");
+			$array=array("error"=>1,"info"=>"·Ö×éÃû³ÆÒÑ´æÔÚ");
 			echo json_encode($array);die();
 		}
 		$data = array(
 		'cat_name'         =>trim($_POST['cat_name']),
 		'cat_desc'         =>trim($_POST['cat_desc']),
-		'time'             =>gmtime()//æ—¶é—´
+		'time'             =>gmtime()//Ê±¼ä
 		);
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data);
-		$array=array("error"=>0,"info"=>"æ·»åŠ æˆåŠŸ");
+		$array=array("error"=>0,"info"=>"Ìí¼Ó³É¹¦");
 		echo json_encode($array);die();
 	}
 	function ajax_edit()
@@ -65,14 +65,14 @@ class goods_cat extends base
 		$cat_id_post=$_POST['cat_id'];
 		if($cat_name=="")
 		{
-			$array=array("error"=>1,"info"=>"è¯·è¾“å…¥åˆ†ç»„åç§°");
+			$array=array("error"=>1,"info"=>"ÇëÊäÈë·Ö×éÃû³Æ");
 			echo json_encode($array);die();
 		}
 		$sql = "select cat_id from ". $GLOBALS['ecs']->table($this->table_name)." where cat_name='".$cat_name."' and cat_id!=".$cat_id_post." limit 0,1";
 		$cat_id = $GLOBALS['db']->getOne($sql);
 		if($cat_id>0)
 		{
-			$array=array("error"=>1,"info"=>"åˆ†ç»„åç§°å·²å­˜åœ¨");
+			$array=array("error"=>1,"info"=>"·Ö×éÃû³ÆÒÑ´æÔÚ");
 			echo json_encode($array);die();
 		}
 		$data = array(
@@ -80,7 +80,7 @@ class goods_cat extends base
 		'cat_desc'         =>trim($_POST['cat_desc']),
 		);
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"cat_id=".$cat_id_post." limit 1");
-		$array=array("error"=>0,"info"=>"ä¿®æ”¹æˆåŠŸ");
+		$array=array("error"=>0,"info"=>"ÐÞ¸Ä³É¹¦");
 		echo json_encode($array);die();
 	}
 	function edit()
@@ -91,7 +91,7 @@ class goods_cat extends base
 		$GLOBALS['smarty']->display('goods_cat_edit.htm');
 	}
 	/**
-	 * åˆ é™¤åˆ†ç±»
+	 * É¾³ý·ÖÀà
 	 *
 	 */
 	function delete()
