@@ -14,15 +14,11 @@ class goods_cat extends base
 	}
 	function main()
 	{
-		$keyword=$_REQUEST['keyword'];
-		if(!empty($keyword))
-		$sql = "select * from ". $GLOBALS['ecs']->table($this->table_name)." where cat_name like '%".$keyword."%'  order by sort_order desc, cat_id desc";
-		else
 		$sql = "select * from ". $GLOBALS['ecs']->table($this->table_name)."  order by sort_order desc, cat_id desc";
 		$info = $GLOBALS['db']->getAll($sql);
 		foreach($info as $key=>$v)
 		{
-			$info[$key]['time']=($v['time']>0) ? date("Y-m-d H:i:s",$v['time']+8*3600) : "";
+			$info[$key]['time']=($v['time']>0) ? date("Y-m-d H:i:s",$v['time']) : "";
 		}
 		$GLOBALS['smarty']->assign('info', $info);
 		$GLOBALS['smarty']->display('goods_cat.htm');

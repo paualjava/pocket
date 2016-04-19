@@ -17,9 +17,9 @@ class base
 		$row =$GLOBALS['db']->getOne($sql);
 		return $row;
 	}
-	function table_get_list($table_name,$where='',$column='*')
+	function table_get_list($table_name,$where='')
 	{
-		$sql = "select ".$column." from ". $GLOBALS['ecs']->table($table_name)." ".$where;
+		$sql = "select * from ". $GLOBALS['ecs']->table($table_name)." ".$where;
 		$info = $GLOBALS['db']->getAll($sql);
 		return $info;
 	}

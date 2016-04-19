@@ -45,7 +45,7 @@ class goods extends base
 				"goods_number"=>$val['goods_number'],
 				"is_on_sale"=>$val['is_on_sale'],
 				"is_show"=>0,
-				"time"=>gmtime()
+				"postdate"=>gmtime()
 				);
 				$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data);
 				$this->createQRcode($val['goods_id']);
@@ -88,9 +88,6 @@ class goods extends base
 			if(empty($goods))
 			$goods = parent::get_goods_info($row['goods_id']);
 			$info[$key]['goods_info']=$goods;
-			$time=($row['time']) ? $row['time'] : time();
-			$info[$key]['time1']=date("Y-m-d");
-			$info[$key]['time2']=date("H:i:s");
 			$info[$key]['buy_link']=$this->get_buy_link($row['goods_id']);
 		}
 		$GLOBALS['smarty']->assign('info', $info);
@@ -201,38 +198,7 @@ class goods extends base
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data,'',"goods_id=".$goods_id." limit 1");
 	}
 	/**
-	 * 商品显示 
-	 *
-	 */
-	function ajax_sale_on_show()
-	{
-		$goods_str=$_POST['id'];
-		$goods_str=explode(";",$goods_str);
-		foreach($goods_str as $v)
-		{
-			if($v)
-			{
-				$is_show = parent::table_get_one($this->table_name_pocket_goods,"is_show",$v,"goods_id");
-				if($is_show==1)
-				{
-					$array=json_encode(array("error"=>1,"info"=>"您选择的商品含有已经显示的商品！"));
-					echo $array;die();
-				}
-			}
-		}
-		foreach($goods_str as $v)
-		{
-			if($v)
-			{
-				$data=array("is_show"=>1);
-				$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name_pocket_goods),$data,'',"goods_id=".$v." limit 1");
-			}
-		}
-		$array=json_encode(array("error"=>0,"info"=>"操作成功"));
-		echo $array;die();
-	}
-	/**
-	 * 商品隐藏
+	 * 商品下架
 	 *
 	 */
 	function ajax_sale_on()
@@ -246,7 +212,7 @@ class goods extends base
 				$is_show = parent::table_get_one($this->table_name_pocket_goods,"is_show",$v,"goods_id");
 				if($is_show==0)
 				{
-					$array=json_encode(array("error"=>1,"info"=>"您选择的商品含有已经隐藏的商品！"));
+					$array=json_encode(array("error"=>1,"info"=>"您选择的商品含有已经下架的商品！"));
 					echo $array;die();
 				}
 			}
@@ -261,35 +227,6 @@ class goods extends base
 		}
 		$array=json_encode(array("error"=>0,"info"=>"操作成功"));
 		echo $array;die();
-	}
-	/**
-	 * 批量删除操作
-	 *
-	 */
-	function ajax_delete_all()
-	{
-		$goods_str=$_POST['id'];
-		$goods_str=explode(";",$goods_str);
-		foreach($goods_str as $v)
-		{
-			if($v)
-			{
-				$goods_id=$v;
-				$goods = parent::table_get_row($this->table_name_pocket_goods,$goods_id,$id="goods_id");
-				if(!empty($goods))
-				{
-					$data=array("is_pocket"=>0);
-					$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('goods'),$data,'',"goods_id=".$goods_id." limit 1");
-					$sql = "DELETE FROM " .$GLOBALS['ecs']->table($this->table_name_pocket_goods). " where goods_id=".$goods_id." limit 1";
-					$GLOBALS['db']->query($sql);
-					$this->goods_unlink($goods_id);
-				}
-			}
-		}
-		$array=json_encode(array("error"=>0,"info"=>"操作成功"));
-		echo $array;die();
-
-
 	}
 	/**
 	 * 控制商品显示

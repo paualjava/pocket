@@ -69,10 +69,10 @@
                             <p><a herf="" target="_blank"><!-- {$info.goods_info.goods_name} --></a></p>
                             <em>￥<!-- {$info.goods_info.shop_price} --></em>
                         </li>
-                        <li class="four">UV:0<br />PV:0</li>
+                        <li class="four">UV:3<br />PV:7</li>
                         <li class="five"><!-- {$info.goods_info.goods_number} --></li>
-                        <li class="six">0</li>
-                        <li class="seven"><!-- {$info.time1} --><br />{$info.time2}</li>
+                        <li class="six">1</li>
+                        <li class="seven"><!-- {$info.goods_info.add_time} --><br />17:23:00</li>
                         <li class="eight"><input type="text" placeholder="0" value="{$info.sort_order}" class="sort_order" goods_id="<!-- {$info.goods_info.goods_id} -->"/></li>
                         <li class="nine"><a href="goods.php?act=edit&goods_id=<!-- {$info.goods_info.goods_id} -->">编辑</a><p class="del">删除</p><p class="spread">推广商品</p></li>
                        	{if $info.is_show==1}
@@ -100,7 +100,7 @@
                     </span>
                      
                     </span
-                ></div>
+                </div>
 
 {/foreach}
               
@@ -108,9 +108,10 @@
             </div>
             <div class="module clearfix">
                 <ul class="left">
-                    <li class="button_sale_on_show">批量显示</li>
-                    <li class="button_sale_on">批量隐藏</li>
-                    <li class="button_delete_all">批量删除</li>
+                    <li>修改模块</li>
+                    <li>改分组</li>
+                    <li class="button_sale_on">下架</li>
+                    <li>会员折扣</li>
                 </ul>
                 <p class="right">{$page_bar}</p>
             </div>
@@ -211,100 +212,30 @@
 		$.post("goods.php",{act:"ajax_save_sort_order",goods_id:goods_id, orderby:orderby}, function(data){
 		});
 	});
-	//批量隐藏
 	$(".button_sale_on").click(function ()
 	{
 		var check = $(".amount:checked");
 		if(check.length<1){
-			alert('请选择要隐藏的商品');
+			alert('请选择要下架的商品');
 		}
 		else
 		{
-		if(confirm("确认要隐藏商品吗?"))
-		{
-			var id = '';
-			check.each(function(i){
-				if($(this).val())
-				{
-					id=id+$(this).val()+";";
-				}
-			});
-			$.post("goods.php",{act:"ajax_sale_on","id":id},function(res){
-				if(res.error==1)
+		var id = '';
+		check.each(function(i){
+			if($(this).val())
+			{
+				id=id+$(this).val()+";";
+			}
+		});
+		$.post("goods.php",{act:"ajax_sale_on","id":id},function(res){
+			if(res.error==1)
+			alert(res.info);
+			else
+			{
 				alert(res.info);
-				else
-				{
-					alert(res.info);
-					location.reload();
-				}
-			},"json");
-		}
-		else
-		return false;
-		}
-	})
-	//批量显示
-	$(".button_sale_on_show").click(function ()
-	{
-		var check = $(".amount:checked");
-		if(check.length<1){
-			alert('请选择要显示的商品');
-		}
-		else
-		{
-		if(confirm("确认要显示商品吗?"))
-		{
-			var id = '';
-			check.each(function(i){
-				if($(this).val())
-				{
-					id=id+$(this).val()+";";
-				}
-			});
-			$.post("goods.php",{act:"ajax_sale_on_show","id":id},function(res){
-				if(res.error==1)
-				alert(res.info);
-				else
-				{
-					alert(res.info);
-					location.reload();
-				}
-			},"json");
-		}
-		else
-		return false;
-		}
-	})
-	//批量删除
-	$(".button_delete_all").click(function ()
-	{
-		var check = $(".amount:checked");
-		if(check.length<1){
-			alert('请选择要删除的商品');
-		}
-		else
-		{
-		if(confirm("确认要删除商品吗?"))
-		{
-			var id = '';
-			check.each(function(i){
-				if($(this).val())
-				{
-					id=id+$(this).val()+";";
-				}
-			});
-			$.post("goods.php",{act:"ajax_delete_all","id":id},function(res){
-				if(res.error==1)
-				alert(res.info);
-				else
-				{
-					//alert(res.info);
-					location.reload();
-				}
-			},"json");
-		}
-		else
-		return false;
+				location.reload();
+			}
+		},"json");
 		}
 	})
 

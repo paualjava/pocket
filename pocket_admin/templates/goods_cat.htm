@@ -25,10 +25,8 @@ body{overflow:scroll;overflow-x:hidden;}
                     <li class="two"><a href="javascript:void(0)">商品分组介绍及使用教程</a></li>
                 </ul>
                 <ul class="right">
-                <form id="form_search" action="goods_cat.php">
-                    <li class="one"><input type="text" name="keyword" placeholder="请输入关键词" value="{$keyword}"/></li>
-                    <li class="two"><input type="button" value="搜索" class="button_search"/></li>
-                     </form>   
+                    <li class="one"><input type="text" placeholder="搜索" /></li>
+                    <li class="two"><input type="button" value="搜索" /></li>
                 </ul>
             </div>
             <div class="sur">
@@ -44,7 +42,7 @@ body{overflow:scroll;overflow-x:hidden;}
 <div class="thing clearfix" id="thing">
                     <ul class="surContent clearfix" id="input">
                         <li class="one"><input /><!-- {$info.cat_name} --><br /><em>店内所有商品，新发布的商品排在前面</em></li>
-                        <li class="two">0</li>
+                        <li class="two">57</li>
                         <li class="three">&nbsp;<!-- {$info.time} --></li>
                         <li class="four"><a href="goods_cat.php?act=edit&cat_id=<!-- {$info.cat_id} -->">编辑</a>-<em class="del">删除</em>-<em class="lianjie">链接</em></li>
                     </ul>
@@ -52,10 +50,8 @@ body{overflow:scroll;overflow-x:hidden;}
                         <em>确定删除？</em><em class="sure" cat_id="<!-- {$info.cat_id} -->">确定</em><em class="noSure">取消</em>
                     </span>
                     <span class="fuzhi01">
-                    
                     	<input readonly="readonly" type="text" value="{$BASEE_URL}goods_cat.php?cat_id={$info.cat_id}" class="one link" />
                         <input type="button" value="复制" class="two copyBtn">
-                    
                     </span>
 
                 </div>
@@ -64,7 +60,7 @@ body{overflow:scroll;overflow-x:hidden;}
 
                 
             </div>
-            <p class="curs"></p>
+            <p class="curs">共<em id="totle">2</em>条，每页20条&nbsp;&nbsp;<i>上一页</i>&nbsp;&nbsp;<i>下一页</i>&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;<i>确定</i></p>
         </div>
 	</div>
 </div>
@@ -80,8 +76,8 @@ body{overflow:scroll;overflow-x:hidden;}
 </script> 
 
 <script type="text/javascript">
-    //var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
-    //document.getElementById('totle').innerHTML=inplen;
+    var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
+    document.getElementById('totle').innerHTML=inplen;
 	
 	var leng = $('.thing').length;
 		//alert(leng)
@@ -111,14 +107,6 @@ body{overflow:scroll;overflow-x:hidden;}
 			$(this).css('display','none');
 			}); 
     });
-	$(".button_search").click(function ()
-	{
-		keyword=$("input[name='keyword']").val();
-		if(keyword=="")
-		alert("请输入关键词");
-		else
-		$("#form_search").submit();
-	})
 </script>
 </body>
 </html>

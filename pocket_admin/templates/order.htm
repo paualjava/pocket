@@ -1,19 +1,17 @@
 {include file="common/header.htm"}
 <link type="text/css" rel="stylesheet" href="css/sheet03.css" />
 <script type="text/javascript" src="js/jedate.js"/></script>
-<style type="text/css">
-.kinds{clear:both}
-</style>
 <div class="main">
 	<div class="mainLeft left">
     	<span><a href="order.php?act=overview">订单概况</a></span>
          <div class="naver">
             <em>微商城</em>
             <ul class="leftNav">
-                <li {if $nav_order eq ""}class="cur"{/if}><a href="order.php">所有订单</a></li>
-                <li {if $nav_order eq "wait_pay"}class="cur"{/if}><a href="order.php?type=wait_pay">待付款订单</a></li>
-                <li {if $nav_order eq "wait_shipping"}class="cur"{/if}><a href="order.php?type=wait_shipping">待发货订单</a></li>
-                <li {if $nav_order eq "aleady_shipping"}class="cur"{/if}><a href="order.php?type=aleady_shipping">已发货订单</a></li>
+                <li class="cur"><a href="order.php">所有订单</a></li>
+                <li><a href="">维权订单</a></li>
+                <li><a href="">代付订单</a></li>
+                <li><a href="">送礼订单</a></li>
+                <li><a href="">加星订单</a></li>
             </ul>
             <em>客服服务</em>
             <ul class="leftNav">
@@ -49,7 +47,7 @@
                 <!--<input type="text" value="全部" class="input02 input03" />--></div>
     			<br />
     			
-    			<div><span>收货地址：</span><input type="text" class="input01" name="address" value="{$address}"/><span>微信昵称：</span><input type="text" class="input02" name="wx_nickname" value="{$wx_nickname}"/><span class="wqzt span01">物流方式：</span>
+    			<div><span>收货地址：</span><input type="text" class="input01" name="address" value="{$address}"/><span>微信昵称：</span><input type="text" class="input02" /><span class="wqzt span01">物流方式：</span>
                 <select id="" class="input02 input03" name="shipping_id">
                     <option value="">全部</option>
                     {foreach from=$shipping_list item=info}
@@ -67,16 +65,16 @@
     		<a href="#">查看详情</a>
     		<a href="#">管理退货地址</a>
     	</div>
-         <p class="right">{$page_bar}</p>
     	<div class="kinds">
-       
     		<div class="kindsHeader">
                 <ul class="left">
     				<li class="{if $nav_order eq ""}current{/if} one"><a href="order.php">全部</a></li>
     				<li class="{if $nav_order eq "wait_pay"}current{/if}"><a href="order.php?type=wait_pay">待付款</a></li>
     				<li class="{if $nav_order eq "wait_shipping"}current{/if}"><a href="order.php?type=wait_shipping">待发货</a></li>
-    				<li class="{if $nav_order eq "aleady_shipping"}current{/if}"><a href="order.php?type=aleady_shipping">已发货</a></li>
-    				
+    				<li><a href="sheet05.html">已发货</a></li>
+    				<li><a href="sheet06.html">已完成</a></li>
+    				<li><a href="sheet07.html">已关闭</a></li>
+    				<li><a href="sheet08.html">退款中</a></li>
     			</ul>
     			<a href="#" class="right"><span>?</span>订单类型简介及管理方法</a>
     		</div>
@@ -87,20 +85,15 @@
     				</div>
 
 {foreach from=$info item=info}
-<div class="ware01 layer_{$info.order_info.order_id}">
+<div class="ware01">
     					<ul>
-    						<li class="left">订单号：{$info.order_info.order_sn} <span>{$info.pay_name} </span></li>
-    						<li class="right"><a href="order.php?act=info&order_id={$info.order_info.order_id}">查看详情</a>-<span class="sarm" this_order_id="{$info.order_info.order_id}">备注</span>-<a href="">加星</a></li>
+    						<li class="left">订单号：{$info.order_info.order_sn} <span>微信安全支付-代销</span></li>
+    						<li class="right"><a href="order.php?act=info&order_id={$info.order_info.order_id}">查看详情</a>-<span class="sarm">备注</span>-<a href="">加星</a></li>
     					</ul>
-                        {if $info.outside_sn.out_trade_no neq ''}
-    					<p class="text03"><span>外部订单号：<em>{$info.outside_sn.out_trade_no}</em></span><span>支付流水号：<em>{$info.outside_sn.transid}</em></span></p>
-                        {/if}
+    					<p class="text03"><span>外部订单号：<em>E22652265255525225225</em></span><span>支付流水号：<em>E22652265255525225225</em></span></p>
     					<div class="details">
     						<ul>
-    							<li class="one">
-                                <img src="http://www.wm18.com/images/201602/thumb_img/5989_thumb_G_1455494563800.jpg" alt=""><p>秘密花园玫瑰鲜活水 9.5ml</p>
-                               
-                                 </li>
+    							<li class="one"><img src="http://www.wm18.com/<!-- {$info.goods_info.goods_thumb} -->" alt="" /><p><!-- {$info.goods_info.goods_name} --></p></li>
     							<li class="two">99.00<br />(1件)</li>
                                 <li class="three"></li>
     							<li class="four"><!-- {$info.order_info.consignee} --><br />{if $info.order_info.mobile neq ''} {$info.order_info.mobile}{else} {$info.order_info.tel} {/if}</li>
@@ -110,9 +103,8 @@
     							<li class="seven">99:00</li>
     						</ul>
     					</div>
-                        
-    					<p class="text01">{$info.remark}</p>
-    					<!--<p class="text02">买价备注：哟哟哟</p>-->
+    					<p class="text01">卖价备注：哟哟哟</p>
+    					<p class="text02">买价备注：哟哟哟</p>
     				</div>
 {/foreach} 
 
@@ -129,39 +121,15 @@
         	<li class="one">卖家备注</li>
             <li class="guanbi">×</li>
         </ul>
-        <textarea placeholder="最多可输入256个字符" maxlength="256" name="remark"></textarea>
-        <input type="hidden" id="order_id" value=""/>
-        <input type="button" value="提交" id="button_remark_submit" />
+        <textarea placeholder="最多可输入256个字符" maxlength="256"></textarea>
+        <input type="submit" value="提交" />
     </div>
 </div>
 <script type="text/javascript">
     $(function() {
         $('.sarm').click(function(event) {
             $('.remark').stop().fadeIn(500);
-			this_order_id=$(this).attr("this_order_id");
-			$.post("order.php?act=ajax_remark_get",{"order_id":this_order_id},function (res)
-			{
-				$("#order_id").val(res.order_id);
-				$("textarea[name='remark']").val(res.remark);
-			},"json");
         });
-		$("#button_remark_submit").click(function ()
-		{
-			remark=$("textarea[name='remark']").val();
-			if(remark=="")
-			{
-				alert("请输入备注");
-			}
-			else
-			{
-				data={"order_id":$("#order_id").val(),"remark":remark}
-				$.post("order.php?act=ajax_remark_save",data,function (res)
-				{
-					$(".layer_"+res.order_id).find(".text01").eq(0).text("卖价备注："+res.remark);
-					$('.remark').stop().fadeOut(500);
-				},"json");
-			}
-		})
         $('.guanbi').click(function(event) {
             $('.remark').stop().fadeOut(500);
         });
