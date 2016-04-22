@@ -66,14 +66,46 @@ class index extends base
 				$goods = parent::get_goods_info($goods_id);
 				$info[$key]['goods_info']=$goods;
 				$info[$key]['order_info']=$this->get_order_info($row['order_id']);
+				$info[$key]['order_info']['pay_time_str']=local_date("Y-m-d",$info[$key]['order_info']['pay_time']);
+				$info[$key]['order_info']['pay_time_str_2']=local_date("H:i:s",$info[$key]['order_info']['pay_time']);
 				$sql = "SELECT remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$row['order_id']."' order by  remark_id desc limit 0,1";
 				$remark = $GLOBALS['db']->getOne($sql);
 				$info[$key]['remark']=($remark) ? "卖价备注：".$remark : "";
 				$outside_sn=$this->get_order_outside_sn($row['pay_id'],$row['order_sn']);
 				$info[$key]['outside_sn']=$outside_sn;//外部订单号 out_trade_no,外部交易号 transid
+				$info[$key]['goods_list']=$this->get_goods_list($row['order_id']);
 			}
 		}
 		$GLOBALS['smarty']->assign('info',$info);
+	}
+	/**
+	 * 订单列表获取商品
+	 *
+	 */
+	function get_goods_list($order_id)
+	{
+		$goods_name="";
+		$goods_price="";
+		$sql = "select * from ". $GLOBALS['ecs']->table("order_goods")." where order_id='".$order_id."'";
+		$info = $GLOBALS['db']->getAll($sql);
+		$goods_list=array();
+		foreach($info as $key=>$val)
+		{
+			$goods = get_goods_info($val['goods_id']);
+			if(empty($goods))
+			$goods = parent::get_goods_info($val['goods_id']);
+			//图片
+			$sql = "select thumb_url from ". $GLOBALS['ecs']->table("goods_gallery")." where goods_id='".$val['goods_id']."'";
+			$pic = $GLOBALS['db']->getOne($sql);
+			$goods_list[$key]['goods_id']=$val['goods_id'];
+			$goods_list[$key]['goods_pic']="http://www.wm18.com/".$pic;
+			$goods_list[$key]['goods_name']=$val['goods_name'];
+			$goods_list[$key]['goods_price']=$val['goods_price'];
+			$goods_list[$key]['goods_number']=$val['goods_number'];
+			//$goods_list.='<div><a href="http://www.wm18.com/goods.php?id='.$val['goods_id'].'" target="_blank"><img src="http://www.wm18.com/'.$pic.'" alt="" style="height:50px;"/></a><p><a href="http://www.wm18.com/goods.php?id='.$val['goods_id'].'" target="_blank">'.$val['goods_name'].'</a></p></div>';
+			//$goods_price.='<div>'.$val['goods_price'].'<br />('.$val['goods_number'].'件)</div>';
+		}
+		return $goods_list;
 	}
 	function get_search_count_where()
 	{
@@ -283,8 +315,16 @@ class index extends base
 		/* 取得订单商品总重量 */
 		$weight_price = order_weight_price($order['order_id']);
 		$order['total_weight'] = $weight_price['formated_weight'];
+		/*快递信息**/
+		$sql = "SELECT * FROM " . $GLOBALS['ecs']->table('order_shipping') . " where order_sn='".$order['order_sn']."' limit 0,1";
+		$order_shipping = $GLOBALS['db']->getRow($sql);
+		$order_shipping['shipping_time']=date("Y-m-d H:i:s",$order_shipping['shipping_time']);
+		$GLOBALS['smarty']->assign('goods_list', $this->get_goods_list($order_id));
 		$GLOBALS['smarty']->assign('title', "订单详情");
 		$GLOBALS['smarty']->assign('order', $order);
+		$order_shipping['shipping_time']=(substr($order_shipping['shipping_time'],0,4)=="1970") ? "" : $order_shipping['shipping_time'];
+		$GLOBALS['smarty']->assign('order_shipping', $order_shipping);
+		//var_dump($order);die();
 		$GLOBALS['smarty']->assign('bonus_name', $bonus_name);
 		$GLOBALS['smarty']->display('order_info.htm');
 	}

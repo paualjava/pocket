@@ -1,0 +1,311 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
+.mainRight{ width: 980px;}
+
+
+/*所有员工*/
+.shopHeader01{ padding:30px 50px; background:#F8F8F8; font-size:14px;}
+.shopHeader01 span{ width:80px; text-align:right; display:inline-block; line-height:24px;}
+.shopHeader01 select{ width:120px; padding-left:10px; height:30px; border:1px solid #ccc; color:#555; border-radius:3px;}
+.shopHeader01 select option{ padding-left:10px;}
+.shopHeader01 form input{ height:28px; width:300px; border:1px solid #ccc; color:#555; border-radius:3px; padding-left:10px;}
+.shopHeader01 form button{ width:80px; line-height:24px; background:#0080ed; border:none; border-radius:3px; color:#fff; margin-left:50px; cursor:pointer;}
+.wares01{ margin-right:50px;}
+.wares02{ margin-right:10px;}
+.shopHeader01 em{ display:inline-block; line-height:24px; padding:0 5px; text-align:center; margin-right:5px; font-size:14px; border:1px solid #dcdcdc; cursor:pointer; border-radius:3px;}
+.shopHeader01 em.curt{ border:1px solid #07d; color:#07d; border-radius:3px;}
+.shopHeader01 i{ display:inline-block; line-height:24px; padding:0 5px; text-align:center; margin-right:5px; font-size:14px; border:1px solid #dcdcdc; cursor:pointer; border-radius:3px;}
+.shopHeader01 i.curt{ border:1px solid #07d; color:#07d; border-radius:3px;}
+.shopHeader01 b{ display:block; border-top:1px solid #eee; border-bottom:1px solid #fff;}
+
+.shopBody01{ margin-top:20px;}
+.inShopBody01 ul{ background:#f8f8f8; border-bottom:1px solid #e5e5e5; padding:10px;}
+.inShopBody01 ul li{ float:left;box-sizing: border-box; line-height:40px; width:110px; text-align:center;}
+.inShopBody01 ul li.one{ text-align:left; width:180px;}
+.inShopBody01 ul li.one input{ margin-right:5px; margin-top:2px;}
+.inShopBody01 ul li.eight{ text-align:right;}
+
+.inShopNews{ padding:10px; position:relative;}
+.inShopNews:hover{ background:#f8f8f8;} 
+.inShopNews ul li{ float:left; box-sizing:border-box; width:110px; text-align:center;}
+.inShopNews ul li input{ margin-top:7px; margin-right:5px;}
+.inShopNews ul li i{ background:url(../images/edit.png) no-repeat center 2px; display:inline-block; width:18px; height:18px; background-size:cover; cursor:pointer;}
+.inShopNews ul li p{ font-size:14px;word-break:break-all;}
+.inShopNews ul li p a{font-size:14px; width:100px;word-break:break-all;}
+.inShopNews ul li.one{ width:18px;}
+.inShopNews ul li.two{ width:160px; text-align:left;}
+.inShopNews ul li.nine{ text-align:right; width:110px;}
+.inShopNews ul li.yaoqingren{ display:inline-table; width:110px;}
+.inShopNews ul li.seven{ text-align:right; width:110px; display:block;}
+.inShopNews ul li.nine p{ cursor:pointer; color:#07d;}
+.inShopNews ul li.nine b{ cursor:pointer; color:#07d;}
+.tankuang12{ background:url(../images/tankuang05.png) no-repeat; width:275px; height:30px; display:block; position:absolute; right:80px; top:21px; padding:7px 25px; display:none;}
+.tankuang12 select{ width:150px; border-radius:3px; height:30px; border:1px solid #ccc;}
+.tankuang12 input{ margin-left:7px; border:none; border-radius:3px; width:50px; line-height:26px;}
+.tankuang12 input.queding{ background:#0080ed; border:0; color:#fff;}
+.tankuang12 input.quxiao{ background:#fff; border:#dcdcdc 1px solid;}
+.span11{ position:absolute; left:135px; top:0; width:295px; height:27px; background:url(../images/tankuang08.png) no-repeat;padding:7px 10px 10px 15px; display:none;}
+.tankuang13{ background:url(../images/tankuang05.png) no-repeat; width:275px; height:30px; position:absolute; right:80px; top:41px; padding:7px 25px; display:none;}
+.tankuang13 select{ width:150px; border-radius:3px; height:30px; border:1px solid #ccc;}
+.tankuang13 input{ margin-left:7px; border:none; border-radius:3px; width:50px; line-height:26px;}
+.tankuang13 input.queding{ background:#0080ed; border:0; color:#fff;}
+.tankuang13 input.quxiao{ background:#fff; border:#dcdcdc 1px solid;}
+.tankuang14{ background:url(../images/tankuang05.png) no-repeat; width:275px; height:30px; position:absolute; right:65px; top:0px; padding:7px 25px; display:none;}
+.tankuang14 select{ width:150px; border-radius:3px; height:30px; border:1px solid #ccc;}
+.tankuang14 input{ margin-left:7px; border:none; border-radius:3px; width:50px; line-height:26px;}
+.tankuang14 input.queding{ background:#0080ed; border:0; color:#fff;}
+.tankuang14 input.quxiao{ background:#fff; border:#dcdcdc 1px solid;}
+.tankuang15{ background:url(../images/tankuang05.png) no-repeat; width:305px; height:30px; position:absolute; right:92px; top:62px; padding:7px 10px; display:none; text-align:left;}
+.tankuang15 input.queding{ background:#0080ed; border:0; color:#fff; width:50px;}
+.tankuang15 input.quxiao{ background:#fff; border:#dcdcdc 1px solid; width:50px;}
+.tankuang15 input{ margin-left:7px; border:none; border-radius:3px; width:110px; line-height:26px; border:1px solid #ccc; border-radius:3px;}
+.span11 .name{ width:90px; height:24px; border:1px solid #ccc; border-radius:3px; padding-left:10px;}
+.anniu{ width:50px; height:30px; border:0; margin-left:5px; border-radius:3px; cursor:pointer;}
+.queding{ background:#0080ed; color:#fff; cursor:pointer;}
+.quxiao{ border:1px solid #ccc; cursor:pointer;}
+
+/*清退*/
+.qingtui{ width:100%; height:100%; background:rgba(255,255,255,.8); position:fixed; top:0; left:0; display:none;}
+.qingtui .center{ width:430px; margin:10% auto; border:1px solid #000; padding:10px;box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);background-color: #ffffff; border: 1px solid rgba(0, 0, 0, 0.3); border-radius: 6px;}
+.qingtui .center ul{ padding:10px; border-bottom:1px solid #ccc;}
+.qingtui .center ul li.one{ float:left; font-size:16px; font-weight:bold; line-height:30px;}
+.qingtui .center ul li.guanbi{ float:right;font-size:20px; font-weight:bold; opacity:0.3;}
+.qingtui .center ul li.guanbi:hover{ opacity:0.7;}
+.qingtui .center p{ padding:15px; font-size:12px;}
+.qingtui .center input{ width:70px; line-height:30px; border-radius:3px; border:0;}
+.qingtui .center input.queding01{ background:#0080ed; color:#fff; margin-right:25px;}
+.qingtui .center input.quxiao01{ border:1px solid #ccc;}
+.qqanniu{ padding:10px 130px;}
+/*span.tankuang12,span.tankuang13,span.tankuang14,span.tankuang15{ display:block;}*/
+
+
+.shopFooter{ padding:20px 10px;}
+.shopFooter .left input{ width:100px; line-height:24px; background:#f8f8f; border:1px solid #ccc; margin-right:7px;}
+.shopFooter .right .shuru{ width:60px; line-height:24px; border:#ccc solid 1px; border-radius:3px; text-align:center;}
+.shopFooter .right button{ width:50px; line-height:24px; border:0; border-radius:3px; background:#0080ed; color:#fff; margin-left:7px;}
+
+/*员工招募-邀请员工*/
+.recruitHeader ul li{ float:left; margin-left:-1px; border:1px solid #ccc; cursor:pointer;}
+.recruitHeader ul li a{box-sizing: border-box;color: #333;display: inline-block;line-height: 32px;min-width: 80px;padding: 0 12px;text-align: center;}
+.recruitHeader ul li.one{ margin-left:0;}
+.recruitHeader ul li.curt{ border-bottom:0;}
+.recruitHeader ul li.five{ border:0; border-bottom:1px #ccc solid; height:33px; width:593px;}
+
+.cjyq{ background:#49C800; border: #3da900 1px solid; border-radius:3px; padding:3px 10px; color:#fff; margin-top:20px; cursor:pointer;}
+.modal{ display:none; background:rgba(255,255,255,.8); position: fixed; top:0; left:0; width:100%; height:100%;  z-index: 1050;} 
+.inModal{ width:560px; margin:7% auto; /*position:fixed; top:-80%; left:50%; margin-left:-280px;*/ border: 1px solid rgba(0, 0, 0, 0.3);  border-radius: 6px; box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); background:#fff;}
+.modalHeader ul{ padding:10px 20px; border-bottom:1px solid #ccc;}
+.modalHeader ul li.one{ float:left; font-size:14px; font-weight:bold; line-height:30px; color:#333;}
+.modalHeader ul li.guanbi{ float:right;font-size:20px; font-weight:bold; opacity:0.3; cursor:pointer;}
+.modalHeader ul li.guanbi:hover{ opacity:0.7;}
+.modalBody{ padding:20px; background:#fff;}
+.modalBody span{ font-size:14px; color:#333; text-align:right; width:120px; display:inline-block; margin-right:5px; line-height:30px;}
+.modalBody p{ margin-left:125px; font-size:12px; color:#999;}
+.modalBody input{ width:300px; height:30px; border:1px solid #ccc; border-radius:3px; padding-left:10px;}
+.modalBody select{ width:110px; border:1px #ccc solid; border-radius:3px; height:30px; padding-left:10px; margin-left:-3px; color:#666;}
+.modalBody select option{ padding-left:10px;}
+textarea{ resize:none;/*word-break: break-all;*/ font-size:13px; line-height:18px; color:#666; padding:10px; width:300px; height:100px; border:1px solid #ccc; border-radius:3px; display:inline-table;}
+.modalFooter{ padding:10px 30px; background:#f8f8f8; border-top:1px solid #ccc; margin:0 auto; text-align:right;}
+.shopFooter p{ text-align:right;}
+.shopFooter .shuru{ width:60px; line-height:24px; border:#ccc solid 1px; border-radius:3px; text-align:center;}
+.shopFooter button{ width:50px; line-height:24px; border:0; border-radius:3px; background:#0080ed; color:#fff; margin-left:7px;}
+.inRecruit li{ border:1px #ccc solid; margin-top:20px;}
+.inRecruit .rTotle{ padding:10px 30px; border-bottom:1px #eee solid; line-height:20px;}
+.inRecruit .rTotle em{ color:#999;}
+.inRecruit .rHeader b{ margin-right:10px;}
+.inRecruit .rHeader em{ color:#999; cursor:pointer;}
+.rzhankai{ display:none;}
+.rphone{ padding:20px 30px; border-bottom:1px solid #ccc;}
+.rphone h3{ line-height:40px; font-size:14px;}
+.rphone p.one{ color:#999; display:block; font-size:12px;}
+.rphone form{ margin:10px 0;}
+.rphone form div{ margin-bottom:10px;}
+.rphone form div input{ width:206px; padding:4px 6px; border:1px #ccc solid; border-radius:3px;}
+.rphone form div a{ padding:4px 10px; font-size:12px; background:#f8f8f8; border:1px #ccc solid; border-radius:3px; margin-left:10px; color:#0080ed;}
+.rphone form div p{ color:#f40; margin-left:63px; display:none;}
+.fsyqdx{ padding:5px 10px; background:#0080ed; border:1px solid #0080ed; border-radius:3px; color:#fff; margin-left:63px; cursor:pointer;}
+.rewm{ padding:20px 30px; border-bottom:1px solid #ccc;}
+.rewm h3{ line-height:40px; font-size:14px;}
+.rewm p{ color:#999; display:block; font-size:12px;}
+.rewm li{ border:0; margin-bottom:7px; margin-top:0;}
+.rewm li a{ display:block; font-size:12px; color:#0080ed;}
+.rewm div{ margin-top:10px;}
+.rewm div img{ width:100px; height:100px; border:1px solid #ccc; float:left; margin-right:10px;}
+.rlink{ padding:20px 30px;}
+.rlink h3{ line-height:40px; font-size:14px;}
+.rlink p{ color:#999; display:block; font-size:12px;}
+.rlink span{ display:block; margin-top:10px;}
+.rlink span input.neirong{ width:240px; height:24px; border:1px #ccc solid; border-radius:3px; padding:0 10px; color:#999; cursor:not-allowed; margin-left:7px; background:#f8f8f8;}
+.rlink span input.copy{ padding:0 7px; line-height:24px; border-radius:3px; background:#0080ed; border:0; color:#fff; margin-left:10px;}
+
+
+/*创建邀请*/
+.modal01{ padding:30px 50px; background:#f8f8f8;}
+.inModal01{ width:600px; margin:0 auto; border:1px solid #ccc; border-radius:3px;}
+.modalBody01{ padding:20px; background:#fff; background:#f8f8f8;}
+.modalBody01 span{ font-size:14px; color:#333; text-align:right; width:120px; display:inline-block; margin-right:5px; line-height:30px;}
+.modalBody01 p{ margin-left:125px; font-size:12px; color:#999;}
+.modalBody01 input{ width:300px; height:30px; border:1px solid #ccc; border-radius:3px; padding-left:10px;}
+.modalBody01 select{ width:110px; border:1px #ccc solid; border-radius:3px; height:30px; padding-left:10px; margin-left:-3px; color:#666;}
+.modalBody01 select option{ padding-left:10px;}
+textarea01{ resize:none;/*word-break: break-all;*/ font-size:13px; line-height:18px; color:#666; padding:10px; width:300px; height:100px; border:1px solid #ccc; border-radius:3px; display:inline-table;}
+.modalFooter01{ padding:10px 30px; background:#f8f8f8; border-top:1px solid #ccc; margin:0 auto; text-align:center;}
+.modalFooter01 input{ width:80px; line-height:28px; border-radius:3px; margin-left:10px; text-align:center;}
+.modalFooter01 input.queding01{ border:1px solid #0080ed; background:#0080ed; color:#fff;}
+.modalFooter01 input.quxiao01{ border:1px solid #ccc;}
+
+/*员工招募-发出的邀请*/
+.emitNav{ margin-top:20px; padding:10px; background:#f8f8f8; border-bottom:1px solid #ccc; word-break:break-all;}
+.emitNav li{ float:left; width:190px; text-align:center; font-size:13px;}
+.emitNav li.one{ text-align:left;}
+.emitNav li.two{ text-align:right;}
+.emitUgc ul{ padding:10px; border-bottom:1px solid #ccc; word-break:break-all; position:relative;}
+.emitUgc ul:hover{ background:#f8f8f8;}
+.emitUgc li{ float:left; width:190px; text-align:center; line-height:30px;}
+.emitUgc li.one{ text-align:left;}
+.emitUgc li.two{ text-align:right;}
+.emitUgc li em{ color:#0080ed; cursor:pointer;}
+.span22{ padding:7px 30px; background:url(../images/tankuang05.png) no-repeat; width:292px; height:30px; display:none; position:absolute; top:2px; right:42px;}
+.span22 i{ font-size:14px;}
+.span22 .anniu{ margin-left:25px;}
+.span33{ padding:7px 30px; background:url(../images/tankuang05.png) no-repeat; width:292px; height:30px; display:none; position:absolute; top:2px; right:115px;}
+.span33 .text01{ height:28px; width:190px; padding:0 10px; border:1px solid #ccc; border-right:none; border-radius:3px 0 0 3px; cursor:not-allowed;background:#f8f8f8;}
+.span33 .fuzhi02{ background:#f8f8f8; border:#ccc solid 1px; height:30px; border-radius:0 3px 3px 0; padding:0 7px; cursor:pointer;}
+
+/*业绩统计*/
+
+.result .nav em{ padding:5px 15px; display:inline-block; border:1px #ccc solid; border-bottom:0;}
+.result .nav i{ border-bottom:1px solid #ccc; display:block;padding:14px 450px;}
+.result form button{ width:80px; line-height:24px; background:#0080ed; border:none; border-radius:3px; color:#fff; margin-left:10px; cursor:pointer;}
+.result .form span{ width:80px; text-align:right; display:inline-block; line-height:24px;}
+.result .form{ padding:30px 50px; background:#F8F8F8; font-size:14px; margin-top:20px;}
+.result .form input{ height:28px; width:140px; border:1px solid #ccc; color:#555; border-radius:3px; padding-left:10px;}
+.result .form option{ padding-left:10px;}
+.result .form select{ padding-left:10px; width:110px; height:28px; border:#ccc 1px solid; border-radius:3px;}
+.result .form i{ display:inline-block; padding:0 10px;}
+.result .form em{ display:inline-block; line-height:24px; padding:0 5px; text-align:center; margin-right:5px; font-size:14px; border:1px solid #dcdcdc; cursor:pointer; border-radius:3px;}
+.result .form em.curt{ border:1px solid #07d; color:#07d; border-radius:3px;}
+.result .form b{ display:inline-block; line-height:24px; padding:0 5px; text-align:center; margin-right:5px; font-size:14px; border:1px solid #dcdcdc; cursor:pointer; border-radius:3px;}
+.result .form b.curt{ border:1px solid #07d; color:#07d; border-radius:3px;}
+.result .f70{ padding:10px; background:#f8f8f8; margin-top:20px;}
+.result .f70 em{ border-left:#f70 4px solid; padding-left:7px;}
+.result ul li{ float:left; padding:30px; text-align:center; width:27%;}
+.result ul{ padding:10px; background:#f8f8f8; margin-top:20px;}
+
+.span12{ background:url(../images/tankuang08.png) no-repeat; width:300px; height:30px; display:none; padding:7px 10px 7px 15px; position:absolute; left:100px; top:-8px;}
+.shopFooter .left .span12 input{ width:60px; border:0; margin-left:7px; line-height:28px;}
+.shopFooter .left .span12 select{ width:150px; height:30px;}
+.shopFooter .left{ position:relative;}
+
+/*标签管理*/
+.newTitle{padding: 0 12px; display: inline-block; line-height:26px; color: #fff; background: #4b0; border-radius:3px; border-wieght:1px;cursor: pointer;border: 1px solid #ddd;text-align: center;font-size: 12px; box-sizing: content-box; margin-top:20px;}
+.newTitle:hover{ color: #fff; background: #49c800; border-color: #399f00;}
+.titleBody table.titleNav{ width:100%; border-collapse:collapse; margin-top:20px; background:#fff;}
+.titleBody table.titleNav th{ background-color:#f8f8f8; border-bottom:1px solid #ccc; padding:10px;}
+.titleBody table.titleNav .titleOne{ text-align:left;}
+.titleBody table.titleNav .titleFour{ text-align:right;}
+.titleBody table td{ border-bottom:1px #ccc solid; padding:10px; text-align:center;}
+.titleBody table.titleNav tr:hover{ background-color:#f8f8f8;} 
+.titleBody table tr{ position:relative;}
+.titleBody table td em{ color:#0080ed; cursor:pointer;}
+.titleBody table td a{ font-size:12px; color:#0080ed;} 
+.tanchuang01{ padding:10px; position:absolute; right:90px; top:-94px; border:1px #ccc solid; border-radius:3px; background-clip: padding-box;background:#fff; display:none; z-index:50;}  
+.tanchuang01:before{ content:''; position:absolute; width:10px; height:10px; border-bottom:1px #ccc solid; border-right:1px #ccc solid; transform:rotate(-45deg); -webkit-transform:rotate(-45deg); top:50%; right:-7px; background:#fff;}   
+.tanchuang01 span{ display:inline-block; width:75px; text-align:right; margin-right:6px;}
+.tanchuang01 textarea{ width:137px;}
+.tanchuang01 div{ text-align:right; margin-top:10px;}
+.tanchuang01 input.mingchen{ border:0; padding:0 7px; height:24px; border-radius:3px; cursor:pointer; border:1px solid #ccc; border-radius:3px;}
+.tanchuang01 div input{ padding:0 12px; margin-left:7px; border-radius:3px; border:0; line-height:24px;}
+.titleLine{ width:958px; padding:10px; border-bottom:1px solid #ccc; position:relative;}
+.titleLine:hover{ background-color:#f8f8f8;}
+.titleLine em{ width:15%; display:inline-table; text-align:center; }
+.titleLine em.one{ width:30%;}
+.titleLine em.three{ width:40%;}
+
+.titleLine a{ color:#0080ed;}
+.titleLine em.one{ text-align:left;}
+.titleLine em.two{ text-align:right;}
+.titleLine em.two i{ cursor:pointer; color:#0080ed;}
+.titleLine .tanchuang02{ width:260px; border:1px solid #ccc; padding:10px; position:absolute; right:48px; top:-2px; background:#fff; border-radius:3px; display:none; z-index:50;}
+.titleLine .tanchuang02:before{ content:''; position:absolute; width:10px; height:10px; border-bottom:1px #ccc solid; border-right:1px #ccc solid; transform:rotate(-45deg);  -webkit-transform:rotate(-45deg); top:41%; right:-7px; background:#fff;}
+.titleLine .tanchuang02 span{ width:120px; text-align:center; display:inline-block; font-size:14px;}
+.titleLine .tanchuang02 input{ width:60px; height:24px; border:0; border-radius:3px; margin-left:7px;}
+
+/*新建部门*/
+.titleBody3{ width:878px; padding:30px 50px; background:#f8f8f8; border:1px #ccc solid;}
+.titleBody3 span{ display:inline-block; width:75px; text-align:right; margin-right:6px;}
+.titleBody3 textarea{ width:137px;}
+.titleBody3 .inForm{ width:600px; margin:0 auto;}
+.titleBody3 input.mingchen{ width:470px; border:0; padding:0 7px; height:24px; border-radius:3px; cursor:pointer; border:1px solid #ccc; border-radius:3px;}
+.titleBody3 textarea{ width:464px;}
+.titleBody3 .inForm div{ text-align:center; margin-top:20px;}
+.titleBody3 .inForm div input{ width:80px; line-height:28px; border-radius:3px; margin-left:10px;}
+.titleBody3 .inForm div input.queding{ border:1px solid #0080ed;}
+.titleBody3 .inForm div input.quxiao{ border:1px solid #ccc;}
+
+/*新建标签*/
+.titleBody2{ width:878px; padding:30px 50px; background:#f8f8f8; border:1px #ccc solid;}
+.titleBody2 span{ display:inline-block; width:75px; text-align:right; margin-right:6px;}
+.titleBody2 textarea{ width:137px;}
+.titleBody2 .inForm{ width:600px; margin:0 auto;}
+.titleBody2 input.mingchen{ width:470px; border:0; padding:0 7px; height:24px; border-radius:3px; cursor:pointer; border:1px solid #ccc; border-radius:3px;}
+.titleBody2 textarea{ width:464px;}
+.titleBody2 .inForm div{ text-align:center; margin-top:20px;}
+.titleBody2 .inForm div input{ width:80px; line-height:28px; border-radius:3px; margin-left:10px;}
+.titleBody2 .inForm div input.queding{ border:1px solid #0080ed;}
+.titleBody2 .inForm div input.quxiao{ border:1px solid #ccc;}
+
+/*等级管理*/
+.titleBody4 table.titleNav{ width:100%; border-collapse:collapse; margin-top:20px; background:#fff;}
+.titleBody4 table.titleNav th{ background-color:#f8f8f8; border-bottom:1px solid #ccc; padding:10px;}
+.titleBody4 table.titleNav .titleOne{ text-align:left;}
+.titleBody4 table.titleNav .titleFour{ text-align:right;}
+.titleBody4 table td{ border-bottom:1px #ccc solid; padding:10px; text-align:center;}
+.titleBody4 table td.rank{ text-align:left;}
+.titleBody4 table.titleNav tr:hover{ background-color:#f8f8f8;} 
+.titleBody4 table tr{ position:relative;}
+.titleBody4 table td em{ color:#0080ed; cursor:pointer;}
+.titleBody4 table td a{ font-size:12px; color:#0080ed;} 
+.titleLine4{ width:958px; padding:10px; border-bottom:1px solid #ccc; position:relative;}
+.titleLine4:hover{ background-color:#f8f8f8;}
+.titleLine4 .bianj{ color:#0080ed; cursor:pointer;}
+.rankFooter{ margin-top:20px;}
+.rankFooter p{ font-size:12px; margin-bottom:3px;}
+.rankFooter p a{ font-size:12px; color:#0080ed;}
+.rankTkuang{ width:100%; height:100%; position:fixed; top:0; left:0; background:rgba(255,255,255,.7); display:none;}
+.inRank{ width:470px; border:1px #ccc solid; border-radius:3px; margin:10% auto; background:#fff;}
+.rankHeader{ border-bottom:1px solid #ccc; padding:10px;}
+.rankHeader i{ font-size:18px; color:#999; cursor:pointer;}
+.rankHeader i:hover{ color:#333;}
+.rankTkuang p{ font-size:12px; color:#666; margin-left:126px;}
+.rankBody span{font-size:14px; color:#333; text-align:right; width:120px; display:inline-block; margin-right:5px; line-height:30px;}
+.rankBody .zk{ width:80px; border:1px solid #ccc; border-radius:3px; padding-left:10px; height:24px;}
+.rankBody .cgje{ width:120px; border:1px solid #ccc; border-radius:3px; padding-left:10px; height:24px;}
+.rankBody form div{ margin-bottom:7px;}
+.rankBody form textarea{ width:220px; height:65px;}
+.rankBody .anniu{ width:200px; margin-left:126px; margin-bottom:20px;}
+.rankBody .anniu input{ padding:2px 10px; border:0; margin-right:10px; border-radius:3px;}
+.rankBody .anniu input.quxiao{ border:1px #ccc solid;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

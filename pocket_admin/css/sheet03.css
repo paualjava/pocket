@@ -25,7 +25,7 @@ span.wqzt{ margin-left:6px;}
 .kinds .kindsHeader ul li.one{ margin-left:0;}
 .kinds .kindsHeader ul li a{ display:block; background: #f8f8f8;font-size: 12px;
  width: 100px; height: 24px; text-align: center; line-height: 10px; color:#333;}
-.kinds .kindsHeader ul li.current{ border-bottom:none; pointer-events:none;}
+.kinds .kindsHeader ul li.current{ border-bottom:none; /*pointer-events:none;*/}
 .kinds .kindsHeader a{color: #007ade;font-size: 12px; display: block; padding-top: 16px;}
 .kinds .kindsHeader a.right{color: #007ade;font-size: 12px; display: block; padding-top: 16px; margin-right:20px;}
 .kinds .kindsHeader a span{ width: 18px; height: 18px; border-radius: 50%;color: #fff; background: #43d04e; display: inline-block; text-align: center; font-size: 13px;}
@@ -40,7 +40,7 @@ span.wqzt{ margin-left:6px;}
 .groupOne .groupHeader span.five{ width: 110px; color: #007ade;}
 .groupOne .groupHeader span.six{ width: 110px;}
 .groupOne .groupHeader span.seven{ width: 125px;}
-.ware01{ margin-top: 10px; width: 984px; background: #f8f8f8; padding-top: 10px;}
+.ware01{ margin-top: 10px; width: 984px; background: #f8f8f8; padding-top: 10px; position:relative;}
 .ware01 ul{ overflow: hidden; zoom:1; font-size: 14px;}
 .ware01 ul li.left{ margin-left: 10px;}
 .ware01 ul li.left span{ color: #999;}
@@ -49,18 +49,31 @@ span.wqzt{ margin-left:6px;}
 .ware01 p.text03{font-size: 14px; margin-left: 10px; margin-top: 10px;}
 .ware01 p.text03 em{ color: #999;}
 .details{ margin-top: 10px; background: #fff;}
-.details ul{ overflow: hidden; zoom: 1;}
-.details ul li{ float: left; border: 1px solid #ccc; margin-left: -1px; 
-	height: 60px; text-align: center; padding:20px 0;}
+/*.details ul{ overflow: hidden; zoom: 1;}
+.details ul li{ display:list-item; float: left; border: 1px solid #ccc; margin-left: -1px; height: 60px; text-align: center; padding:20px 0;}
 .details ul li.one{ margin-left: 0; width: 300px;}	
 .details ul li.one img{ float: left; margin-right: 10px; width: 60px; height: 60px; background: #000; display: block; margin-left:20px;}
 .details ul li.one p{float: left; width:190px; text-align:left;}
+.details ul li.one div{ height:56px; margin-bottom:8px;}
+.details:hover{ background:#f8f8f8;}
 .details ul li.two{ width: 110px;}
+.details ul li.two div{ height:56px; margin-bottom:8px;}
 .details ul li.three{ width:110px;}
 .details ul li.four{ width:110px;}
 .details ul li.five{width:110px;}
 .details ul li.six{ width: 110px;}
-.details ul li.seven{width:125px;}
+.details ul li.seven{width:125px;}*/
+.details table tr td{ border:1px #ccc solid; border-left:0; padding:5px 0;}
+.details table td.one{ width:300px;border-left:1px #ccc solid;}
+.details table td.one img{ float: left; margin-right: 10px; width: 60px; height: 60px; background: #000; display: block; margin-left:20px;}
+.details table td.one div{ height:56px; margin-bottom:8px;}
+.details table td.two div{ height:56px; margin-bottom:8px;}
+.details table td.two{ width:110px; text-align:center;}
+.details table td.three{ width:110px; text-align:center;}
+.details table td.four{ width:110px; text-align:center;}
+.details table td.five{ width:110px; text-align:center;}
+.details table td.six{ width:110px; text-align:center;}
+.details table td.seven{ width:125px; text-align:center;}
 .ware01 p.text02{ background: #ffff99; height: 40px;font-size: 14px; padding-left: 10px; line-height: 40px; color: #cb102f; }
 .ware01 p.text01{ background: #f8f8f8; height: 40px;font-size: 14px; padding-left: 10px; line-height: 40px; color: #cc9933; }
 .ware02{ margin-top: 30px;}
@@ -93,24 +106,29 @@ span.wqzt{ margin-left:6px;}
 .star:hover{ background:#f8f8f8;}
 .star ul.star01{ padding:10px; position: relative;}
 .star ul.star01 li.three{ position: absolute; top: 0; right: 0; }
-.star ul.star01 p{ font-size: 14px; line-height: 24px;}
+.star ul.star01 p{ font-size: 14px; line-height: 24px; color:#007ade;}
 .star ul.star01 p a{ font-size: 14px;}
 .star ul.star01 li.left p em,.star ul.star01 li.left p i,.star ul.star01 li.left p span{ color: #999;}
 .star ul.star01 li.left p i{ margin-right: 20px;}
 .star ul.star01 li.right p .sarm{ cursor: pointer;}
+.sarm{ cursor:pointer;}
 .star ul.star01 li.right p .joinStar{ cursor: pointer;}
-.star ul.star02 li{ float: left; width: 120px; height: 82px;}
+.star ul.star02 li{ float: left; width: 120px;/* height: 82px;*/}
 .star ul.star02{ padding:10px;}
-.star02 .one img{ width: 80px; height: 80px; border: 1px solid #ccc; float: left; margin-right: 10px;}
+.star ul.star02 .two div{ margin-bottom:8px; height:40px;}
+.star02 .one img{ width: 40px; height: 40px; border: 1px solid #ccc; float: left; margin-right: 10px;}
 .star .star02 .one{ width: 240px; text-align: left; color: #66f;}
+.star .star02 .one div{ height:40px; margin-bottom:8px;}
 .star ul.star02 li{ text-align: center;}
 .star ul.star02 p{ font-size: 12px;}
 .star .star02 .three{ width: 120px;}
 .maijbz{ padding:10px; background: #FFFAEB; color: #f90; border: 1px solid #ccc;}
+.joinStar{ cursor:pointer;}
 .star01{ position:relative;}
 .newStar{ display:none; position:absolute; right:10px; top:14px; background:#f8f8f8; width:130px;}
 .newStar ul li{ cursor:pointer; float:left; width:16px; height:16px; background:url(../images/star-off.png) no-repeat; margin-left:5px;}
 .newStar ul li.sel{ background:url(../images/star-on.png) no-repeat;}
+.newStar i{ display:inline-block; width:16px; height:16px; background:url(../images/qustar.png) no-repeat; cursor:pointer;}
 
 /* 物流工具 */
 .farer{width: 988px;}
@@ -156,10 +174,104 @@ p.fareRight i{ cursor:pointer;}
 .inAreaTwo span em i{ color: #666;}
 .inAreaTwo span i.right{ color: #0080ed; cursor: pointer;}
 
+.fahuo{ width:50px; line-height:24px; border-radius:3px; background:#0080ed; border:0; color:#fff; margin-top:10px;}
+
+/*商家发货*/
+.main{ overflow:hidden; zoom:1; width:1124px; position:relative; left:50%; margin-left:-562px;margin-top: 30px;}
+.flow{ width: 735px; height: 76px; background: #f8f8f8; border: 1px solid #ccc; padding:15px 120px;}
+.flow .text01{ overflow: hidden; zoom: 1; font-size: 14px; font-weight: bold;}
+.flow .text01 li{ float: left;}
+.flow .text01 li.one,.flow .text01 li.two,.flow .text01 li.three{ float: left; margin-right: 130px; color: #83ccff; }
+.flow .text01 li:nth-child(1){ margin-left: 30px;}
+.flow .text02{overflow: hidden; zoom:1;}
+.flow .text02 li{ float: left; margin-top: 10px;}
+.flow .text02 li.one,.flow .text02 li.three,.flow .text02 li.five{ width: 18px; height: 18px; border-radius: 50%; background: #83ccff; text-align: center; line-height: 18px; color: #fff;}
+.flow .text02 li.one{ margin-left: 49px;}
+.flow .text02 li.seven{ width: 18px; height: 18px; border-radius: 50%; line-height: 18px; text-align: center; color: #fff; background: #999;}
+.flow .text02 li.two,.flow .text02 li.four,.flow .text02 li.six{ width: 174px; height: 4px; background: #83ccff; margin-top: 17px;}
+.flow .text02 li.six{ background: #999;}
+.flow .text03{ overflow: hidden; zoom: 1; margin-top: 10px; color: #999;}
+.flow .text03 li{ float: left;}
+.flow .text03 li.one,.flow .text03 li.two,.flow .text03 li.three{ margin-right: 74px;}
 
 
+.inMain .list{ margin-top: 20px;border: 1px solid #ccc; background: #f8f8f8; overflow: hidden; zoom:1;}
+.list .listLeft{ padding: 10px; width: 360px; border: 1px solid #ccc; margin-left: -1px; border-top:none; border-bottom:none;}
+.listHeader{ overflow: hidden; zoom:1;}
+.listHeader span{ font-weight: bold; font-size: 15px;}
+.listHeader em{ font-weight: bold; color: #d48753; font-size: 14px;}
+.sellNews{ margin-top: 10px; font-size: 14px; color: #999; border-bottom: 1px dashed #ccc;}
+.sellNews a{color: #83ccff;}
+.sellNews span{ margin-bottom: 10px; display: inline-block; width: 70px; text-align: right;}
+.liveWay{ font-size: 14px; color: #999; margin-top: 10px;}
+.liveWay span{ width: 70px; text-align: right; margin-bottom: 10px; display: inline-block;}
+.liveWay a{color: #83ccff; font-size: 14px; margin-left: 75px;}
+.ewm{ margin-top: 30px; background:#fffae6; border: 1px solid #ccc; overflow: hidden; zoom:1;}
+.ewm img{ width: 78px; height: 78px;  border-right: 1px solid #ccc; margin-right: 10px;}
+.ewm p{ margin-top: 10px; font-size: 14px;}
 
+.list .listRight{ width: 574px; border: 1px solid #ccc; margin-left: -1px; border-top: none; padding: 10px; border-right: none;border-bottom: none;}
+.listRight .listState{ border-bottom: 1px dashed #ccc;}
+.listRight .stateHeader span{ display: block; float: left; margin-right: 10px; width: 30px; height: 30px; border: 2px solid #83ccff; color: #83ccff; border-radius: 50%; text-align: center; line-height: 30px; font-size: 18px; font-weight: bold;}
+.listRight .stateHeader p.one{ font-weight: bold; font-size: 15px;}
+.listRight .stateHeader p.two{ font-size: 14px; color: #999;}
+.listRight .stateHeader p.two em{ color: #fd9d46;}
+.alter{ margin-top: 26px; margin-bottom: 26px;}
+.alter input{ width: 75px; height: 30px; background: #0077dd; border:none; border-radius: 3px; color: #fff; margin-right: 20px; cursor: pointer;}
+.alter em{ color: #0077dd; margin-left:40px; margin-right:10px; cursor: pointer;}
+.alter input.one{ margin-left: 50px;}
+.alter ul{ display:none; width: 300px; }
+.alter li{ width: 16px; height: 16px; background: url(../images/star-off.png); float: left; margin-bottom: 10px; cursor:pointer; margin-right:3px;}
+.alter li.sel{ width: 16px; height: 16px; background: url(../images/star-on.png);}
+	
+	
+.vendor{ margin-top: 10px; font-size: 15px; border-bottom: 1px dashed #ccc; height: 124px;}
+.vendor p{ text-indent: 2em; overflow: hidden; word-wrap: break-word;} 
+.remind{ margin-top: 10px;}
+.remind em{ color: #d9702f; font-size: 15px; margin-bottom: 10px; display: block;;}
+.remind p{ font-size: 14px; color: #999; line-height: 26px;}
+.entry{ margin-top: 20px;}
+.entryNav{ overflow: hidden; zoom: 1; background: #f2f2f2; color: #999; font-size: 14px; border: 1px solid #ccc; border-bottom:0; border-top:0;}
+.entryNav li{ float: left; line-height: 40px; width: 103px; text-align: center;}
+.entryNav li.one{width: 350px;}
+.carGo{ background: #f8f8f8;border: 1px solid #ccc; padding:5px 0;}
+/*.carGo li{ float: left; line-height: 40px;}
+.carGo li.one{ font-size: 16px; width: 132px; text-align: center;}
+.carGo li.two{ color: #999; font-size: 14px; width: 70px;}
+.carGo li.three{ color: #999; font-size: 14px; width: 180px;}
+.carGo li.four{ color: #7d8e64; font-size: 14px; width: 360px;}
+.carGo li.five{ color: #326f9c; font-size: 14px; width: 87px;}*/
+.carGo .one{ font-size: 16px; width: 140px; text-align: center;}
+.carGo .two{ color: #999; font-size: 14px; width: 80px;}
+.carGo .three{ color: #999; font-size: 14px; width: 270px;}
+.carGo .four{ color: #7d8e64; font-size: 14px; width: 400px;}
+.carGo .five{ color: #326f9c; font-size: 14px; width: 85px;}
+.carGo .five a{ color:#0080ed;}
+.cargo table tr td{ border:1px #ccc solid; border-left:0; padding:5px 0;}
+.cargo table tr td{ border:1px #ccc solid; border-left:0; padding:5px 0;}
+.cargo table tr td.one{width:340px;border-left:1px #ccc solid; padding:5px 10px 0 0;}
+.cargo table tr td.two{width:110px; text-align:center;}
+.cargo table tr td.two div{ height:56px; margin-bottom:8px;}
+.cargo table tr td.three{ width:90px; text-align:center;}
+.cargo table tr td.four{ width:110px; text-align:center;}
+.cargo table tr td.five{ width:100px; text-align:center;}
+.cargo table tr td.six{ width:100px; text-align:center;}
+.cargo table tr td.seven{width:109px; text-align:center;}
+.cargo table tr td.one img{ float: left; margin-right: 10px; width: 60px; height: 60px; background: #000; display: block; margin-left:20px;}
+.cargo table tr td.one div{ height:56px; margin-bottom:8px;}
 
+.fare{ overflow: hidden; zoom: 1; height: 70px;border: 1px solid #ccc; border-top: none;}
+.fare li{ float: left;}
+.fare li.one{ width: 50px; height: 50px; margin-top: 10px; margin-left: 10px; border: 1px solid #ccc;}
+.fare li.two{ width: 271px; font-size: 13px; color: #2e69a5;padding-left: 25px; margin-top: 10px;}
+.fare li.three,.fare li.four,.fare li.five,.fare li.six,.fare li.seven{ width: 103px; text-align: center; margin-top: 10px; font-size: 14px;}
+.cargo .right{ width: 118px; height: 111px; border: 1px solid #ccc; color: #999; line-height: 108px; text-align: center; border-top: none; border-left: none;}
+.amount{ padding:20px; background: #f2f2f2;}
+.amount div.right p{ font-size: 13px; color: #666; text-align: right; line-height: 24px;}
+.amount div.right p strong{ font-size: 14px; color:#55BD47;}
+.amount span.left{font-size: 13px; line-height: 24px;}
+.amount span.left i{ color: #f40;}
+.amount td{ line-height:24px;}
 
 
 

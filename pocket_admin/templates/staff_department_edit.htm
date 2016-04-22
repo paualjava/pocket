@@ -1,0 +1,79 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="staff.php">所有员工</a></li>
+                <li><a href="shop1.html">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li class="cur"><a href="staff_department.php">部门管理</a></li>
+                <li><a href="shopresult.html">业绩统计</a></li>
+            </ul>
+            <!--<em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+            </ul>
+            <em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li class="cur"><a href=""></a></li>
+            </ul>-->
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="titleBody2">
+        	<div class="inForm">
+                <form>
+                    <span>
+                        <em class="red">*</em>部门名称:
+                    </span><input type="text" class="mingchen" name="cat_name" placeholder=""  value="{$cat_info.name}"/><br /><br />
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <th valign="top"><span>备注:</span></th>
+                            <th><textarea placeholder="" class="area" name="cat_desc">{$cat_info.info}</textarea></th>
+                        </tr>
+                    </table>
+                    <div><input name="cat_id" type="hidden" value="{$cat_info.id}" /><input type="button" value="保存" class="queding" /><input type="button" value="返回" class="quxiao" /></div>
+                </form>
+            </div>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.titleBody2 .queding').click(function(){
+				cat_name=$("input[name='cat_name']").val();
+				cat_desc=$("textarea[name='cat_desc']").val();
+				cat_id=$("input[name='cat_id']").val();
+				if(cat_name=="")
+				{
+					alert("请输入部门名称");
+					$("input[name='cat_name']").focus
+					return false;
+				}
+				data={cat_name:cat_name,cat_desc:cat_desc,cat_id:cat_id}
+				$.post("staff_department.php?act=ajax_edit",data,function (res)
+				{
+					if(res.error==1)
+					{
+						alert(res.info);
+						return false;
+					}
+					else
+					location.href='staff_department.php';
+				},"json")
+			})
+		$('.quxiao').click(function(){
+			history.go(-1);
+			})
+	});
+</script>
+</body>
+</html>

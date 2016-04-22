@@ -1,0 +1,212 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="staff.php">所有员工</a></li>
+                <li><a href="shop1.html">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li class="cur"><a href="staff_department.php">部门管理</a></li>
+                <li><a href="shopresult.html">业绩统计</a></li>
+            </ul>
+            <!--<em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+            </ul>
+            <em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li class="cur"><a href=""></a></li>
+            </ul>-->
+         </div>
+    </div>
+    <div class="mainRight right">
+        <div class="titleBody01">
+        	<input value="新建部门" type="button" class="newTitle" />
+            <div class="titleBody">
+            	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="titleNav">
+                	<thead>
+                        <tr>
+                            <th class="titleOne">部门</th>
+                            <th>人数</th>
+                            <th>备注</th>
+                            <th class="titleFour">操作</th>
+                        </tr>
+                    </thead>
+                </table>
+                {foreach from=$info item=item}
+<div class="titleLine">
+                	<P><em class="one">{$item.name}</em><em><a href="#">0</a></em><em class="three">{$item.info}</em><em class="two"><i class="bianji"><a href="staff_department.php?act=edit&tag_id=<!-- {$item.id} -->">编辑</a></i> - <i class="shanchu">删除</i></em></P>
+                    <div class="tanchuang01">
+                        <form>
+                            <span>
+                                <em class="red">*</em>部门名称:
+                            </span><input type="text" class="mingchen" placeholder="" /><br /><br />
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <th valign="top"><span>备注:</span></th>
+                                    <th><textarea placeholder="" class="area"></textarea></th>
+                                </tr>
+                            </table>
+                            <div><input type="button" value="确定" class="queding" /><input type="button" value="取消" class="quxiao" /></div>
+                        </form>
+                    </div>
+                    <div class="tanchuang02">
+                    	<span>确定删除？</span><input type="button" value="确定" class="queding" cat_id="<!-- {$item.id} -->"/><input type="button" value="取消" class="quxiao" />
+                    </div>
+                </div>
+{/foreach}
+                
+            </div>
+            <div class="titleBody">
+            
+            </div>
+            <div class="shopFooter clearfix">
+                <p>{$page_bar}</p>
+            </div>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.newTitle').click(function(){
+			window.location.href="staff_department.php?act=add";
+			})
+		$('.tanchuang02 .queding').click(function(){
+			$('.titleLine').eq($(this).index('.tanchuang02 .queding')).remove();
+			var changdu = $('.titleLine').length;
+			$('#totle').html(changdu);
+			cat_id=$(this).attr("cat_id");
+			data={'act':'delete','cat_id':cat_id}
+			$.post("staff_department.php",data,function ()
+			{
+			});
+		})
+		$('.tanchuang01 .queding').click(function(){
+			var title = $('.mingchen').val();
+			var beizhu = $('.area').val();
+			if(title == ''){
+				alert('部门名称不能为空')
+				}else{
+					$('.tanchuang01').eq($(this).index('.tanchuang01 .queding')).hide();
+			$('.titleLine .one').eq($(this).index('.tanchuang01 .queding')).html(title);
+			$('.titleLine .three').eq($(this).index('.tanchuang01 .queding')).html(beizhu);
+					}
+			})
+
+		$('.shanchu').click(function(){
+			$('.tanchuang02').eq($(this).index('.shanchu')).show();
+			})
+		$('.tanchuang02 .quxiao').click(function(){
+			$('.tanchuang02').eq($(this).index('.tanchuang02 .quxiao')).hide();
+			})
+		$('.nine p').click(function(){
+			$('.span012').eq($(this).index('.nine p')).css('display','block');
+			})
+		$('.span012 .quxiao012').click(function(){
+			$('.span012').eq($(this).index('.span012 .quxiao012')).css('display','none')
+			})
+		$('.tankuang12 .queding').click(function(){
+			var dengji = $('.tankuang12 select').val();
+			if(dengji == '请选择等级'){
+				$('.dengji').eq($(this).index('.tankuang12 .queding')).html('无');
+				$('.tankuang12').eq($(this).index('.tankuang12 .queding')).css('display','none')
+				}else{
+					$('.dengji').eq($(this).index('.tankuang12 .queding')).html(dengji);
+					$('.tankuang12').eq($(this).index('.tankuang12 .queding')).css('display','none')
+					}
+				})
+		$('.tankuang14 .queding').click(function(){
+			var biaoqian = $('.tankuang14 select').val();
+			if(biaoqian == '请选择部门'){
+				$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html('无')
+				$('.tankuang14').eq($(this).index('.tankuang14 .queding')).css('display','none')
+				}else{
+					$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html(biaoqian);
+					$('.tankuang14').eq($(this).index('.tankuang14 .queding')).css('display','none')
+					}
+			})
+		$('.tankuang15 .queding').click(function(){
+			var  phone = $('.phone').val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/);
+			if(!$(".phone").val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/)){
+				alert("手机号码格式不正确!");
+				$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
+				}else{
+					$('.yaoqingren').eq($(this).index('.tankuang15 .queding')).html(phone);
+				$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
+					}
+			})
+	});
+</script>
+<script type="text/javascript">
+	function check(){
+        var checkbox=document.getElementById('click')
+        checkbox.value==2?checkbox.value=1:checkbox.value=2;
+        var amount=document.getElementsByName('box');
+        for(var i=0;i<amount.length;i++){
+            if(checkbox.value==1){
+                amount[i].checked=false;				
+            }else{
+                amount[i].checked=true;
+            }
+        }
+    }
+	
+    jQuery(document).ready(function($) {
+		//数量
+		var changdu = $('.titleLine').length;
+		$('#totle').html(changdu);
+		
+		$('.shopHeader01 em').click(function(){
+			$(this).addClass('curt').siblings().removeClass('curt');
+			$('.shopHeader01 i').removeClass('curt');
+			})
+		$('.shopHeader01 i').click(function(){
+			$(this).addClass('curt');
+			$('.shopHeader01 em').removeClass('curt');
+			})
+		$('.inShopNews ul li i').click(function(){
+			$('.span11').eq($(this).index('.inShopNews ul li i')).css('display','block');
+			})
+		$('.span11 .quxiao').click(function(){
+			$('.span11').eq($(this).index('.span11 .quxiao')).css('display','none');
+			})
+		$('.span11 .queding').click(function(){
+			var name = $('.name').eq($(this).index('.span11 .queding')).val();
+			$('.span11').css('display','none');
+			if(name == ''){
+				$('.span11').eq($(this).index('.span11 .queding')).css('display','none');
+				}else{
+					$('.span11').eq($(this).index('.span11 .queding')).css('display','none');
+					$('.inShopNews ul li em').eq($(this).index('.span11 .queding')).html(name);
+					}
+			});
+		$('.qt').click(function(){
+			$('.qingtui').css('display','block');
+			})
+		$('.qingtui .center input.quxiao01,.qingtui .guanbi').click(function(){
+			$('.qingtui').css('display','none');
+			})
+		$('.qingtui .center input.queding01').click(function(){
+			$('.inShopNews').eq($(this).index()).remove();
+			$('.qingtui').css('display','none');
+			alert("sldfj");
+			cat_id=$(this).attr("cat_id");
+			data={'act':'delete','cat_id':cat_id}
+			$.post("staff_tag.php",data,function ()
+			{
+			});
+			})
+    });
+</script>
+</body>
+</html>
+

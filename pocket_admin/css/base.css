@@ -13,6 +13,10 @@ p{ font-size: 14px;}
 em{ font-style: normal;}
 i{ font-style: normal;}
 .clearfix{ overflow: hidden; zoom: 1;}
+.red{ color:#f40;}
+th,b{ font-weight:normal;}
+option,select{ padding-left:10px;}
+
 
 /*头部开始*/
 .header{ height:80px; background: #f1f1f1; width:100%;}

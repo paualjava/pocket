@@ -1,5 +1,5 @@
 {include file="common/header.htm"}
-<link type="text/css" rel="stylesheet" href="css/send.css" />
+<link type="text/css" rel="stylesheet" href="css/sheet03.css?s" />
 <div class="main">
     <div class="inMain clearfix">
         <div class="mainLeft left">
@@ -18,24 +18,37 @@
             <div class="flow">
                 <ul class="text01">
                     <li class="one">买家下单</li>
-                    <li class="two">付费至中转</li>
+                    <li class="two">付款</li>
                     <li class="three">商家发货</li>
-                    <li class="four">结算货款</li>
+                  
                 </ul>
                 <ul class="text02">
                     <li class="one">√</li>
+                    {if $order.pay_time neq ''}
+                   <li class="two"></li>
+                    <li class="three">√</li>
+                    {else}
+                     
+                    <li class="six"></li>
+                    <li class="seven">√</li>
+                    {/if}
+                  
+                    {if $order_shipping.shipping_time neq ''}
                     <li class="two"></li>
                     <li class="three">√</li>
-                    <li class="four"></li>
-                    <li class="five">√</li>
-                    <li class="six"></li>
-                    <li class="seven">4</li>
+                
+                    {else}
+                   <li class="six"></li>
+                    <li class="seven">√</li>
+                    {/if}
+                   
+             
                 </ul>
                 <ul class="text03">
-                    <li class="one">2016-03-02 14:05:55</li>
-                    <li class="two">2016-03-02 14:05:55</li>
-                    <li class="three">2016-03-02 14:05:55</li>
-                    <li class="four">2016-03-02 14:05:55</li>
+                    <li class="one">{$order.formated_add_time}</li>
+                    <li class="two">{$order.pay_time}</li>
+                    <li class="three">{$order_shipping.shipping_time}</li>
+                  
                 </ul>
             </div>
             <div class="list">
@@ -90,7 +103,22 @@
                     </div>
                 </div>
             </div>
+            
             <div class="entry">
+            	<div class="">
+             
+                    <table cellpadding="0" cellspacing="0" border="0" class="carGo">
+                    	<tbody>
+                        	<tr align="center">
+                            	<td class="one">包裹<em></em></td>
+                                <td class="two">{$order_shipping.shipping_name}</td>
+                                <td class="three">运单号<i>{$order_shipping.shipping_sn}</i></td>
+                                <td class="four">{$order_shipping.shipping_time}{if $order_shipping.shipping_time neq ""}已发出{/if}</p></td>
+                                <td class="five"><a href="#">更多</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <ul class="entryNav">
                     <li class="one">商品名称</li>
                     <li class="two">单价(元)</li>
@@ -100,39 +128,43 @@
                     <li class="six">状态</li>
                     <li class="seven">运费</li>
                 </ul>
+                <div class="inSend">	
+                </div>
                 <div class="cargo">
-                    <div class="left">
-                        <ul class="carGo">
-                            <li class="one">包裹-<em>1</em></li>
-                            <li class="two">圆通快递</li>
-                            <li class="three">运单号<i>1234567891</i></li>
-                            <li class="four">2016-03-02 13:56:00[在途]转运中心已发出</li>
-                            <li class="five">更多</li>
-                        </ul>
-                        <ul class="fare">
-                            <li class="one"><img src="" alt="" /></li>
-                            <li class="two">实物商品(购买时需填写收货地址，测试商品，不发货，不退款)</li>
-                            <li class="three">0.01</li>
-                            <li class="four">1</li>
-                            <li class="five">-</li>
-                            <li class="six">0.01</li>
-                            <li class="seven">已发货</li>
-                        </ul>
-                    </div>
-                    <div class="right">
-                        免运费
-                    </div>
+                	<table cellpadding="0" cellspacing="0" border="0">
+                    	<tbody>
+                            <tr>
+                                <td class="one">
+                                {foreach from=$goods_list item=goods_list2}
+                                    <div><a href="http://www.wm18.com/goods.php?id={$goods_list2.goods_id}" target="_blank"><img src="{$goods_list2.goods_pic}" alt="{$goods_list2.goods_name}" /></a><p><a href="http://www.wm18.com/goods.php?id={$goods_list2.goods_id}" target="_blank">{$goods_list2.goods_name}</a></p></div>
+                                    {/foreach}
+                               </td>
+                                <td class="two">
+                                {foreach from=$goods_list item=goods_list2}
+                                   <div>{$goods_list2.goods_price}<br />({$goods_list2.goods_number}件)</div>
+                                    {/foreach}
+                                   </td>
+                                <td class="three"></td>
+                                <td class="four"></td>
+                                <td class="five">{$order.total_fee}</td>
+                                <td class="six">{$lang.os[$order.order_status]}<br/>{$lang.ps[$order.pay_status]}<br/>
+                                {$lang.ss[$order.shipping_status]}<br/></td>
+                                <td class="seven">{if $order.formated_shipping_fee eq '￥0'}免运费{else}{$order.formated_shipping_fee}{/if}</td>
+                                
+                            
+                            </tr>
+                        </tbody>
+                    </table>
+                  
                 </div>
                 <div class="amount clearfix">
-                
                     <span class="left">{if $bonus_name neq ""}优惠券：<i>{$bonus_name}</i>{/if}</span>
                     <div class="right">
-                    
-                    
-<table width="100%" cellpadding="3" cellspacing="1">
- 
-  <tr>
-    <td><div align="right" style="font-weight:normal;">{$lang.label_goods_amount}<strong>{$order.formated_goods_amount}</strong> - {$lang.label_discount}<strong>{$order.formated_discount}</strong> + {$lang.label_tax}<strong>{$order.formated_tax}</strong> + {$lang.label_shipping_fee}<strong>{$order.formated_shipping_fee}</strong> + {$lang.label_insure_fee}<strong>{$order.formated_insure_fee}</strong> + {$lang.label_pay_fee}<strong>{$order.formated_pay_fee}</strong> + {$lang.label_pack_fee}<strong>{$order.formated_pack_fee}</strong> + {$lang.label_card_fee}<strong>{$order.formated_card_fee}</strong></div></td>
+                    	<table cellpadding="0" cellspacing="0" border="0">
+                        	<tbody>
+                            	<tr>
+                                	<td>
+                                    	<div align="right" style="font-weight:normal;">{$lang.label_goods_amount}<strong>{$order.formated_goods_amount}</strong> - {$lang.label_discount}<strong>{$order.formated_discount}</strong> + {$lang.label_tax}<strong>{$order.formated_tax}</strong> + {$lang.label_shipping_fee}<strong>{$order.formated_shipping_fee}</strong> + {$lang.label_insure_fee}<strong>{$order.formated_insure_fee}</strong> + {$lang.label_pay_fee}<strong>{$order.formated_pay_fee}</strong> + {$lang.label_pack_fee}<strong>{$order.formated_pack_fee}</strong> + {$lang.label_card_fee}<strong>{$order.formated_card_fee}</strong></div></td>
   <tr>
     <td><div align="right"> = {$lang.label_order_amount}<strong>{$order.formated_total_fee}</strong></div></td>
   </tr>
@@ -143,21 +175,18 @@
     <td><div align="right"> = {if $order.order_amount >= 0}{$lang.label_money_dues}<strong>{$order.formated_order_amount}</strong> {else}{$lang.label_money_refund}<strong>{$order.formated_money_refund}</strong>
         <input name="refund" type="button" value="{$lang.refund}" onClick="location.href='order.php?act=process&func=load_refund&anonymous={if $order.user_id <= 0}1{else}0{/if}&order_id={$order.order_id}&refund_amount={$order.money_refund}'" />
         {/if}{if $order.extension_code eq "group_buy"}<br />
-        {$lang.notice_gb_order_amount}{/if}</div></td>
-  </tr>
-  <tr>
-    <td><div align="right"> {if $istkmoney gt 0}
-        <p class="clearfix"><em><b>退货返还金额</b>：</em><span style="color:#FD2280;">{$tkmoney}</span></p>
-        {/if}
-        {if $istkjf gt 0}
-        <p class="clearfix"><em><b>退货返还积分</b>：</em><span style="color:#FD2280;">{$tkjf}</span></p>
-        {/if} </div></td>
-  </tr>
-</table>
-
+        {$lang.notice_gb_order_amount}{/if}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <!--<p>商品总金额:￥69-折扣:￥0+发票税额:￥0+配送费用:￥0+支付费用:￥0</p><p>=订单总金额:<strong>￥69</strong></p><p>-已付款金额:￥3-使用余额:￥0-使用积分:0-使用红包:￥66</p><p>=应付款金额:<strong>￥0</strong></p>-->
                     </div>
                 </div>
             </div>
+            
+            
+            
         </div>
     </div>
 </div>
