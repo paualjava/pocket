@@ -104,9 +104,9 @@ class shipping extends base
 	function ajax_edit()
 	{
 		/* 检查同类型的配送方式下有没有重名的配送区域 */
-		$id=$_POST['id'];
+		$id_this=$_POST['id'];
 		$sql = "SELECT COUNT(*) FROM " .$GLOBALS['ecs']->table($this->table_name).
-		" WHERE shipping_id='$_POST[shipping]' AND shipping_area_name='$_POST[shipping_area_name]' and shipping_area_id!='".$id."'";
+		" WHERE shipping_id='$_POST[shipping]' AND shipping_area_name='$_POST[shipping_area_name]' and shipping_area_id!='".$id_this."'";
 		if ($GLOBALS['db']->getOne($sql) > 0)
 		{
 			$array=array("error"=>1,"info"=>"已经存在一个同名的配送区域");
@@ -122,7 +122,7 @@ class shipping extends base
 				$config[$key]['value']=$_POST[$val];
 			}
 			$sql = "UPDATE " .$GLOBALS['ecs']->table($this->table_name)." SET shipping_area_name='$_POST[shipping_area_name]',
-			 configure='" .serialize($config). "' WHERE shipping_area_id='$id'";
+			 configure='" .serialize($config). "' WHERE shipping_area_id='$id_this'";
 			$GLOBALS['db']->query($sql);
 			/* 过滤掉重复的region */
 			$selected_regions = array();
@@ -155,14 +155,14 @@ class shipping extends base
 				}
 			}
 			/* 清除原有的城市和地区 */
-			$GLOBALS['db']->query("DELETE FROM ".$GLOBALS['ecs']->table("pocket_shipping_area_region")." WHERE shipping_area_id='$id'");
+			$GLOBALS['db']->query("DELETE FROM ".$GLOBALS['ecs']->table("pocket_shipping_area_region")." WHERE shipping_area_id='$id_this'");
 			/* 添加选定的城市和地区 */
 			foreach ($selected_regions AS $key => $val)
 			{
-				$sql = "INSERT INTO ".$GLOBALS['ecs']->table('pocket_shipping_area_region')." (shipping_area_id, region_id) VALUES ('$id', '$val')";
+				$sql = "INSERT INTO ".$GLOBALS['ecs']->table('pocket_shipping_area_region')." (shipping_area_id, region_id) VALUES ('$id_this', '$val')";
 				$GLOBALS['db']->query($sql);
 			}
-			$array=array("error"=>0,"info"=>"添加成功");
+			$array=array("error"=>0,"info"=>"修改成功");
 			echo json_encode($array);die();
 		}
 		$cat_name=trim($_POST['cat_name']);
