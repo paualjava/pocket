@@ -1,0 +1,119 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<link type="text/css" rel="stylesheet" href="css/jedate.css" />
+<script type="text/javascript" src="js/jedate.js"/></script>
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">         
+                <li><a href="staff.php">所有员工</a></li>
+                <li><a href="staff_invite.php">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li class="cur"><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="result">
+        	<div class="nav clearfix"><em class="left">业绩统计</em><i class="right"></i></div>
+            <div class="form">
+            	<form action="" class="this_form">
+                	<span>部门管理：</span><select name="department" id="" class="">
+                    	<option value="全部">全部</option>
+                      {foreach from=$department item=item}
+                     {if $search_department==$item.id}
+                    <option value="{$item.id}" selected="selected">{$item.name}</option>
+                    {else}
+                    <option value="{$item.id}">{$item.name}</option>
+                    {/if}
+                    {/foreach}
+                    </select><br /><br /><span>标签筛选：</span><b {if $search_tag eq ''}class="curt"{/if}>不限</b>
+                    {foreach from=$tag item=item}
+                    <em attr_id="{$item.id}" {if $search_tag eq $item.id}class="curt"{/if}>{$item.name}</em>
+                    {/foreach}
+                   <br /><br /><input type="hidden" name="tag" value="{$search_tag}"/>
+                    <span>查询日期：</span><input type="text" id="time01" name="time_start" placeholder="" value="{$time_start}"/><i>至</i><input type="text" id="time02" placeholder=""  name="time_end" value="{$time_end}"/><br /><br />
+                    <span>员工姓名：</span><input type="text" name="name" value="{$search_name}"/><br /><br /><button class="button_search">查询</button>
+                </form>
+            </div>
+            <p class="f70"><em>销售概况</em></p>
+            <ul class="clearfix">
+            	<li><strong>0</strong><p>总订单</p></li>
+                <li><strong>0.00</strong><p>总成交金额</p></li>
+                <li><strong>0</strong><p>有成交的员工</p></li>
+            </ul>
+            <ul class="clearfix">
+            	<li><strong>0</strong><p>员工平均订单</p></li>
+                <li><strong>0.00</strong><p>员工平均成交金额</p></li>
+                <li><strong>0.00</strong><p>员工平均利润</p></li>
+            </ul>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+
+	jQuery(document).ready(function($) {
+		//表单查询
+		$(".button_search").click(function ()
+		{
+			data=$(".this_form").serialize();
+			$.post("staff_count.php?act=ajax_check_form",data,function (res)
+			{
+				if(res.error==0)
+				$(".this_form").submit();
+				else
+				{
+					column=res.column;
+					alert(res.info);
+					if(column)
+					$("input[name="+column+"]").focus();
+				}
+			},"json")
+			return false;
+		})
+		$('.result .form b').click(function(){
+			$('.result .form em').removeClass('curt');
+			$(this).addClass('curt')
+			$("input[name='tag']").val('');
+			})
+		$('.result .form em').click(function(){
+			$('.result .form b').removeClass('curt');
+			$(this).addClass('curt')
+			tag_id=$(this).attr("attr_id");
+			$("input[name='tag']").val(tag_id);
+			})
+    });
+</script>
+<script type="text/javascript">
+
+    jeDate({
+		dateCell:"#time01",
+		format:"YYYY-MM-DD hh:mm:ss",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00",
+		okfun:function(val){}
+	})
+	 jeDate({
+		dateCell:"#time02",
+		format:"YYYY-MM-DD hh:mm:ss",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00",
+		okfun:function(val){}
+	})
+
+    //alert("YYYY/MM".match(/\w+|d+/g).join("-"))
+</script>
+</body>
+</html>
+

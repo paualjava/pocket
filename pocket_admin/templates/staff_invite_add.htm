@@ -1,0 +1,86 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="staff.php">所有员工</a></li>
+                <li class="cur"><a href="staff_invite.php">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    <div class="modal01">
+        <div class="inModal01">
+            <div class="modalBody01">
+                <form>
+                    <span class="bitian"><em class="red">*</em>邀请码名称：</span><input type="text" placeholder="" class="yaoqingma01" name="name"/><br /><br /><span>部门：</span>
+                    <select name="department" id="wares">
+                        <option value="">无</option>
+                        {foreach from=$department item=item}
+                        <option value="{$item.id}">{$item.name}</option>
+                        {/foreach}
+                    </select><br /><br /><span>添加标签：</span><select name="tag"  class="biaoqian01">
+                        <option value="">无</option>
+                        {foreach from=$tag item=item}
+                        <option value="{$item.id}">{$item.name}</option>
+                        {/foreach}
+                    </select><p>员工加入后将自动打上这些标签</p>
+                    <br />
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <th valign="top"><span>邀请语：</span></th>
+                            <th><textarea data-reactid=".0.2.1.0.3.1.0" class="textarea01" name="info">欢迎加入全员开店！我们会为您提前设置好店铺和商品，您只需要注册开通，即可轻松售卖商品！您也可以继续上架企业的其他商品，分享给自己的亲朋好友，祝您使用愉快！</textarea></th>
+                        </tr>
+                    </table>
+                    <p>您可以编辑邀请语，并展示给邀请的员工</p>
+                </form>
+            </div>
+            <div class="modalFooter01">
+                <input type="button" value="确定" class="anniu queding01" /><input type="button" value="返回" class="anniu quxiao01" onclick="javascript:history.go(-1);" />
+            </div>
+        </div>
+    </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".queding01").bind("click",function ()
+		{
+			name=$("input[name='name']").val();
+			department=$("select[name='department']").val();
+			tag=$("select[name='tag']").val();
+			info=$("textarea[name='info']").val();
+			data={"name":name,"department":department,"tag":tag,"info":info}
+			if(name=="")
+			{
+				alert("请输入邀请码名称");
+				$("input[name='name']").focus();
+				return false;
+			}
+			$.post("staff_invite.php?act=ajax_add",data,function (res)
+			{
+					if(res.error==1)
+					{
+						alert(res.info);
+						return false;
+					}
+					else
+					location.href='staff_invite.php';
+			},"json");
+		})
+    });
+</script>
+</body>
+</html>
+

@@ -4,52 +4,44 @@
 body{overflow:scroll;overflow-x:hidden;}
 .mainRight .bianji{border:none;}
 </style>
+
+
 <div class="main">
 	<div class="mainLeft left">
     	<span><a href="">整体概况</a></span>
          <div class="naver">
             <em>员工管理</em>
-            <ul class="leftNav">              
+            <ul class="leftNav">        
                 <li><a href="staff.php">所有员工</a></li>
                 <li><a href="staff_invite.php">员工招募</a></li>
-                <li><a href="staff_tag.php">标签管理</a></li>
-                <li class="cur"><a href="staff_department.php">部门管理</a></li>
+                <li class="cur"><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
                 <li><a href="staff_rank.php">等级管理</a></li>
                 <li><a href="staff_count.php">业绩统计</a></li>
             </ul>
-            <!--<em></em>
-            <ul class="leftNav">
-                <li><a href=""></a></li>
-            </ul>
-            <em></em>
-            <ul class="leftNav">
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li class="cur"><a href=""></a></li>
-            </ul>-->
          </div>
     </div>
     <div class="mainRight right">
         <div class="titleBody01">
-        	<input value="新建部门" type="button" class="newTitle" />
+        	<input value="新建运费模板" type="button" class="newTitle" />
             <div class="titleBody">
             	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="titleNav">
                 	<thead>
                         <tr>
-                            <th class="titleOne">部门</th>
-                            <th>人数</th>
+                            <th class="titleOne">标签</th>
+                            <th>员工数</th>
                             <th>备注</th>
                             <th class="titleFour">操作</th>
                         </tr>
                     </thead>
                 </table>
-                {foreach from=$info item=item}
+{foreach from=$info item=item}
 <div class="titleLine">
-                	<P><em class="one">{$item.name}</em><em><a href="#">0</a></em><em class="three">{$item.info}</em><em class="two"><i class="bianji"><a href="staff_department.php?act=edit&tag_id=<!-- {$item.id} -->">编辑</a></i> - <i class="shanchu">删除</i></em></P>
+                	<P><em class="one">{$item.shipping_area_name}</em><em><a href="#">0</a></em><em class="three">{$item.shipping_area_name}</em><em class="two"><i class="bianji"><a href="shipping.php?act=edit&shipping_area_id=<!-- {$item.shipping_area_id} -->">编辑</a></i> - <i class="shanchu">删除</i></em></P>
                     <div class="tanchuang01">
                         <form>
                             <span>
-                                <em class="red">*</em>部门名称:
+                                <em class="red">*</em>标签名称:
                             </span><input type="text" class="mingchen" placeholder="" /><br /><br />
                             <table cellpadding="0" cellspacing="0" border="0">
                                 <tr>
@@ -61,7 +53,7 @@ body{overflow:scroll;overflow-x:hidden;}
                         </form>
                     </div>
                     <div class="tanchuang02">
-                    	<span>确定删除？</span><input type="button" value="确定" class="queding" cat_id="<!-- {$item.id} -->"/><input type="button" value="取消" class="quxiao" />
+                    	<span>确定删除？</span><input type="button" value="确定" class="queding" cat_id="<!-- {$item.shipping_area_id} -->"/><input type="button" value="取消" class="quxiao" />
                     </div>
                 </div>
 {/foreach}
@@ -79,7 +71,7 @@ body{overflow:scroll;overflow-x:hidden;}
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$('.newTitle').click(function(){
-			window.location.href="staff_department.php?act=add";
+			window.location.href="shipping.php?act=add";
 			})
 		$('.tanchuang02 .queding').click(function(){
 			$('.titleLine').eq($(this).index('.tanchuang02 .queding')).remove();
@@ -87,7 +79,7 @@ body{overflow:scroll;overflow-x:hidden;}
 			$('#totle').html(changdu);
 			cat_id=$(this).attr("cat_id");
 			data={'act':'delete','cat_id':cat_id}
-			$.post("staff_department.php",data,function ()
+			$.post("staff_tag.php",data,function ()
 			{
 			});
 		})
@@ -95,7 +87,7 @@ body{overflow:scroll;overflow-x:hidden;}
 			var title = $('.mingchen').val();
 			var beizhu = $('.area').val();
 			if(title == ''){
-				alert('部门名称不能为空')
+				alert('标签名称不能为空')
 				}else{
 					$('.tanchuang01').eq($(this).index('.tanchuang01 .queding')).hide();
 			$('.titleLine .one').eq($(this).index('.tanchuang01 .queding')).html(title);
@@ -127,7 +119,7 @@ body{overflow:scroll;overflow-x:hidden;}
 				})
 		$('.tankuang14 .queding').click(function(){
 			var biaoqian = $('.tankuang14 select').val();
-			if(biaoqian == '请选择部门'){
+			if(biaoqian == '请选择标签'){
 				$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html('无')
 				$('.tankuang14').eq($(this).index('.tankuang14 .queding')).css('display','none')
 				}else{
@@ -208,6 +200,9 @@ body{overflow:scroll;overflow-x:hidden;}
 			})
     });
 </script>
+
+
+
 </body>
 </html>
 

@@ -1,0 +1,133 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">           
+                <li><a href="staff.php">所有员工</a></li>
+                <li class="cur"><a href="staff_invite.php">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+            <!--<em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+            </ul>
+            <em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li class="cur"><a href=""></a></li>
+            </ul>-->
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="recruitHeader">
+        	<ul class="clearfix">           
+                <li class="one"><a href="staff_invite.php">邀请员工</a></li>
+                <li><a href="staff_invite_invited.php">发出的邀请</a></li>
+                <li class="curt"><a href="staff_invite_apply.php">收到的申请</a></li>
+                <li><a href="staff_invite_fired.php">已清退员工</a></li> 
+                <li class="five"></li>
+            </ul>
+        </div>
+        <div class="js-list-empty-region"><div>
+    <div class="no-result widget-list-empty" style="text-align: center;border: 1px solid #eee;padding: 39px 0;margin-top:26px;">还没有相关数据</div>
+
+
+</div></div>
+        <!--<div class="emit">
+        	<ul class="emitNav clearfix">
+            	<li class="one">手机号码</li>
+                <li>员工姓名</li>
+                <li>邀请码名称</li>
+                <li>标签</li>
+                <li class="two">操作</li>
+            </ul>       
+        </div>
+        <div class="emitUgc">
+        	<ul class="clearfix">
+            	<li class="one">18652056518</li>
+                <li>邓娟</li>
+                <li>邀请您 天使店 邓娟</li>
+                <li>天使代理</li>
+                <li class="two"><em class="fuzhi01">复制邀请码</em> - <em class="tongzhi">短信通知</em></li>
+                <span class="span22">
+                    <i>确定发送短信？</i><input type="button" value="确定" class="queding anniu" /><input type="button" value="取消" class="quxiao anniu" />
+                </span>
+                <span class="span33"><input type="text" class="text01 link" value="http://www.baidu.com" /><input type="button" value="复制" class="fuzhi02" /></span>
+            </ul>
+            <ul class="clearfix">
+            	<li class="one">18652056518</li>
+                <li>邓娟</li>
+                <li>邀请您 天使店 邓娟</li>
+                <li>天使代理</li>
+                <li class="two"><em class="fuzhi01">复制邀请码</em> - <em class="tongzhi">短信通知</em></li>
+                <span class="span22">
+                    <i>确定发送短信？</i><input type="button" value="确定" class="queding anniu" /><input type="button" value="取消" class="quxiao anniu" />
+                </span>
+                <span class="span33"><input type="text" class="text01 link" value="http://www.taobao.com" /><input type="button" value="复制" class="fuzhi02" /></span>
+            </ul>
+            <ul class="clearfix">
+            	<li class="one">18652056518</li>
+                <li>邓娟</li>
+                <li>邀请您 天使店 邓娟</li>
+                <li>天使代理</li>
+                <li class="two"><em class="fuzhi01">复制邀请码</em> - <em class="tongzhi">短信通知</em></li>
+                <span class="span22">
+                    <i>确定发送短信？</i><input type="button" value="确定" class="queding anniu" /><input type="button" value="取消" class="quxiao anniu" />
+                </span>
+                <span class="span33"><input type="text" class="text01 link" value="http://www.wm18.com" /><input type="button" value="复制" class="fuzhi02" /></span>
+            </ul>
+        </div>
+        <div class="shopFooter">
+			<p>共<em id="totle">11</em>条，每页20条，<input type="text" class="shuru" /><button>跳转</button></p>
+        </div>-->
+	</div>
+</div>
+<script type="text/javascript"> 
+		//复制
+    $('.fuzhi02').click(function(){
+		var e = $(this).parent().find('.link');
+		e.select();	
+		document.execCommand("Copy");
+		$('.span33').eq($(this).index('.fuzhi02')).css('display','none');
+		alert('成功复制');
+	})
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		//数量
+		var num=$('.emitUgc ul').length;
+		$('#totle').html(num);
+		
+		$('.tongzhi').click(function(){
+			$('.span22').eq($(this).index('.tongzhi')).css('display','block')
+			})
+		$('.span22 .quxiao').click(function(){
+			$('.span22').eq($(this).index('.span22 .quxiao')).css('display','none');
+			})
+		$('.span22 .queding').click(function(){
+			$('.span22').eq($(this).index('.span22 .queding')).css('display','none');
+			//$('.span22')关闭并发送短信
+			})
+		$('.fuzhi01').click(function(){
+			$('.span33').eq($(this).index('.fuzhi01')).css('display','block');
+			})
+		$('.fuzhi02').click(function(){
+			$('.span33').eq($(this).index('.fuzhi02')).css('display','none')
+			})
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,21 +1,40 @@
 {include file="common/header.htm"}
 <link type="text/css" rel="stylesheet" href="css/sheet03.css?s" />
+<style type="text/css">
+ .flow .text03 li.one {
+    margin-right: 201px;
+    margin-left: 12px;
+}
+.flow .text03 li.two {
+    margin-right: 165px;
+}   
+</style>
 <div class="main">
     <div class="inMain clearfix">
         <div class="mainLeft left">
-        	<span><a href="#">发布商品</a></span>
+    	<span><a href="order.php?act=overview">订单概况</a></span>
          <div class="naver">
-            <em>商品管理</em>
+            <em>微商城</em>
             <ul class="leftNav">
-                <li><a href="">出售中的商品</a></li>
-                <li><a href="">已售罄的商品</a></li>
-                <li><a href="">仓库中的商品</a></li>
-                <li><a href="">商品分组</a></li>
+                <li {if $nav_order eq ""}{/if}><a href="order.php">所有订单</a></li>
+                <li {if $nav_order eq "wait_pay"}class="cur"{/if}><a href="order.php?type=wait_pay">待付款订单</a></li>
+                <li {if $nav_order eq "wait_shipping"}class="cur"{/if}><a href="order.php?type=wait_shipping">待发货订单</a></li>
+                <li {if $nav_order eq "aleady_shipping"}class="cur"{/if}><a href="order.php?type=aleady_shipping">已发货订单</a></li>
+            </ul>
+            <em>客服服务</em>
+            <ul class="leftNav">
+                <li><a href="">评价管理</a></li>
+            </ul>
+            <em>交易及物流</em>
+            <ul class="leftNav">
+                <li><a href="">物流工具</a></li>
+                <li><a href="">心愿单</a></li>
+                <li><a href="income.php">收入/提现</a></li>
             </ul>
          </div>
-        </div>
+    </div>
         <div class="mainRight right">
-            <div class="flow">
+           <!--  <div class="flow">
                 <ul class="text01">
                     <li class="one">买家下单</li>
                     <li class="two">付款</li>
@@ -49,6 +68,42 @@
                     <li class="two">{$order.pay_time}</li>
                     <li class="three">{$order_shipping.shipping_time}</li>
                   
+                </ul>
+            </div> -->
+             <div class="flow">
+                <ul class="text01">
+                    <li class="one">买家下单</li>
+                    {if $order.pay_time eq ''}
+                    <li class="three">结算货款</li>
+                    {else}
+                    <li class="three" style="color:#83ccff">结算货款</li>
+                    {/if}
+                    {if $order_shipping.shipping_time eq ''}
+                    <li class="four">商家发货</li>
+                    {else}
+                    <li class="four" style="color:#83ccff">商家发货</li>
+                    {/if}
+                    
+                </ul>
+                <ul class="text02">
+                    <li class="one">√</li>
+                    <li class="{if $order.pay_time eq ''}six{/if} two"></li>
+                    {if $order.pay_time eq ''}
+                    <li class="three">×</li>
+                    {else}
+                    <li class="three" style="background:#83ccff">√</li>
+                    {/if}
+                    <li class="{if $order_shipping.shipping_time eq ''}six{/if} four"></li>
+                    {if $order_shipping.shipping_time eq ''}
+                    <li class="seven">×</li>
+                    {else}
+                    <li class="seven" style="background:#83ccff">√</li>
+                    {/if}
+                </ul>
+                <ul class="text03">
+                    <li class="one">{$order.formated_add_time}</li>
+                    <li class="two">{$order.pay_time}</li>
+                    <li class="three">{$order_shipping.shipping_time}</li>
                 </ul>
             </div>
             <div class="list">

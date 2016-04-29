@@ -41,7 +41,7 @@ body{overflow:scroll;overflow-x:hidden;}
             </div>
             <div class="inlie" id="inlie">
             	{foreach from=$info item=info}
-<div class="thing clearfix" id="thing">
+<div class="thing clearfix thing_<!-- {$info.cat_id} -->" id="thing">
                     <ul class="surContent clearfix" id="input">
                         <li class="one"><input /><!-- {$info.cat_name} --><br /><em>店内所有商品，新发布的商品排在前面</em></li>
                         <li class="two">0</li>
@@ -98,10 +98,12 @@ body{overflow:scroll;overflow-x:hidden;}
          $('.aySure').eq($(this).index('.noSure')).css('display','none')
      });
      $('.sure').click(function(event) {
-          $('#thing').eq($(this).index('.sure')).remove();
-            var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
-            document.getElementById('totle').innerHTML=inplen;
+		 
+          
+            //var inplen = document.getElementById('inlie').getElementsByTagName("div").length;
+            //document.getElementById('totle').innerHTML=inplen;
 			cat_id=$(this).attr("cat_id");
+			$('.thing_'+cat_id).remove();
 			data={'act':'delete','cat_id':cat_id}
 			$.post("goods_cat.php",data,function ()
 			{

@@ -1,0 +1,93 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="staff.php">所有员工</a></li>
+                <li class="cur"><a href="staff_invite.php">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+            <!--<em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+            </ul>
+            <em></em>
+            <ul class="leftNav">
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li class="cur"><a href=""></a></li>
+            </ul>-->
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="recruitHeader">
+        	<ul class="clearfix">
+            	<li class="one"><a href="staff_invite.php">邀请员工</a></li>
+                <li><a href="staff_invite_invited.php">发出的邀请</a></li>
+                <li><a href="staff_invite_apply.php">收到的申请</a></li>
+                <li class="curt"><a href="staff_invite_fired.php">已清退员工</a></li>
+                <li class="five"></li>
+            </ul>
+        </div>
+        <div class="emit">
+        	<ul class="emitNav clearfix">
+            	<li class="one">手机号码</li>
+                <li>员工姓名</li>
+                <li>来源</li>
+                <li>邀请码名称</li>
+                <li>标签</li>
+            </ul>       
+        </div>
+        <div class="emitUgc">
+        {foreach from=$info item=info}
+            <ul class="clearfix">
+            	<li class="one">{$info.phone}</li>
+                <li>{$info.name}</li>
+                <li>手机号</li>
+                <li>{$info.invatation_name}</li>
+                <li>{$info.tag_name}</li>
+            </ul>
+            {/foreach}
+          
+        </div>
+        <div class="shopFooter">
+			<p>{$page_bar}</p>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		//数量
+		var num=$('.emitUgc ul').length;
+		$('#totle').html(num);
+		
+		$('.tongzhi').click(function(){
+			$('.span22').eq($(this).index('.tongzhi')).css('display','block')
+			})
+		$('.span22 .quxiao').click(function(){
+			$('.span22').eq($(this).index('.span22 .quxiao')).css('display','none');
+			})
+		$('.span22 .queding').click(function(){
+			$('.span22').eq($(this).index('.span22 .queding')).css('display','none');
+			//$('.span22')关闭并发送短信
+			})
+		$('.fuzhi01').click(function(){
+			$('.span33').eq($(this).index('.fuzhi01')).css('display','block');
+			})
+		$('.fuzhi02').click(function(){
+			$('.span33').eq($(this).index('.fuzhi02')).css('display','none')
+			})
+    });
+</script>
+</body>
+</html>

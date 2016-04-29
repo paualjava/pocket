@@ -66,8 +66,8 @@ class index extends base
 				$goods = parent::get_goods_info($goods_id);
 				$info[$key]['goods_info']=$goods;
 				$info[$key]['order_info']=$this->get_order_info($row['order_id']);
-				$info[$key]['order_info']['pay_time_str']=local_date("Y-m-d",$info[$key]['order_info']['pay_time']);
-				$info[$key]['order_info']['pay_time_str_2']=local_date("H:i:s",$info[$key]['order_info']['pay_time']);
+				$info[$key]['order_info']['pay_time_str']=local_date("Y-m-d",$info[$key]['order_info']['add_time']);
+				$info[$key]['order_info']['pay_time_str_2']=local_date("H:i:s",$info[$key]['order_info']['add_time']);
 				$sql = "SELECT remark FROM " . $GLOBALS['ecs']->table('pocket_order_remark') . " where order_id='".$row['order_id']."' order by  remark_id desc limit 0,1";
 				$remark = $GLOBALS['db']->getOne($sql);
 				$info[$key]['remark']=($remark) ? "卖价备注：".$remark : "";

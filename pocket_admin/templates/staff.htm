@@ -11,10 +11,11 @@ body{overflow:scroll;overflow-x:hidden;}
             <em>员工管理</em>
             <ul class="leftNav">
                 <li class="cur"><a href="staff.php">所有员工</a></li>
-                <li><a href="shop1.html">员工招募</a></li>
-                <li><a href="">等级管理</a></li>
+                <li><a href="staff_invite.php">员工招募</a></li>
                 <li><a href="staff_tag.php">标签管理</a></li>
-                <li><a href="shopresult.html">业绩统计</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
             </ul>
             <!--<em></em>
             <ul class="leftNav">
@@ -31,32 +32,40 @@ body{overflow:scroll;overflow-x:hidden;}
     <div class="mainRight right">
     	<div class="shopHeader01">
         	<form action="" class="clearfix">
-                <span>等级：</span><select name="wares" id="" class="wares01">
-                    <option value="全部">全部</option>
-                    <option value="普通员工">普通员工</option>
-                    <option value="初级员工">初级员工</option>
-                    <option value="中级员工">中级员工</option>
-                    <option value="高级员工">高级员工</option>
-                    <option value="金牌员工">金牌员工</option>
+                <span>等级：</span><select name="rank" id="rank" class="wares01">
+                    <option value="">全部</option>
+                    {foreach from=$rank item=item}
+                      {if $search_rank==$item.id}
+                    <option value="{$item.id}" selected="selected">{$item.name}</option>
+                    {else}
+                    <option value="{$item.id}">{$item.name}</option>
+                    {/if}
+                    {/foreach}
                 </select>
-                <select name="wares" id="" class="wares02">
-                    <option value="搜员工名称">搜员工名称</option>
-                    <option value="搜联系方式">搜联系方式</option>
-                    <option value="搜店铺名称">搜店铺名称</option>
-                    <option value="搜邀请码名称">搜邀请码名称</option>
-                    <option value="搜邀请人">搜邀请人</option>
-                </select><input type="text" placeholder="搜索" /><br /><br />
-                <span>部门：</span><select name="wares" id="" class="wares03">
-                    <option value="全部">全部</option>
-                    <option value="未分组">普通员工</option>
-                    <option value="网络营销部">初级员工</option>
-                    <option value="天使代理部">中级员工</option>
-                    <option value="总代">高级员工</option>
-                    <option value="皇冠代理">金牌员工</option>
+                <select name="type" id="" class="wares02">
+                    <option value="1" {if $type==1}selected="selected"{/if}>搜员工名称</option>
+                    <option value="2" {if $type==2}selected="selected"{/if}>搜联系方式</option>
+                    <option value="3" {if $type==3}selected="selected"{/if}>搜店铺名称</option>
+                    <option value="4" {if $type==4}selected="selected"{/if}>搜邀请码名称</option>
+                    <option value="5" {if $type==5}selected="selected"{/if}>搜邀请人</option>
+                </select><input type="text" placeholder="请输入关键词" name="keyword" value="{$keyword}"/><br /><br />
+                <span>部门：</span><select name="department" class="department">
+              		 <option value="">全部</option>
+                    {foreach from=$department item=item}
+                     {if $search_department==$item.id}
+                    <option value="{$item.id}" selected="selected">{$item.name}</option>
+                    {else}
+                    <option value="{$item.id}">{$item.name}</option>
+                    {/if}
+                    {/foreach}
                 </select><br /><br />
-                <span>标签：</span><em class="curt">不限</em><em>无标签</em><i>天使代理</i><i>测试店</i><br /><br />
+                <span>标签：</span><em {if $search_tag eq ''}class="curt"{/if}>不限</em>
+                 {foreach from=$tag item=item}
+                    <em attr_id="{$item.id}" {if $search_tag eq $item.id}class="curt"{/if}>{$item.name}</em>
+                    {/foreach}
+               <br /><br />
                 <b></b><br />
-                <button>搜索</button>
+                <input type="hidden" name="tag" value="{$search_tag}"/><button>搜索</button>
             </form>
         </div>
         <p>{$page_bar}</p>
@@ -85,12 +94,12 @@ body{overflow:scroll;overflow-x:hidden;}
                         </li>
                         <li><p>{$info.sale_count}</p></li>
                         <li><p>{$info.sale_amount}</p></li>
-                        <li><p>邀请您天使店</p></li>
-                        <li><p class="yaoqingren" style="width:110px; display:inline-table;"></p></li>
-                        <li><p class="dengji">无</p></li>
-                        <li><p class="biaoqian">无</p></li>
+                        <li><p>{$info.invatation}</p></li>
+                        <li><p class="yaoqingren" style="width:110px; display:inline-table;">{$info.invatation_person}</p></li>
+                        <li><p class="dengji">{if $info.rank_name}{$info.rank_name}{else}无{/if}</p></li>
+                        <li><p class="biaoqian">{if $info.tag_name}{$info.tag_name}{else}无{/if}</p></li>
                         <li class="nine">
-                        	<p class="jbq">加标签</p>
+                        	<p class="jbq">设置标签</p>
                             <p class="szdj">设置等级</p>
                             <p class="szbm">设置部门</p>
                             <p class="szyqr">设置邀请人</p>
@@ -101,44 +110,59 @@ body{overflow:scroll;overflow-x:hidden;}
                     <span class="span012 tankuang14">
                         <form action="" class="clearfix">
                             <select name="wares" id="" class="left">
-                                <option value="请选择标签">请选择标签</option>
-                                <option value="天使代理">天使代理</option>
-                                <option value="测试店">测试店</option>
+                                <option value="">请选择标签</option>
+                                {foreach from=$tag item=item}
+                                {if $info.tag==$item.id}
+                                <option value="{$item.id}" selected="selected">{$item.name}</option>
+                                {else}
+                                <option value="{$item.id}">{$item.name}</option>
+                                {/if}
+                                {/foreach}
                             </select>
-                            <input type="button" value="确定" class="queding quding012" /><input type="button" class="quxiao quxiao012" value="取消" />
+                            <input type="button" value="确定" class="queding quding012" this_id="{$info.id}"/><input type="button" class="quxiao quxiao012" value="取消" />
                         </form></span>
                     <span class="span012 tankuang12">
                         <form action="" class="clearfix">
-                            <select name="wares" id="" class="left">
-                                <option value="请选择等级">请选择等级</option>
-                                <option value="普通员工">普通员工</option>
-                                <option value="初级员工">初级员工</option>
-                                <option value="中级员工">中级员工</option>
-                                <option value="高级员工">高级员工</option>
-                                <option value="金牌员工">金牌员工</option>
+                            <select name="rank" id="rank" class="left">
+                            <option value="">请选择等级</option>
+                                 {foreach from=$rank item=item}
+                     {if $info.rank==$item.id}
+                    <option value="{$item.id}" selected="selected">{$item.name}</option>
+                    {else}
+                    <option value="{$item.id}">{$item.name}</option>
+                    {/if}
+                    {/foreach}
                             </select>
-                            <input type="button" value="确定" class="queding quding012" /><input type="button" class="quxiao quxiao012" value="取消" />
+                            <input type="button" value="确定" class="queding quding012"  this_id="{$info.id}"/><input type="button" class="quxiao quxiao012" value="取消" />
                         </form></span>
                     <span class="span012 tankuang13">
                         <form action="" class="clearfix">
                             <select name="wares" id="" class="left">
-                                <option value="全部">全部</option>
-                                <option value="未分组">未分组</option>
-                                <option value="网络营销部">网络营销部</option>
-                                <option value="天使代理部">天使代理部</option>
-                                <option value="总代">总代</option>
-                                <option value="皇冠代理">皇冠代理</option>
+                                <option value="">请选择部门</option>
+                               {foreach from=$department item=item}
+                     {if $info.department==$item.id}
+                    <option value="{$item.id}" selected="selected">{$item.name}</option>
+                    {else}
+                    <option value="{$item.id}">{$item.name}</option>
+                    {/if}
+                    {/foreach}
                             </select>
-                            <input type="button" value="确定" class="queding quding012" /><input type="button" class="quxiao quxiao012" value="取消" />
+                            <input type="button" value="确定" class="queding quding012"  this_id="{$info.id}"/><input type="button" class="quxiao quxiao012" value="取消" />
                         </form></span>
                         <span class="span012 tankuang15">
-                        设置邀请人<input type="text" placeholder="请输入邀请人电话" class="phone" onclick="focus();" /><input type="button" value="确定" class="queding quding012" /><input type="button" class="quxiao quxiao012" value="取消" /></span>
+                        设置邀请人<input type="text" placeholder="请输入邀请人电话" class="phone" onclick="focus();" /><input type="button" value="确定" class="queding quding012" this_id="{$info.id}"/><input type="button" class="quxiao quxiao012" value="取消" /></span>
                 </div>
 {/foreach} 
-                
+{if $info_count eq 0}
+<div class="js-list-empty-region"><div>
+    <div class="no-result widget-list-empty" style="text-align: center;border: 1px solid #eee;padding: 39px 0;margin-top:26px;">没有相关数据</div>
+
+
+</div></div>
+ {/if}               
             </div>
             <div class="shopFooter clearfix">
-            	<!--<div class="left"><input type="button" value="批量设置等级" /><input type="button" value="批量加标签" /><input type="button" value="批量加部门" /></div>
+            	<!--<div class="left"><input type="button" value="批量设置等级" /><input type="button" value="批量设置标签" /><input type="button" value="批量加部门" /></div>
                 <div class="right">
                 	<p>共<em id="totle">11</em>条，每页20条，<input type="text" class="shuru" /><button>跳转</button></p>
                 </div>-->
@@ -166,33 +190,64 @@ body{overflow:scroll;overflow-x:hidden;}
 			$('.span012').eq($(this).index('.span012 .quxiao012')).css('display','none')
 			})
 		$('.tankuang12 .queding').click(function(){
-			var dengji = $('.tankuang12 select').val();
-			if(dengji == '请选择等级'){
+			var dengji = $(this).parent().find("select").val();
+			var dengji_text = $(this).parent().find("select").find("option:selected").text();
+			if(dengji == ''){
 				$('.dengji').eq($(this).index('.tankuang12 .queding')).html('无');
 				$('.tankuang12').eq($(this).index('.tankuang12 .queding')).css('display','none')
 				}else{
-					$('.dengji').eq($(this).index('.tankuang12 .queding')).html(dengji);
-					$('.tankuang12').eq($(this).index('.tankuang12 .queding')).css('display','none')
+					$('.dengji').eq($(this).index('.tankuang12 .queding')).html(dengji_text);
+					$('.tankuang12').eq($(this).index('.tankuang12 .queding')).css('display','none');
+					data={"id":$(this).attr("this_id"),"rank":dengji}
+					$.post("staff.php?act=ajax_save_rank",data,function (res)
+					{
+					})
 					}
 				})
+				//部门
+			$('.tankuang13 .queding').click(function(){
+			var department = $(this).parent().find("select").val();
+	
+					$('.tankuang13').eq($(this).index('.tankuang13 .queding')).css('display','none')
+					
+				
+				
+				data={"id":$(this).attr("this_id"),"department":department}
+				$.post("staff.php?act=ajax_save_department",data,function (res)
+				{
+				})
+			})
+			//标签
 		$('.tankuang14 .queding').click(function(){
-			var biaoqian = $('.tankuang14 select').val();
-			if(biaoqian == '请选择标签'){
+			var  biaoqian = $(this).parent().find("select").val();
+			var biaoqian_text = $(this).parent().find("select").find("option:selected").text();
+			if(biaoqian == ''){
 				$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html('无')
 				$('.tankuang14').eq($(this).index('.tankuang14 .queding')).css('display','none')
 				}else{
-					$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html(biaoqian);
+					$('.biaoqian').eq($(this).index('.tankuang14 .queding')).html(biaoqian_text);
 					$('.tankuang14').eq($(this).index('.tankuang14 .queding')).css('display','none')
+					
+					
 					}
+				data={"id":$(this).attr("this_id"),"tag":biaoqian}
+				$.post("staff.php?act=ajax_save_tag",data,function (res)
+				{
+				})
 			})
 		$('.tankuang15 .queding').click(function(){
-			var  phone = $('.phone').val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/);
-			if(!$(".phone").val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/)){
+			var  phone = $(this).parent().find(".phone").val();
+			if(!phone.match(/^0?1[3|4|5|8|7][0-9]\d{8}$/)){
 				alert("手机号码格式不正确!");
-				$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
+				$(".phone").focus();
+				//$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
 				}else{
 					$('.yaoqingren').eq($(this).index('.tankuang15 .queding')).html(phone);
-				$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
+					$('.tankuang15').eq($(this).index('.tankuang15 .queding')).hide();
+					data={"id":$(this).attr("this_id"),"phone":phone}
+					$.post("staff.php?act=ajax_save_phone",data,function (res)
+					{
+					})
 					}
 			})
 	});
@@ -219,6 +274,8 @@ body{overflow:scroll;overflow-x:hidden;}
 		$('.shopHeader01 em').click(function(){
 			$(this).addClass('curt').siblings().removeClass('curt');
 			$('.shopHeader01 i').removeClass('curt');
+			tag_id=$(this).attr("attr_id");
+			$("input[name='tag']").val(tag_id);
 			})
 		$('.shopHeader01 i').click(function(){
 			$(this).addClass('curt');

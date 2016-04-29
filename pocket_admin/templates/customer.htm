@@ -1,0 +1,246 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/consumer.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="consumer.html">客户概况</a></span>
+         <div class="naver">
+            <em>客户管理</em>
+            <ul class="leftNav">
+                <li class="cur"><a href="consumer1.html">基本信息筛选</a></li>
+                <li><a href="consumer2.html">消费等级筛选</a></li>
+                <li><a href="consumer3.html">消费行为筛选</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="shaixuanHeader01">
+        	<ul class="clearfix">
+            	<li class="left"><span>关键词：</span></li>
+                <li class="left"><input class="txt" type="text" value="" placeholder="微信昵称" name="k" /></li>
+            </ul>
+            <ul class="gzx clearfix">
+            	<li class="left"><span>账户：</span></li>
+                <li class="left clearfix"><em class="cur">不限</em><em>有旺旺</em><em>无旺旺</em><em>已跑路</em><em>已关注</em></li>
+            </ul>
+            <ul class="gzx clearfix">
+            	<li class="left"><span>性别：</span></li>
+                <li class="left clearfix"><em class="cur">不限</em><em>男</em><em>女</em><em>未知</em></li>
+            </ul>
+            <ul class="dizhi" style="zoom:1;">
+            	<li class="left"><span>地域：</span></li>
+                <li class="area"><i class="emarea curt">不限</i>
+                    <div class="more">
+                    	<b>更多..</b>
+                        <div class="tankuang04">
+                            <div class="one"><em class="currt">江浙沪</em><em class="currt">珠三角</em><em>港澳台</em><em>北京</em><em>上海</em><em>广州</em><em>深圳</em><em>京津</em></div>
+                            <div class="two"><em>杭州</em><em>温州</em><em>宁波</em><em>嘉兴</em><em>南京</em><em>苏州</em><em>济南</em><em>青岛</em><em>大连</em><em>无锡</em><em>合肥</em><em>天津</em><em>长沙</em><em>武汉</em><br /><em>郑州</em><em>石家庄</em><em>成都</em><em>重庆</em><em>西安</em><em>昆明</em><em>南宁</em><em>福州</em><em>厦门</em><em>南昌</em><em>东莞</em><em>沈阳</em><em>长春</em><br /><em>哈尔滨</em></div> 
+                            <div class="three"><em>河北</em><em>河南</em><em>湖北</em><em>湖南</em><em>福建</em><em>江苏</em><em>江西</em><em>广东</em><em>广西</em><em>海南</em><em>浙江</em><em>安徽</em><em>吉林</em><em>辽宁</em><br /><em>黑龙江</em><em>山东</em><em>山西</em><em>陕西</em><em>新疆</em><em>内蒙古</em><em>云南</em><em>贵州</em><em>四川</em><em>甘肃</em><em>宁夏</em><em>青海</em><em>西藏</em><br /><em>香港</em><em>澳门</em><em>台湾</em></div>
+                            <label><input type="checkbox" id="xuanzhong" onclick="chenk();" >全选</label>
+                            <span><input type="button" value="确定" class="queding" /><input type="button" value="取消" class="quxiao" /></span>       
+                        </div>
+                    </div>
+                </li>
+            </ul><br /><br /><br />
+            <button class="shaixuan">筛选</button>
+        </div>
+        <div class="jieguo">
+        	<P>筛选结果<i class="totle">17人</i></P>
+            <ul class="jieguoNav clearfix">
+            
+            	<li class="one"><input type="checkbox" onclick="check();" id="click" />粉丝</li>
+                <li>会员卡</li>
+                <li>积分</li>
+                <li>关注时间</li>
+                <li>最后对话</li>
+                <li>最后购买</li>
+                <li>购次</li>
+                <li>均价</li>
+                <li class="ten">操作</li>
+            </ul>
+        </div>
+        <div class="jieguoNews" id="jieguoNews">
+        	<div>
+            	<ul class="clearfix">
+                	<li class="one clearfix"><a href=""><img />name</a><input type="checkbox" name="box" /></li>
+                    <li>11</li>
+                    <li>0</li>
+                    <li>2016-04-06<br />15:41:52</li>
+                    <li>2016-04-06<br />15:41:52</li>
+                    <li>2016-02-25<br />17:00:46</li>
+                    <li>1</li>
+                    <li>0.01</li>
+                    <li class="ten"><i class="shy">设会员</i> - <i class="jbq">加标签</i> - <i class="gjf">给积分</i><br /><a href="">查看对话记录</a></li>
+                </ul>
+                <span class="tankuang05">
+                	<form action="" class="clearfix">
+                            <select name="wares" id="" class="left">
+                                <option value="请选择等级">请选择等级</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                            <input type="button" value="确定" class="queding" /><input type="button" class="quxiao" value="取消" />
+                        </form>
+                </span>
+                <span class="tankuang06">
+                	<form action="" class="clearfix">
+                        <select name="wares" id="" class="left">
+                            <option value="请选择标签">请选择标签</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                        <input type="button" value="确定" class="queding" /><input type="button" class="quxiao" value="取消" />
+                    </form>
+                </span>
+                <span class="tankuang07">
+                	分数:<input type="text" placeholder="积分数(可以为负数)" class="fenshu" /><input type="button" value="确定" class="queding" /><input type="button" class="quxiao" value="取消" />
+                </span>
+            </div>
+            
+        </div>
+        <div class="jishu clearfix">
+            <ul class="left clearfix">
+                <li class="one">群发消息▼</li>
+                <li class="two">设等级▼</li>
+                <li class="three">加标签▼</li>
+                <li class="four">送积分▼</li>
+            </ul>
+            <p class="right">共<em class="totle">11</em>条，每页50条</p>
+            <span class="span01">
+            	<p>给选中的人发信息</p>
+                <p>给筛选出来的<i class="totle">28</i>人发信息（已跑路除外）</p>
+            </span>
+            <span class="span02">
+            	<p>给选中的人设等级</p>
+            	<p>给筛选出来的<i class="totle">28</i>人设等级</p>
+            </span>
+            <span class="span03">
+            	<p>给选中的人加标签</p>
+                <p>给筛选出来的<i class="totle">28</i>人加标签</p>
+            </span>
+            <span class="span04">
+            	<p>给选中的人发积分</p>
+               	<p> 给筛选出来的<i class="totle">28</i>人发积分</p>
+               	<p> 对选中的人清空积分</p>
+                <p>对筛选出来的<i class="totle">28</i>人清空积分</p>
+            </span>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	function check(){
+		var checkbox=document.getElementById('click')
+		checkbox.value==2?checkbox.value=1:checkbox.value=2;
+		var amount=document.getElementsByName('box');
+		for(var i=0;i<amount.length;i++){
+			if(checkbox.value==1){
+				amount[i].checked=false;				
+			}else{
+				amount[i].checked=true;
+			}
+		}
+	}
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('.dizhi .more b').click(function(event) {
+			$('.tankuang04').css('display','block');
+		});
+		$('.tankuang04 .quxiao').click(function(event) {
+			$('.tankuang04').css('display','none');
+		});
+	});
+</script>
+<script type="text/javascript">
+		 function chenk(){
+		 		var checkbox=document.getElementById('xuanzhong')
+		 		checkbox.value==2?checkbox.value=1:checkbox.value=2;
+		 			if(checkbox.value==1){
+		 				$('.tankuang04 em').removeClass('currt');
+		 					$('.tankuang04 em').click(function(){
+		 					$(this).addClass('currt');
+		 					})			
+		 			}else{
+		 				$('.tankuang04 em').addClass('currt');
+		 					$(this).removeClass('currt');
+		 					}
+		 			}
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$('.tankuang04 .queding').click(function(){
+		$('.tankuang04').hide();
+		//$('.tankuang04 i').removeClass('curt');
+		$(".tankuang04 em.currt").each(function(){
+			$('.dizhi .more b').before("<em class='currt'>"+$(this).text()+"</em>");
+		  });
+		})
+		
+	$('.tankuang04 .inEm .em.currt').click(function(){
+		$(this).removeClass('currt');
+		$(this).remove();
+		})
+    $('.tankuang04 em').click(function(){
+		$(this).eq($('.tankuang04 em').index()).toggleClass('currt')
+		})
+    $('.gzx em').click(function(){
+		$(this).addClass('cur').siblings().removeClass('cur');
+		});
+        //数量
+        var inplen=$('.jieguoNews div').length;
+        $('.totle').html(inplen);
+        
+        $('.jishu ul li.four,.span04').hover(function() {
+            $('.span04').css('display','block')
+        }, function() {
+            $('.span04').css('display','none')
+        });
+        $('.shy').click(function(){
+            $('.tankuang05').eq($(this).index('.shy')).css('display','block')
+            })
+        $('.tankuang05 .quxiao').click(function(){
+            $('.tankuang05').eq($(this).index('.tankuang05 .quxiao')).css('display','none')
+            })
+        $('.jbq').click(function(){
+            $('.tankuang06').eq($(this).index('.jbq')).css('display','block')
+            })
+        $('.tankuang06 .quxiao').click(function(){
+            $('.tankuang06').eq($(this).index('.tankuang06 .quxiao')).css('display','none')
+            })
+        $('.gjf').click(function(){
+            $('.tankuang07').eq($(this).index('.gjf')).css('display','block')
+            })
+        $('.tankuang07 .quxiao').click(function(){
+            $('.tankuang07').eq($(this).index('.tankuang07 .quxiao')).css('display','none')
+            })
+        $('.jishu ul li.one,.span01').hover(function() {
+                $('.span01').css('display','block')
+            }, function() {
+                $('.span01').css('display','none')
+            });
+        $('.jishu ul li.two,.span02').hover(function() {
+                $('.span02').css('display','block')
+            }, function() {
+                $('.span02').css('display','none')
+            });
+        $('.jishu ul li.three,.span03').hover(function() {
+                $('.span03').css('display','block')
+            }, function() {
+                $('.span03').css('display','none')
+            }); 
+})
+</script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><!-- {if $title neq ''}{$title} - 后台管理{else}后台管理{/if}--></title>
 <link type="text/css" rel="stylesheet" href="css/base.css?1" />
-<!-- {if $nav_left neq 'goods_cat'}-->
+<!-- {if $nav_left neq 'goods_cat' and $nav_left neq 'staff_invite_invited'}-->
 <link type="text/css" rel="stylesheet" href="css/offer.css" />
 <!-- {/if}-->
 <link type="text/css" rel="stylesheet" href="css/other.css" />
@@ -20,7 +20,7 @@
                 <li{if @$nav=='shop'} class="current"{/if}><a href="shop.php?act=overview">店铺</a></li>
                 <li{if @$nav=='goods'} class="current"{/if}><a href="goods.php">商品</a></li>
                 <li{if @$nav=='order'} class="current"{/if}><a href="order.php">订单</a></li>
-                <li><a href="">客户</a></li>
+                <li{if @$nav=='customer'} class="current"{/if}><a href="customer.php">客户</a></li>
                 <li><a href="">微信</a></li>
                 <li{if @$nav=='staff'} class="current"{/if}><a href="staff.php">全员开店</a></li>
                 <li class="seven"><a href="">数据中心</a></li>

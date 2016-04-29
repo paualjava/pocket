@@ -5,8 +5,8 @@
 #page a:hover{color:#077ee3;border:1px #077ee3 solid;}
 #page a.cur{border:none;background:#077ee3;color:#fff;}
 #page p{float:left;padding:2px 12px;font-size:12px;height:24px;line-height:24px;color:#bbb;border:1px #ccc solid;background:#fcfcfc;margin-right:8px;}
-#page p.pageRemark{border-style:none;background:none;margin-right:0px;padding:4px 0px;color:#666;}
-#page p.pageRemark b{color:#f6134c; font-weight:normal;padding:0 2px 0 2px;}
+#page p.pageRemark{border-style:none;background:none;margin-right:0px;padding:4px 0px;color:#666;font-size:14px;}
+#page p.pageRemark b{font-weight:normal;padding:0 2px 0 2px;}
 #page p.pageEllipsis{border-style:none;background:none;padding:4px 0px;color:#808080;}
 
 .thing li p a{color:#000;}

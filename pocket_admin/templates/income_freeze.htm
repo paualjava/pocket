@@ -2,25 +2,24 @@
 <link type="text/css" rel="stylesheet" href="css/include.css" />
 <div class="main">
 	<div class="mainLeft left">
-    	<span><a href="#">订单概况</a></span>
+    	<span><a href="order.php?act=overview">订单概况</a></span>
          <div class="naver">
             <em>微商城</em>
             <ul class="leftNav">
-                <li><a href="sheet02.html">所有订单</a></li>
-                <li><a href="weiquan01.html">维权订单</a></li>
-                <li><a href="">代付订单</a></li>
-                <li><a href="">送礼订单</a></li>
-                <li><a href="jiaxing01.html">加星订单</a></li>
+                <li {if $nav_order eq ""}{/if}><a href="order.php">所有订单</a></li>
+                <li {if $nav_order eq "wait_pay"}class="cur"{/if}><a href="order.php?type=wait_pay">待付款订单</a></li>
+                <li {if $nav_order eq "wait_shipping"}class="cur"{/if}><a href="order.php?type=wait_shipping">待发货订单</a></li>
+                <li {if $nav_order eq "aleady_shipping"}class="cur"{/if}><a href="order.php?type=aleady_shipping">已发货订单</a></li>
             </ul>
             <em>客服服务</em>
             <ul class="leftNav">
-                <li><a href="assess.html">评价管理</a></li>
+                <li><a href="">评价管理</a></li>
             </ul>
             <em>交易及物流</em>
             <ul class="leftNav">
-                <li><a href="wuliu01.html">物流工具</a></li>
+                <li><a href="">物流工具</a></li>
                 <li><a href="">心愿单</a></li>
-                <li class="cur"><a href="include.html">收入/提现</a></li>
+                <li><a href="income.php">收入/提现</a></li>
             </ul>
          </div>
     </div>

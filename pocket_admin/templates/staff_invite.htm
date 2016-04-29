@@ -1,0 +1,270 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="staff.php">所有员工</a></li>
+                <li class="cur"><a href="staff_invite.php">员工招募</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="recruitHeader">
+        	<ul class="clearfix">
+                <li class="one curt"><a href="staff_invite.php">邀请员工</a></li>
+                <li><a href="staff_invite_invited.php">发出的邀请</a></li>
+                <li><a href="staff_invite_apply.php">收到的申请</a></li>
+                <li><a href="staff_invite_fired.php">已清退员工</a></li> 
+                <li class="five"></li>
+            </ul>
+        </div>
+        <button class="cjyq">创建邀请</button>
+        <div class="recruitBody">
+			<ul class="inRecruit">
+{foreach from=$info item=item}
+<li class="recruitNav">
+                	<div class="rTotle rHeader clearfix"><b>{$item.name}</b><em this_id="{$item.id}">编辑</em><i class="right" style=" color:#666; cursor:pointer;">展开</i></div>
+                    <div class="rTotle rDept"><strong>部门：</strong><em>{$item.department}</em></div>
+                    {if $item.tag}
+                    <div class="rTotle rTitle"><strong>标签：</strong><em>{$item.tag}</em></div>
+                    {/if}
+                    {if $item.info}
+                    <div class="rTotle rInvite"><strong>邀请语：</strong><em>{$item.info}</em></div>
+                    {/if}
+                    <div class="rzhankai">
+                    	<div class="rphone">
+                        	<h3>通过手机号邀请</h3>
+                            <p class="one">员工收到该短信并接受邀请即可成为你的员工</p>
+							<P class="one">为了防止用户被骚扰，运营商对晚上8：00到第二天早上9：00的短信做了屏蔽处理，建议您选取其他时间段进行短信邀请</P>
+                            <form>
+                            	<div><span class="red">*</span>员工姓名：<input type="text" class="ygname" /><a onclick="javascript:alert('待开发...')">批量邀请</a><p class="two ntwo">请输入一个名字</p></div>
+                                
+                                <div><span class="red">*</span>员工手机：<input type="text" class="ygphone" /><p class="two ptwo">手机号码错误</p></div>
+                                
+                                <input type="button" value="发送邀请短信" class="fsyqdx" onclick="checkSubmitMobil();" />
+                            </form>
+                        </div>
+                        <div class="rewm">
+                        	<h3>通过二维码邀请</h3>
+                            <p>其他人通过扫描二维码，即可申请成为你的员工（需要你批准确认）</p>
+                            <div class="clearfix"s>
+                            	<img />
+                                <ul>
+                                	<li>下载二维码：</li>
+                                    <li><a>大图（600x600像素）</a></li>
+                                    <li><a>中图（400x400像素）</a></li>
+                                    <li><a>小图（200x200像素）</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rlink">
+                        	<h3>通过链接邀请</h3>
+                            <p>将链接转发给其他人，他们通过该页面即可申请成为你的员工（需要你批准确认）</p>
+                            <span><em>邀请链接</em><input type="text" value="http://www.baidu.com" class="neirong link" /><input type="button" value="复制链接" class="copy copyBtn" /></span>
+                        </div>
+                    </div>
+                </li>
+{/foreach} 
+                
+            </ul>
+        </div>
+        <div class="shopFooter">
+			<p>{$page_bar}</p>
+        </div>
+	</div>
+</div>
+<div class="modal">
+	<div class="inModal">
+    	<div class="modalHeader">
+        	<ul class="clearfix">
+                <li class="one">确认清退</li>
+                <li class="guanbi">×</li>
+            </ul>
+        </div>
+        <div class="modalBody">
+        	<form>
+            	<span class="bitian"><em class="red">*</em>邀请码名称：</span><input type="text" placeholder="" name="name" /><br /><br /><span>部门：</span>
+                <select name="department" class="department">
+                	<option value="">无</option>
+                        {foreach from=$department item=item}
+                        <option value="{$item.id}">{$item.name}</option>
+                        {/foreach}
+                </select><br /><br /><span>添加标签：</span><select class="tag" name="tag">
+                         <option value="">无</option>
+                        {foreach from=$tag item=item}
+                        <option value="{$item.id}">{$item.name}</option>
+                        {/foreach}
+                    </select><p>员工加入后将自动打上这些标签</p>
+                <br />
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <th valign="top"><span>邀请语：</span></th>
+                        <th><textarea data-reactid=".0.2.1.0.3.1.0" class="info" name="info">欢迎加入全员开店！我们会为您提前设置好店铺和商品，您只需要注册开通，即可轻松售卖商品！您也可以继续上架企业的其他商品，分享给自己的亲朋好友，祝您使用愉快！</textarea><input type="hidden" id="id"/></th>
+                    </tr>
+                </table>
+                <p>您可以编辑邀请语，并展示给邀请的员工</p>
+            </form>
+        </div>
+        <div class="modalFooter">
+        	<input type="button" value="确定" class="anniu queding" /><input type="button" value="取消" class="anniu quxiao" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript"> 
+		//复制
+    $('.copyBtn').click(function(){
+		var e = $(this).parent().find('.link');
+		e.select();	
+		document.execCommand("Copy");
+		//$('.copy').eq($(this).index('.copyBtn')).css('display','none');
+		alert('成功复制');
+	})
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.rHeader i').click(function(){
+			//$('.rzhankai').eq($(this).index()).fadeToggle();
+			var shoushuo = $('.rHeader i').eq($(this).index('.rHeader i')).html();
+			//alert(shoushuo)
+			if(shoushuo == '收起'){
+				$(".rzhankai").eq($(this).index('.rHeader i')).slideUp();
+				$('.rHeader i').eq($(this).index('.rHeader i')).html('展开')
+				}else if(shoushuo == '展开'){
+					$(".rzhankai").eq($(this).index('.rHeader i')).slideDown();
+					$('.rHeader i').eq($(this).index('.rHeader i')).html('收起')
+					}	
+			})
+		$('.modalHeader .guanbi,.modalFooter .quxiao').click(function(){
+			$('.modal').slideUp(500);
+			})
+		$('.fsyqdx').click(function(){
+			var name = $('.ygname').val();
+			//var isMobile = match(/^0?1[3|4|5|8|7][0-9]\d{8}$/);
+			//var phone = $('.ygphone').val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/);
+			//alert(phone);//
+			if(name ==''){
+				$('.ntwo').eq($(this).index('.fsyqdx')).show();
+				}else{
+					$('.ntwo').eq($(this).index('.fsyqdx')).hide();
+					}
+			})
+		})
+		function checkSubmitMobil(){
+		  if($(".ygphone").val()==""){
+			  $('.ptwo').show()
+			return false;
+		  }
+		  if(!$(".ygphone").val().match(/^0?1[3|4|5|8|7][0-9]\d{8}$/)){
+			$('.ptwo').show()
+			return false;
+		  }
+		  $('.ptwo').hide()
+		  return true;
+		}
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+			
+		//数量
+		var num=$('.inRecruit .recruitNav').length;
+		$('#totle').html(num);
+		
+		//创建邀请
+		//$('.modal .queding').click(function(){
+//			var yaoqingma = $('.yaoqingma').val();
+//			var wares = $('#wares').val();
+//			var biaoqian = $('.biaoqian').val();
+//			var textarea = $('textarea').val();
+//			$('.yaoqingma').focus(function(){
+//				$('.bitian').css('color','#333');
+//				$('.red').css('color','#f40');
+//				$('.yaoqingma').css('border-color','#ccc');
+//				})
+//			if(yaoqingma == ''){
+//				$('.bitian').css('color','red');
+//				$('.yaoqingma').css('border-color','red');
+//				}
+//				else if(wares == '无' && biaoqian == ''){
+//					$('.modal').slideUp(500);
+//					$('.inRecruit li:first').before("<li>"+"<div class='rTotle rHeader'>"+"<b>"+yaoqingma+"</b>"+"<em>"+"编辑"+"</em>"+"</div>"+"<div class='rTotle rInvite'>"+"<strong>"+"邀请语："+"</strong>"+"<em>"+textarea+"</em>"+"</div>"+"</li>")
+//					var num=$('.inRecruit li').length;
+//					$('#totle').html(num);
+//					}else if(wares != '无' && biaoqian == ''){
+//						$('.modal').slideUp(500);
+//						$('.inRecruit li:first').before("<li>"+"<div class='rTotle rHeader'>"+"<b>"+yaoqingma+"</b>"+"<em>"+"编辑"+"</em>"+"</div>"+"<div class='rTotle rDept'>"+"<strong>"+"部门："+"</strong>"+"<em>"+wares+"</em>"+"</div>"+"<div class='rTotle rInvite'>"+"<strong>"+"邀请语："+"</strong>"+"<em>"+textarea+"</em>"+"</div>"+"</li>")
+//						var num=$('.inRecruit li').length;
+//						$('#totle').html(num);
+//						}else if(wares == '无' && biaoqian != ''){
+//							$('.modal').slideUp(500);
+//							$('.inRecruit li:first').before("<li>"+"<div class='rTotle rHeader'>"+"<b>"+yaoqingma+"</b>"+"<em>"+"编辑"+"</em>"+"</div>"+"<div class='rTotle rTitle'>"+"<strong>"+"标签："+"</strong>"+"<em>"+biaoqian+"</em>"+"</div>"+"<div class='rTotle rInvite'>"+"<strong>"+"邀请语："+"</strong>"+"<em>"+textarea+"</em>"+"</div>"+"</li>")
+//							var num=$('.inRecruit li').length;
+//							$('#totle').html(num);
+//							}else{
+//								//alert('对了04'
+//								$('.modal').slideUp(500);
+//								$('.inRecruit li:first').before("<li>"+"<div class='rTotle rHeader'>"+"<b>"+yaoqingma+"</b>"+"<em>"+"编辑"+"</em>"+"</div>"+"<div class='rTotle rDept'>"+"<strong>"+"部门："+"</strong>"+"<em>"+wares+"</em>"+"</div>"+"<div class='rTotle rTitle'>"+"<strong>"+"标签："+"</strong>"+"<em>"+biaoqian+"</em>"+"</div>"+"<div class='rTotle rInvite'>"+"<strong>"+"邀请语："+"</strong>"+"<em>"+textarea+"</em>"+"</div>"+"</li>");
+//								var num=$('.inRecruit li').length;
+//								$('#totle').html(num);
+//								}
+//			})
+		$('.modal .queding').click(function(){
+			
+			name=$("input[name='name']").val();
+			department=$("select[name='department']").val();
+			tag=$("select[name='tag']").val();
+			info=$("textarea[name='info']").val();
+			id=$("#id").val();
+			data={"name":name,"department":department,"tag":tag,"info":info,"id":id};
+			if(name=="")
+			{
+				alert("请输入邀请码名称");
+				$("input[name='name']").focus();
+				return false;
+			}
+			$.post("staff_invite.php?act=ajax_edit",data,function (res)
+			{
+					if(res.error==1)
+					{
+						alert(res.info);
+						return false;
+					}
+					else
+					{
+						$('.modal').hide();
+						location.href='staff_invite.php';
+					}	
+			},"json");
+		})
+		$('.rHeader em').click(function(){
+			$('.modal').slideDown(500);
+			id=$(this).attr("this_id");
+			$("#id").val(id);
+			$.get("staff_invite.php?act=ajax_edit_get_info",{"id":id},function (res)
+			{
+				res=res.info;
+				$("input[name='name']").val(res.name);
+				$("textarea[name='info']").val(res.info);
+				$("select[name='department']").find("option[value='"+res.department+"']").attr("selected",true);
+				$("select[name='tag']").find("option[value='"+res.tag+"']").attr("selected",true);
+			},"json");
+			})
+		$('.cjyq').click(function(){
+			window.location.href="staff_invite.php?act=add";
+			})
+    });
+
+</script>
+</body>
+</html>
+

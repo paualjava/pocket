@@ -9,9 +9,14 @@ class staff extends base
 	{
 		$GLOBALS['smarty']->assign('nav_left',"staff");
 		$GLOBALS['smarty']->assign('nav', "staff");
-		$GLOBALS['smarty']->assign('keyword', $_REQUEST['keyword']);
 		$GLOBALS['smarty']->assign('title',"商品分组");
-		$GLOBALS['smarty']->assign('BASEE_URL','http://'.$_SERVER['SERVER_NAME'].":8090". str_replace( '/pocket_admin' , '' , str_replace( $_SERVER['DOCUMENT_ROOT'],'' , str_replace('\\', '/', dirname(__FILE__) ))  ).'/' );
+		$GLOBALS['smarty']->assign('search_rank',trim($_GET['rank']));
+		$GLOBALS['smarty']->assign('search_department',trim($_GET['department']));
+		$GLOBALS['smarty']->assign('search_tag', $_REQUEST['tag']);
+		$GLOBALS['smarty']->assign('time_start',trim($_GET['time_start']));
+		$GLOBALS['smarty']->assign('time_end',trim($_GET['time_end']));
+		$GLOBALS['smarty']->assign('keyword', $_REQUEST['keyword']);
+		$GLOBALS['smarty']->assign('type', $_REQUEST['type']);
 	}
 	function main()
 	{
@@ -37,35 +42,117 @@ class staff extends base
 		{
 			$time=($row['time']) ? $row['time'] : time();
 			$info[$key]['time1']=date("Y-m-d");
+			$sql = "select name from ". $GLOBALS['ecs']->table("pocket_staff_invite")." where id='".$row['invatation']."' limit 0,1";
+			$invatation = $GLOBALS['db']->getOne($sql);
+			$info[$key]['invatation']=$invatation;
+			//等级
+			$sql = "select name from ". $GLOBALS['ecs']->table("pocket_staff_rank")." where id='".$row['rank']."' limit 0,1";
+			$rank = $GLOBALS['db']->getOne($sql);
+			$info[$key]['rank_name']=$rank;
+			//标签
+			$sql = "select name from ". $GLOBALS['ecs']->table("pocket_staff_tag")." where id='".$row['tag']."' limit 0,1";
+			$tag = $GLOBALS['db']->getOne($sql);
+			$info[$key]['tag_name']=$tag;
 		}
+		//部门
+		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_staff_department')." order by sort_order desc, id asc";
+		$department = $GLOBALS['db']->getAll($sql);
+		$GLOBALS['smarty']->assign('department', $department);
+		//标签
+		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_staff_tag')." order by sort_order desc, id asc";
+		$tag = $GLOBALS['db']->getAll($sql);
+		$GLOBALS['smarty']->assign('tag', $tag);
+		//等级
+		$sql = "select * from ". $GLOBALS['ecs']->table('pocket_staff_rank')." order by sort_order desc, id asc";
+		$rank = $GLOBALS['db']->getAll($sql);
+		$GLOBALS['smarty']->assign('rank', $rank);
+		//var_dump($info);die();
 		$GLOBALS['smarty']->assign('info', $info);
+		$GLOBALS['smarty']->assign('info_count', count($info));
 		$GLOBALS['smarty']->display('staff.htm');
 	}
 	function get_search_count_where()
 	{
-		if($this->type=="is_show")
-		return 'where is_show=1';
+		$keyword=trim($_GET['keyword']);
+		if(!empty(trim($_GET['rank'])))
+		$where.=" and rank='".trim($_GET['rank'])."'";
+		if(!empty($_GET['department']))
+		$where.=" and department='".trim($_GET['department'])."'";
+		if(!empty($_GET['tag']))
+		$where.=" and tag='".trim($_GET['tag'])."'";
+		if(!empty($_GET['type']) && $keyword)
+		{
+			if($_GET['type']==1)
+			$where.=" and name='".$keyword."'";
+			elseif($_GET['type']==2)
+			$where.=" and phone='".$keyword."'";
+			elseif($_GET['type']==3)
+			$where.=" and shop_name='".$keyword."'";
+			elseif($_GET['type']==4)
+			{
+				$sql = "select id from ". $GLOBALS['ecs']->table("pocket_staff_invite")." where name='".$keyword."' limit 0,1";
+				$invatation_id = $GLOBALS['db']->getOne($sql);
+				if($invatation_id>0)
+				$where.=" and invatation='".$invatation_id."'";
+				else 
+				$where.=" id<0";
+			}
+			elseif($_GET['type']==5)
+			$where.=" and invatation_person='".$keyword."'";
+		}
+		return $where;
+
+		/*if($_REQUEST['rank'])
+		return ' and rank='.$_REQUEST['rank'];
 		else if($this->type=="is_show_no")
 		return 'where is_show=2';
 		else if($this->type=="sell_out")
 		return 'where goods_number=0';
 		else if($this->type=="search")
 		{
-			$keyword=$_REQUEST['keyword'];
-			if(!empty($keyword))
-			{
-				if(preg_match("/^\d+$/is",$keyword))
-				return "where goods_id='$keyword' or goods_name='$keyword'";
-				else
-				{
-					return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
-				}
-			}
+		$keyword=$_REQUEST['keyword'];
+		if(!empty($keyword))
+		{
+		if(preg_match("/^\d+$/is",$keyword))
+		return "where goods_id='$keyword' or goods_name='$keyword'";
+		else
+		{
+		return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
 		}
+		}
+		}*/
 	}
 	function get_search_where()
 	{
-		if($this->type=="is_show")
+		$keyword=trim($_GET['keyword']);
+		if(!empty(trim($_GET['rank'])))
+		$where.=" and rank='".trim($_GET['rank'])."'";
+		if(!empty($_GET['department']))
+		$where.=" and department='".trim($_GET['department'])."'";
+		if(!empty($_GET['tag']))
+		$where.=" and tag='".trim($_GET['tag'])."'";
+		if(!empty($_GET['type'])  && $keyword)
+		{
+			if($_GET['type']==1)
+			$where.=" and name='".$keyword."'";
+			elseif($_GET['type']==2)
+			$where.=" and phone='".$keyword."'";
+			elseif($_GET['type']==3)
+			$where.=" and shop_name='".$keyword."'";
+			elseif($_GET['type']==4)
+			{
+				$sql = "select id from ". $GLOBALS['ecs']->table("pocket_staff_invite")." where name='".$keyword."' limit 0,1";
+				$invatation_id = $GLOBALS['db']->getOne($sql);
+				if($invatation_id>0)
+				$where.=" and invatation='".$invatation_id."'";
+				else 
+				$where.=" id<0";
+			}
+			elseif($_GET['type']==5)
+			$where.=" and invatation_person='".$keyword."'";
+		}
+		return $where;
+		/*if($this->type=="is_show")
 		return 'where is_show=1';
 		else if($this->type=="is_show_no")
 		return 'where is_show=2';
@@ -73,17 +160,17 @@ class staff extends base
 		return 'where goods_number=0';
 		else if($this->type=="search")
 		{
-			$keyword=$_REQUEST['keyword'];
-			if(!empty($keyword))
-			{
-				if(preg_match("/^\d+$/is",$keyword))
-				return "where goods_id='$keyword' or goods_name='$keyword'";
-				else
-				{
-					return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
-				}
-			}
+		$keyword=$_REQUEST['keyword'];
+		if(!empty($keyword))
+		{
+		if(preg_match("/^\d+$/is",$keyword))
+		return "where goods_id='$keyword' or goods_name='$keyword'";
+		else
+		{
+		return "where goods_sn='$keyword' or goods_name like '%$keyword%'";
 		}
+		}
+		}*/
 
 	}
 	/**
@@ -98,7 +185,66 @@ class staff extends base
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
 		echo json_encode(array("info"=>"ok"));die();
 	}
-		/**
+	/**
+	 * 修改邀请人
+	 *
+	 */
+	function ajax_save_phone()
+	{
+		$id=$_POST['id'];
+		$phone=$_POST['phone'];
+		if($phone && preg_match("/^0?1[3|4|5|6|8|7][0-9]{9}$/",$phone))
+		{
+			$data=array("invatation_person"=>$phone);
+			$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
+			echo json_encode(array("info"=>"ok","error"=>"0"));die();
+		}
+		else
+		{
+			echo json_encode(array("info"=>"'请输入正确的手机号'","error"=>"1"));die();
+		}
+	}
+	/**
+	 * 修改等级
+	 *
+	 */
+	function ajax_save_rank()
+	{
+		$id=$_POST['id'];
+		$rank=$_POST['rank'];
+		if($rank)
+		{
+			$data=array("rank"=>$rank);
+			$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
+			echo json_encode(array("info"=>"ok","error"=>"0"));die();
+		}
+	}
+	/**
+	 * 修改部门
+	 *
+	 */
+	function ajax_save_department()
+	{
+		$id=$_POST['id'];
+		$department=$_POST['department'];
+		$data=array("department"=>$department);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
+		echo json_encode(array("info"=>"ok","error"=>"0"));die();
+	}
+	/**
+	 * 修改标签
+	 *
+	 */
+	function ajax_save_tag()
+	{
+		$id=$_POST['id'];
+		$tag=$_POST['tag'];
+		$data=array("tag"=>$tag);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
+		echo json_encode(array("info"=>"ok","error"=>"0"));die();
+	}
+
+	/**
 	 * 清退会员
 	 *
 	 */
@@ -109,7 +255,7 @@ class staff extends base
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table($this->table_name),$data,'',"id=".$id." limit 1");
 		echo json_encode(array("info"=>"ok"));die();
 	}
-	
+
 	/**
 	 * 删除分类
 	 *

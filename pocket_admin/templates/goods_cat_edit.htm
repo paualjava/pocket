@@ -1,5 +1,5 @@
 {include file="common/header.htm"}
-<link type="text/css" rel="stylesheet" href="css/offer01.css" />
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
 <style type="text/css">
 body{overflow:scroll;overflow-x:hidden;}
 </style>
@@ -18,14 +18,28 @@ body{overflow:scroll;overflow-x:hidden;}
             </ul>
          </div>    
         </div>
+      
+        
         <div class="mainRight right">
-            <div class="fzName">*分组名称<input type="text" placeholder="商品分组不能少于一个字或者多余50个字" class="fenzu" name="cat_name" value="{$cat_info.cat_name}"/><input type="checkbox" class="check" /><em>页面上显示商品分组名称</em></div>
-           <div class="brief" style="margin-top:40px;">
-                <p>商品标签简介</p>
-                <textarea name="cat_desc" style=" width: 920px;border-radius: 3px;background: #fff;border: 1px #ccc solid;margin-top: 10px; resize: none;padding: 10px;">{$cat_info.cat_desc}</textarea><input name="cat_id" type="hidden" value="{$cat_info.cat_id}" />
+            <div class="titleBody3">
+                <div class="inForm">
+                    <form>
+                        <span>
+                            <em class="red">*</em>分组名称:
+                        </span><input type="text" placeholder="商品分组不能少于一个字或者多余50个字" class="mingchen" name="cat_name" value="{$cat_info.cat_name}"/><br /><br />
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <th valign="top"><span>商品标签简介:</span></th>
+                                <th> <textarea name="cat_desc" class="area">{$cat_info.cat_desc}</textarea><input name="cat_id" type="hidden" value="{$cat_info.cat_id}" /></th>
+                            </tr>
+                        </table>
+                        <div><input type="button" value="保存" class="queding button_save" /><input type="button" value="返回" class="quxiao" onclick="javascript:history.go(-1)" /></div>
+                    </form>
                 </div>
-            <span class="keep"><input type="button" value="保存" class="button_save" /></span>
+            </div>
         </div>
+        
+        
 	</div>
 </div>
 <script type="text/javascript">
