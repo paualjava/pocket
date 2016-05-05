@@ -1,0 +1,80 @@
+{include file="common/header.htm"}
+<!--banner-->
+<div class="swiper-container">
+     <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="resource/images/pic-01.jpg" width="100%" alt="产品图片"></div>
+          <div class="swiper-slide"><img src="resource/images/pic-02.jpg" width="100%" alt="产品图片"></div>
+          <div class="swiper-slide"><img src="resource/images/pic-03.jpg" width="100%" alt="产品图片"></div>
+     </div>
+     <!-- Add Pagination -->
+     <div class="swiper-pagination"></div>
+</div>
+<div class="height10"></div>
+<!--首页搜索-->
+<div class="homeSearch"><input name="" type="text" placeholder="商品搜索：请输入关键字" class="inputText"><input name="" type="button" value="" class="homeSearchButton"></div>
+<div class="height10"></div>
+<!--首页小导航-->
+<div class="homeMenu">
+	 <ul>
+     <li><a href="#"><span class="homeMenuIcon-1"></span>品质生活</a></li>
+     <li><a href="#"><span class="homeMenuIcon-2"></span>营养保健</a></li>
+     <li><a href="#"><span class="homeMenuIcon-3"></span>珠宝首饰</a></li>
+     <li><a href="#"><span class="homeMenuIcon-4"></span>微创客</a></li>
+     </ul>
+</div>
+<div class="height10"></div>
+<!--抢购-->
+<div class="homeBuying">
+	 <h2>抢购<span> ● 本周五 <b>18</b> : <b>00</b></span></h2>
+     <dl>
+     	<dt><img src="resource/images/pic-04.jpg" width="100%"></dt>
+        <dd>
+        	<h3>亮肤 滋润 补水</h3>
+            <h4>秘密花园玫瑰鲜活水9.5ml</h4>
+            优选新鲜玫瑰花瓣，滴滴精粹层层沁润肌肤...
+            <h5>抢购价:￥1588<span>原价￥<del>1888</del></span></h5>
+        </dd>
+     </dl>
+</div>
+<div class="height10"></div>
+<!--推荐-->
+<div class="homeBanner"><a href="#"><img src="resource/images/pic-05.jpg" width="100%"></a></div>
+<div class="homeRecommend">
+	 <ul>
+      {foreach from=$list1 item=item}
+     <li><a href="#"><img src="http://www.wm18.com/{$item.goods_info.goods_thumb}" width="100%"><p>{$item.goods_name}</p><span>{$item.goods_info.shop_price_formated}</span><del>{if $item.goods_info.market_price1 neq $item.goods_info.shop_price_formated}{$item.goods_info.market_price1}{/if}</del></a></li>
+     {/foreach}
+     </ul>
+</div>
+<div class="height10"></div>
+<div class="homeBanner"><a href="#"><img src="resource/images/pic-05.jpg" width="100%"></a></div>
+<div class="homeRecommend">
+	 <ul>
+      {foreach from=$list2 item=item}
+     <li><a href="#"><img src="http://www.wm18.com/{$item.goods_info.goods_thumb}" width="100%"><p>{$item.goods_name}</p><span>{$item.goods_info.shop_price_formated}</span><del>{if $item.goods_info.market_price1 neq $item.goods_info.shop_price_formated}{$item.goods_info.market_price1}{/if}</del></a></li>
+     {/foreach}
+     </ul>
+</div>
+<!--人气爆款-->
+<div class="homeTitle">/<span>人气爆款</span>/</div>
+<div class="homeList">
+	 <ul>
+     {foreach from=$list3 item=item}
+     <li><a href="#"><img src="http://www.wm18.com/{$item.goods_info.goods_thumb}" width="100%"><p>{$item.goods_name}</p><p class="font">{$item.goods_info.shop_price_formated}<span>订 购</span></p></a></li>
+     {/foreach}
+    
+     </ul>
+</div>
+<!--尾巴-->
+<script>footer('0','1');</script>
+<script src="resource/js/swiper.js"></script>
+<script>
+//滚动
+var swiper = new Swiper('.swiper-container', {
+	pagination: '.swiper-pagination',
+	paginationClickable: true,
+	loop : true,
+	autoplay: 5000,
+});
+</script>
+{include file="common/footer.htm"}

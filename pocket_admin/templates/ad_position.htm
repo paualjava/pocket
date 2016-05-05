@@ -1,0 +1,94 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+.mainRight .bianji{border:none;}
+</style>
+<div class="main">
+  <div class="mainLeft left"> <span><a href="">其他</a></span>
+    <div class="naver"> <em>其他管理</em>
+      <ul class="leftNav">
+        <li><a href="ad.php">广告列表</a></li>
+        <li class="cur"><a href="ad_position.php">广告位置</a></li>
+        <li><a href="staff_tag.php">标签管理</a></li>
+        <li><a href="staff_department.php">部门管理</a></li>
+        <li><a href="staff_rank.php">等级管理</a></li>
+        <li><a href="staff_count.php">业绩统计</a></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="mainRight right">
+    <div class="titleBody01">
+      <input value="添加广告位" type="button" class="newTitle" />
+      <div class="titleBody">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="titleNav">
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>广告位名称</th>
+              <th>广告尺寸</th>
+              <th>序号</th>
+              <th>时间</th>
+              <th style="width:70px">操作</th>
+            </tr>
+          </thead>
+          {foreach from=$info item=item}
+          <tr>
+            <td>{$item.position_id}</td>
+            <td>{$item.position_name}</td>
+            <td>{$item.ad_width}×{$item.ad_height}</td>
+            <td><input type="text" placeholder="0" value="{$item.sort_order}" class="sort_order" position_id="{$item.position_id}" style="width:60px;height:20px;border:1px solid #ccc;text-align:center;"/></td>
+            <td>{$item.postdate}</td>
+            <td><i class="bianji"><a href="ad_position.php?act=edit&position_id=<!-- {$item.position_id} -->">编辑</a></i> - <i class="shanchu"><a class="del_operation" position_id="{$item.position_id}" style="cursor:pointer;">删除</a></i>
+           </td>
+          </tr>
+          {/foreach}
+        </table>
+      </div>
+      <div class="titleBody"> </div>
+      <div class="shopFooter clearfix">
+        <p>{$page_bar}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	
+	$(".sort_order").focusin(function() {
+		$(this).attr("v", $(this).val());
+	}).focusout(function() {
+		var orderby = $(this).val();
+		var old_orderby = $(this).attr("v");
+		if(orderby == old_orderby) {return;}
+		position_id=$(this).attr("position_id");
+		$.post("ad_position.php?act=ajax_save_sort_order",{position_id:position_id, orderby:orderby}, function(data){
+		});
+	});
+	$(".newTitle").bind("click",function ()
+	{
+		location.href="ad_position.php?act=add";
+	})
+	$(".del_operation").each(function ()
+	{
+		$(this).click(function ()
+		{
+			position_id=$(this).attr("position_id");
+			if(confirm("该操作不可恢复"))
+			{
+				$(this).parent().parent().parent().remove();
+				data={'act':'delete','position_id':position_id}
+				$.post("ad_position.php",data,function ()
+				{
+				});
+			}
+			else
+			return false;
+		})
+	})
+	
+})
+</script>
+</body></html>

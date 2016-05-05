@@ -1,0 +1,124 @@
+{include file="common/header.htm"}
+<!--提现-->
+<div class="withdrawalsHeader">
+	 <img src="resource/images/rmbPic.png" width="25%">
+     <p>可提余额</p>
+     <h3>￥129.59</h3>
+     <a href="#">明细</a>
+</div>
+<div class="withdrawalsFangshi">
+	 <dl>
+         <dt onClick="tanchu('.withdrawalsFangshiList');">提现方式<span id="yinhangka">银行卡</span></dt>
+         <dt>添加银行卡<span>建设银行（1673）</span></dt>
+         <dd><span>提现金额</span><input name="" type="text" placeholder="请输入您要提现的金额"></dd>
+     </dl>
+     <div class="determine"><input type="button" onClick="tanchu('.withdrawalsPass')" value="确认提现" name=""></div>
+</div>
+<!--弹出-->
+<div id="bg">
+	 <!--未设置密码-->
+     <div class="withdrawalsPassword">
+     	  <h2>您还未设置提现密码</h2>
+          <dl>
+          	  <dt><input name="" type="button" value="取　消" onClick="guanbi('.withdrawalsPassword');"></dt>
+              <dd><a href="#">去设置</a></dd>
+          </dl>
+     </div>
+     <!--提现密码-->
+     <div class="withdrawalsPass"> <!--oninput="myFunction()"-->
+     	  <h2>请输入提现密码<p>￥129.59</p></h2>
+          <ul>
+          	  <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_1"></li>
+              <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_2"></li>
+              <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_3"></li>
+              <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_4"></li>
+              <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_5"></li>
+              <li><input type="tel" maxlength="1" value="" placeholder="*" id="password_6"></li>
+          </ul>
+          <dl>
+          	  <dt><input name="" type="button" value="取　消" onClick="guanbi('.withdrawalsPass');"></dt>
+              <dd><input name="" type="button" value="确认提现" onClick="tanchu('.withdrawalsSuccess');"></dd>
+          </dl>
+     </div>
+     <!--提现成功-->
+     <div class="withdrawalsSuccess">
+     	  <h2>提现申请成功<p>￥129.59</p></h2>
+          <dl><input name="" type="button" value="确　定" onClick="guanbi('.withdrawalsSuccess');"></dl>
+     </div>
+     <!--银行卡列表-->
+     <div class="withdrawalsFangshiList">
+     	  <dl>
+          <dt onClick="guanbi('.withdrawalsFangshiList');"><b>取消</b><span>确定</span></dt>
+          <dd onClick="yhk($(this),'#yinhangka');">支付宝</dd>
+          <dd onClick="yhk($(this),'#yinhangka');">银行卡</dd>
+          <dd onClick="yhk($(this),'#yinhangka');">微信零用钱</dd>
+          </dl>
+     </div>
+</div>
+<!--尾巴-->
+<script>
+<!--密码-->
+password_1.oninput = function(){
+	var a = $(this).attr('value');
+	if(a){
+		$('#password_2').focus();	
+	}
+}
+password_2.oninput = function(){
+	var a = $(this).attr('value');
+	if(a){
+		$('#password_3').focus();
+	}else{
+		$('#password_1').focus();
+	}
+}
+password_3.oninput = function(){
+	var a = $(this).attr('value');
+	if(a){
+		$('#password_4').focus();
+	}else{
+		$('#password_2').focus();
+	}
+}
+password_4.oninput = function(){
+	var a = $(this).attr('value');
+	if(a){
+		$('#password_5').focus();
+	}else{
+		$('#password_3').focus();
+	}
+}
+password_5.oninput = function(){
+	var a = $(this).attr('value');
+	if(a){
+		$('#password_6').focus();
+	}else{
+		$('#password_4').focus();
+	}
+}
+password_6.oninput = function(){
+	var a = $(this).attr('value');
+	if(!a){
+		$('#password_5').focus();
+	}
+}
+
+//弹出
+function tanchu(id){
+	$('.withdrawalsPassword, .withdrawalsPass, .withdrawalsSuccess').hide();
+	$('#bg').show();
+	$(id).show();
+}
+//关闭
+function guanbi(id){
+	$('#bg').hide();
+	$(id).hide();
+}
+//银行卡
+function yhk(id,pid){
+	$(pid).html(id.html());
+	$('#bg, .withdrawalsFangshiList').hide();
+}
+</script>
+<script>footer('5','1');</script>
+{include file="common/footer.htm"} 

@@ -2,6 +2,7 @@
 define('IN_ECS', true);
 require(dirname(dirname(dirname(__FILE__))) . '/includes/init.php');
 require(dirname(__FILE__) . '/lib_base.php');
+require(dirname(__FILE__) . '/function.php');
 /**Smarty**/
 
 $smarty = new cls_template;

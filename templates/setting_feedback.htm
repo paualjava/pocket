@@ -1,0 +1,50 @@
+{include file="common/header.htm"}
+<!--忘记密码-->
+<div class="forgetPassword">
+     <div class="withdrawalsPasswordBox">
+          <dl>
+             <dt>欢迎您对我们提出意见和建议，您的每个字对我们都是最宝贵的财富</dt>
+          </dl>
+     </div>
+     <div class="addBankCardBoxList">
+     	  <ul>
+          <li class="textareaLi"><textarea cols="200" class="info" rows="10" placeholder="请输入您的反馈意见（最多200字）"></textarea></li>
+          </ul>
+     </div>
+     <div class="addBankCardBoxList">
+     	  <ul>
+          <li><span>联系方式</span><input name="" class="contact" type="text" placeholder="请输入手机/email/QQ(选填)"></li>
+          </ul>
+     </div>
+     <div class="determine"><input name="" type="button" value="确定" class="button_submit"></div>
+</div>
+<!--尾巴-->
+<script type="application/javascript">
+$(function ()
+{
+	$(".button_submit").live("click",function ()
+	{
+		info=$(".info").val();
+		contact=$(".contact").val();
+		var reg_email = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+		var reg_phone =/^0?1[3|4|5|7|8][0-9]\d{8}$/;
+		var reg_qq =/^[1-9]+[0-9]{4,15}$/; 
+		if(info=='')
+		prompt_(4,"请输入您的反馈意见");
+		else if(info.length<5)
+		prompt_(4,"反馈意见字数太短了");
+		else if(contact!='' && (!reg_email.test(contact) && !reg_phone.test(contact) && !reg_qq.test(contact)))
+		prompt_(4,"请输入正确的联系方式");
+		else
+		{
+			data={"info":info,"contact":contact};
+			$.post("setting.php?act=ajax_feedback",data,function (res)
+			{
+				prompt_(4,"提交成功");
+			},"json");
+		}
+	})
+})
+</script>
+<script>footer('5','1');</script>
+{include file="common/footer.htm"} 

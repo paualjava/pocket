@@ -3,7 +3,7 @@ class base
 {
 	function __construct()
 	{
-
+		session_start();
 	}
 	function table_get_row($table_name,$value,$id="id")
 	{
@@ -87,12 +87,10 @@ class base
 		"WHERE g.goods_id = '$goods_id'  AND g.is_delete = 0 " .
 		"GROUP BY g.goods_id";
 		$row = $GLOBALS['db']->getRow($sql);
-
 		if ($row !== false)
 		{
 			/* 用户评论级别取整 */
 			$row['comment_rank']  = ceil($row['comment_rank']) == 0 ? 5 : ceil($row['comment_rank']);
-
 			/* 获得商品的销售价格 */
 			$row['market_price0']        = $row['market_price'];
 			$row['market_price']        = price_format($row['market_price']);
@@ -110,10 +108,8 @@ class base
 			{
 				$promote_price = 0;
 			}
-
 			/* 处理商品水印图片 */
 			$watermark_img = '';
-
 			if ($promote_price != 0)
 			{
 				$watermark_img = "watermark_promote";
@@ -130,23 +126,18 @@ class base
 			{
 				$watermark_img = 'watermark_hot';
 			}
-
 			if ($watermark_img != '')
 			{
 				$row['watermark_img'] =  $watermark_img;
 			}
-
 			$row['promote_price_org'] =  $promote_price;
 			$row['promote_price'] =  price_format($promote_price);
-
 			/* 修正重量显示 */
 			$row['goods_weight']  = (intval($row['goods_weight']) > 0) ?
 			$row['goods_weight'] . $GLOBALS['_LANG']['kilogram'] :
 			($row['goods_weight'] * 1000) . $GLOBALS['_LANG']['gram'];
-
 			/* 修正上架时间显示 */
 			$row['add_time']      = local_date($GLOBALS['_CFG']['date_format'], $row['add_time']);
-
 			/* 促销时间倒计时 */
 			$time = gmtime();
 			if ($time >= $row['promote_start_date'] && $time <= $row['promote_end_date'])
@@ -157,28 +148,34 @@ class base
 			{
 				$row['gmt_end_time'] = 0;
 			}
-
 			/* 是否显示商品库存数量 */
 			$row['goods_number']  = ($GLOBALS['_CFG']['use_storage'] == 1) ? $row['goods_number'] : '';
-
 			/* 修正积分：转换为可使用多少积分（原来是可以使用多少钱的积分） */
 			$row['integral']      = $GLOBALS['_CFG']['integral_scale'] ? round($row['integral'] * 100 / $GLOBALS['_CFG']['integral_scale']) : 0;
-
 			/* 修正优惠券 */
 			$row['bonus_money']   = ($row['bonus_money'] == 0) ? 0 : price_format($row['bonus_money'], false);
-
 			/* 修正商品图片 */
 			$row['goods_img']   = get_image_path($goods_id, $row['goods_img']);
 			$row['goods_thumb'] = get_image_path($goods_id, $row['goods_thumb'], true);
 			if($row['is_share'] !=1){
 				$row['rank_price'] = $row['shop_price'];
 			}
-
 			return $row;
 		}
 		else
 		{
 			return false;
 		}
+	}
+	function get_user_id()
+	{
+		return 4341;
+		/*if($_SESSION['new_user_id'])
+		return $_SESSION['new_user_id'];
+		else 
+		return '';*/
+	}
+	function login_check($url="")
+	{
 	}
 }

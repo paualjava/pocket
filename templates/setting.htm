@@ -1,0 +1,17 @@
+{include file="common/header.htm"}
+<!--设置-->
+<div class="withdrawalsFangshi">
+	 <dl class="shezhiList">
+         <dt><a href="setting.php?act=withdrawals">提现信息填写</a></dt>
+         <dt><a href="setting.php?act=withdrawals">提现方式设置</a></dt>
+         {if $password_withdrawals==""}
+         <dt><a href="setting.php?act=withdraw_set_password">提现密码设置</a></dt>
+         {else}
+         <dt><a href="setting.php?act=withdraw_modify_password">修改提现密码</a></dt>
+         <dt><a href="setting.php?act=withdraw_forget_password">忘记提现密码</a></dt>
+         {/if}
+         <dt><a href="setting.php?act=feedback">意见反馈</a></dt>
+     </dl>
+</div>
+<script>footer('5','1');</script>
+{include file="common/footer.htm"} 

@@ -1,0 +1,122 @@
+{include file="common/header.htm"}
+<link type="text/css" rel="stylesheet" href="css/shop.css" />
+<style type="text/css">
+body{overflow:scroll;overflow-x:hidden;}
+</style>
+<div class="main">
+	<div class="mainLeft left">
+    	<span><a href="">整体概况</a></span>
+         <div class="naver">
+            <em>员工管理</em>
+            <ul class="leftNav">
+                <li><a href="ad.php">广告列表</a></li>
+                <li class="cur"><a href="ad_position.php">广告位置</a></li>
+                <li><a href="staff_tag.php">标签管理</a></li>
+                <li><a href="staff_department.php">部门管理</a></li>
+                <li><a href="staff_rank.php">等级管理</a></li>
+                <li><a href="staff_count.php">业绩统计</a></li>
+            </ul>
+         </div>
+    </div>
+    <div class="mainRight right">
+    	<div class="titleBody2">
+        	<div class="inForm">
+                <form>
+                    <span>
+                        <em class="red">*</em>广告位名称:
+                    </span><input type="text" class="mingchen" name="position_name" value="{$cat_info.position_name}" placeholder="" /><br /><br />
+                     <span>
+                        <em class="red">*</em>广告位宽度:
+                    </span><input type="text" class="mingchen" name="ad_width" value="{$cat_info.ad_width}" placeholder="" /> 像素<br /><br />
+                     <span>
+                        <em class="red">*</em>广告位高度:
+                    </span><input type="text" class="mingchen" name="ad_height" value="{$cat_info.ad_height}" placeholder="" /> 像素<br /><br />
+                    <span>
+                        <em class="red"></em>排序:
+                    </span><input type="text" class="mingchen" name="sort_order" value="{$cat_info.sort_order}" placeholder="" /> <br /><br />
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <th valign="top"><span>广告位描述:</span></th>
+                            <th><textarea placeholder="" class="area" name="position_desc">{$cat_info.position_desc}</textarea></th>
+                        </tr>
+                    </table><br />
+                     <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <th valign="top"><span>广告位模板:</span></th>
+                            <th><textarea placeholder="" class="area" name="position_style">{$cat_info.position_style}</textarea></th>
+                        </tr>
+                    </table>
+                    <div><input name="position_id" type="hidden" value="{$cat_info.position_id}" /><input type="button" value="保存" class="queding" /><input type="button" value="返回" class="quxiao" /></div>
+                </form>
+            </div>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.titleBody2 .queding').click(function(){
+			
+				position_id=$("input[name='position_id']").val();
+				position_name=$("input[name='position_name']").val();
+				ad_width=$("input[name='ad_width']").val();
+				ad_height=$("input[name='ad_height']").val();
+				position_desc=$("textarea[name='position_desc']").val();
+				position_style=$("textarea[name='position_style']").val();
+				sort_order=$("input[name='sort_order']").val();
+				reg_check=/^\d+$/;
+				if(position_name=="")
+				{
+					alert("请输入广告位名称");
+					$("input[name='position_name']").focus();
+					return false;
+				}
+				else if(ad_width=="")
+				{
+					alert("请输入广告位宽度");
+					$("input[name='ad_width']").focus();
+					return false;
+				}
+				else if(!reg_check.test(ad_width))
+				{
+					alert("广告位宽度必须是整数");
+					$("input[name='ad_width']").focus();
+					return false;
+				}
+				else if(ad_height=="")
+				{
+					alert("请输入广告位高度");
+					$("input[name='ad_height']").focus();
+					return false;
+				}
+				else if(!reg_check.test(ad_height))
+				{
+					alert("广告位高度必须是整数");
+					$("input[name='ad_height']").focus();
+					return false;
+				}
+				else if(!reg_check.test(sort_order))
+				{
+					alert("排序必须是整数");
+					$("input[name='sort_order']").focus();
+					return false;
+				}
+				
+				data={position_id:position_id,position_name:position_name,ad_width:ad_width,ad_height:ad_height,position_desc:position_desc,position_style:position_style}
+				$.post("ad_position.php?act=ajax_edit",data,function (res)
+				{
+					if(res.error==1)
+					{
+						alert(res.info);
+						return false;
+					}
+					else
+					location.href='ad_position.php';
+				},"json")
+			})
+		$('.quxiao').click(function(){
+			history.go(-1);
+			})
+	});
+</script>
+</body>
+</html>
